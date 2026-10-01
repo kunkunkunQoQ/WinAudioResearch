@@ -136,7 +136,8 @@
 - [x] PMP / PUMA
 - [x] per-app endpoint policy
 - [x] system default policy
-- [ ] AppContainer / low integrity edge cases
+- [x] AppContainer / packaged app model basics
+- [ ] low-integrity / sandbox edge cases
 - [ ] protected process edge cases
 
 ### Diagnostics
@@ -149,19 +150,41 @@
 - [ ] glitch ETL analysis examples
 - [ ] ProcMon / registry diagnostics map
 
+## 本轮新增完成
+
+- [x] AppContainer / MSIX / desktop packaging audio basics
+- [x] AEC control / IAudioEffectsManager / system-effects property store
+- [x] Deep Noise Suppression public effect identity
+- [x] IAudioStateMonitor
+- [x] IAudioClientDuckingControl / IAudioViewManagerService timeline
+- [x] Windows SDK audio header catalog
+- [x] C# / Python / Rust / Go / C++ bindings and wrappers
+- [x] virtual audio device / network audio architecture
+- [x] Windows audio developer tools
+- [x] RDP / remote audio
+- [x] WaveRT / ACX deep dives
+- [x] driver INF → endpoint/effects configuration
+- [x] audio testing / latency / fidelity
+- [x] exclusive / bit-perfect caveats
+- [x] ARM64 audio / WDK
+- [x] driver signing / distribution
+- [x] services / Session 0
+- [x] expanded WASAPI HRESULT catalog
+
 ## 下一轮检索目标
 
-- Windows audio ETW provider catalog
+- Windows audio ETW provider / event catalog
+- glitch ETL analysis examples
+- ProcMon / public-vs-internal registry diagnostics map
 - Bluetooth codec / LE Audio Windows-version matrix
-- endpoint property complete dump
-- AppContainer audio restrictions
-- Windows service / registry map
-- AEC / Voice Clarity / CAPX deeper notes
-- pro audio AAX / CLAP / JACK context
-- virtual cable / virtual mixer open-source driver implementations
-- audio test signal / latency measurement tools
-- Windows Store / MSIX audio capability differences
-- .NET COM source generation for Core Audio
-- Rust / Python / C++ Windows audio wrappers
-- Go bindings
-- Windows ARM64 audio toolchain and driver notes
+- endpoint property complete symbolic catalog
+- low-integrity / sandbox / protected-process edge cases
+- Voice Clarity / platform speech processing deeper notes
+- AAX / CLAP / JACK-on-Windows context
+- more open-source virtual cable / virtual mixer drivers
+- audio test-signal / latency measurement tools
+- .NET source-generated COM / CsWin32 audio interop
+- C++/WinRT and WIL patterns for Core Audio
+- Thunderbolt / PCIe professional audio specifics
+- Remote Desktop / Cloud PC endpoint behavior experiments
+- Windows ARM64 real-device regression matrix
