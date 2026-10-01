@@ -104,3 +104,55 @@ IMMDevice
 | PCM render / capture | WASAPI | 🟢 |
 | 设置系统默认 endpoint | 常见 `IPolicyConfig` | 🔴 |
 | 设置应用持久化 endpoint | AudioPolicyConfig | 🔴 |
+
+
+## 更广的 Windows Audio API Family
+
+随着仓库扩展，除了最初的 Core Audio COM 接口，还应把下面这些 API family 放进同一张开发地图。
+
+| Family | 主要对象 / 接口 | 用途 | 状态 |
+|---|---|---|---|
+| MMDevice | `IMMDeviceEnumerator`, `IMMDevice` | Endpoint 枚举 / 属性 / 默认设备读取 | 🟢 |
+| Audio Session | `IAudioSessionManager2`, `IAudioSessionControl2` | Session / app audio state | 🟢 |
+| EndpointVolume | `IAudioEndpointVolume`, `IAudioMeterInformation` | Endpoint 音量 / meter | 🟢 |
+| WASAPI | `IAudioClient`, `IAudioClient2`, `IAudioClient3` | PCM render / capture / low latency | 🟢 |
+| WASAPI service | `IAudioRenderClient`, `IAudioCaptureClient`, `IAudioClock` | Buffer 与 timing | 🟢 |
+| Process Loopback | `ActivateAudioInterfaceAsync`, `AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS` | 单进程树 render capture | 🟢 |
+| DeviceTopology | `IDeviceTopology`, `IConnector`, `IPart` | Adapter / hardware topology | 🟢 |
+| WinRT Enumeration | `DeviceInformation`, `DeviceWatcher` | 现代设备发现 | 🟢 |
+| MediaCapture | `MediaCapture` | 高层 capture / record | 🟢 |
+| AudioGraph | `AudioGraph` + node classes | 高层 routing / mixing / processing graph | 🟢 |
+| Spatial Audio | `ISpatialAudioClient`, spatial object stream | Windows Sonic / object audio | 🟢 |
+| XAudio2 | `IXAudio2`, source/submix/mastering voice | Game / realtime voice graph | 🟢 |
+| Media Foundation | Source Reader / Sink Writer / MFT | Codec / container / transcode | 🟢 |
+| Audio Effects | `IAudioEffectsManager`, APO interfaces | Effect discovery / system DSP | 🟢 |
+| Driver / KS | WDM / WaveRT / KS / PortCls | Audio driver / streaming / topology | 🟢 WDK |
+| ACX | Circuit / Stream / Element / Pin | 新 audio class extension model | 🟢 WDK |
+| MIDI | Windows MIDI Services / WinMM MIDI | MIDI 1.0 / 2.0 / UMP | 🟢 |
+| Legacy multimedia | waveOut/waveIn, DirectSound | Compatibility / historical APIs | 🟢 Legacy |
+| System default policy | `IPolicyConfig` | 设置 system default endpoint | 🔴 |
+| Per-app endpoint policy | internal AudioPolicyConfig | persisted app render/capture route | 🔴 |
+
+## 需求到 API 的快速映射
+
+| 需求 | 优先研究 |
+|---|---|
+| 音量合成器 | Audio Session + EndpointVolume |
+| PCM 播放 / 录制 | WASAPI |
+| 低延迟 Shared Mode | IAudioClient3 |
+| 系统声音录制 | WASAPI Loopback |
+| 单应用声音录制 | Process Loopback |
+| C# 高层音频图 | AudioGraph |
+| 游戏声音引擎 | XAudio2 |
+| MP3/AAC/MP4 decode/encode | Media Foundation |
+| 3D object audio | Spatial Audio |
+| 系统级 DSP | APO / driver |
+| 虚拟扬声器 / 麦克风 | Audio driver / SysVAD / ACX/WDM |
+| MIDI 2.0 | Windows MIDI Services |
+| Endpoint 硬件 topology | DeviceTopology / KS |
+| 设置系统默认设备 | 🔴 PolicyConfig |
+| 按应用指定设备 | 🔴 AudioPolicyConfig |
+
+更完整的需求导向说明见：
+
+[Windows Audio API 选择指南](33-API-Decision-Guide.md)
