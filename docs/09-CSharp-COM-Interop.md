@@ -1,67 +1,184 @@
-# C# / COM / WinRT 互操作：SonicRoute 中实际遇到的问题
+# C# / COM / WinRT 互操作：从“能调用”到“长期稳定运行”
 
-> 状态：🟢 Public API + 🟡 Observed + 🔴 Undocumented
+> 状态：🟢 Public API + 🟡 Observed + 🔴 Undocumented + ✅ SonicRoute Verified
 
-Windows Core Audio 原生接口以 COM 为主。在 C# 中使用时，接口定义只是第一步，生命周期和 ABI 更容易出问题。
+Windows Audio 原生接口大量基于 COM。C# 里最危险的问题往往不是“GUID 写错”，而是 ABI、ownership、apartment、native memory 与 RCW 生命周期。
 
-## 1. PreserveSig 与 HRESULT
+## 1. 四类资源不要混淆
 
-SonicRoute 的底层 COM 声明大量使用：
+| 类型 | 示例 | 常见释放方式 |
+|---|---|---|
+| RCW | `IMMDevice` C# COM object | `Marshal.ReleaseComObject`（明确 ownership 时） |
+| raw COM pointer | `QueryInterface` 得到的 `IntPtr` | `Marshal.Release` |
+| HSTRING | `WindowsCreateString` | `WindowsDeleteString` |
+| PROPVARIANT | `IPropertyStore.GetValue` | `PropVariantClear` |
+
+这四类对象释放错方法，结果完全不同。
+
+## 2. PreserveSig 与 HRESULT
+
+SonicRoute 对底层接口大量使用：
 
 ```csharp
 [PreserveSig]
-int SomeMethod(...);
+int Method(...);
 ```
 
-这样可以保留原始 HRESULT，便于：
+优点是保留原始 HRESULT。
 
-- 明确区分失败原因；
-- 输出十六进制错误码；
-- 对设备切换 / 对象失效做恢复逻辑。
+研究和兼容性排查时，建议同时记录：
 
-## 2. vtable 顺序必须准确
+```text
+hex
+signed decimal
+operation
+endpoint / PID
+Windows Build
+```
 
-手工声明 COM 接口时，方法顺序就是 ABI。
+比只抛一个 `COMException` 更有信息量。
 
-漏一个基类方法或顺序错误，后面的调用就会落到错误的函数指针。
+## 3. COM vtable 顺序
 
-对公开接口，应优先根据 Windows SDK / 官方接口定义核对。
+`[ComImport]` 接口的方法顺序必须和原生 ABI 一致。
 
-## 3. 未公开 WinRT 接口更加危险
+如果为了 C# 方便把继承接口“扁平声明”，必须保证：
 
-SonicRoute 的 `AudioPolicyConfig` 没有依赖普通 RCW 方法调用，而是：
+```text
+base interface methods
+→ derived interface methods
+```
 
-- `WindowsCreateString`
-- `RoGetActivationFactory`
-- `Marshal.QueryInterface`
-- 读取 vtable
-- `Marshal.GetDelegateForFunctionPointer`
+完整对应原始 vtable。
 
-这是针对未公开接口的项目级实现，不应当推广为普通 Core Audio 的默认写法。
+漏一个方法会导致之后所有 slot 偏移。
 
-## 4. HSTRING
+## 4. Undocumented vtable 更危险
 
-Windows Runtime 使用 HSTRING，不是传统 LPWSTR。
+AudioPolicyConfig 当前使用 raw pointer + fixed slot。
 
-在 SonicRoute 的 .NET 8 实测实现里，AudioPolicyConfig 的 HSTRING 使用 `WindowsCreateString` / `WindowsDeleteString` 手工管理。
+大致：
 
-## 5. COM apartment
+```text
+Marshal.ReadIntPtr(interface)
+        ↓
+vtable pointer
+        ↓
+ReadIntPtr(vtable, slot * IntPtr.Size)
+        ↓
+GetDelegateForFunctionPointer
+        ↓
+invoke
+```
 
-回调型 API 尤其要关心线程 apartment。
+这类做法只适用于：
 
-例如 Audio Session notification 文档要求正确初始化 MTA，否则可能出现注册接口成功但收不到 session callback 的情况。
+> 明确知道自己在调用 internal ABI，并愿意为 Windows Build 变化承担验证成本。
 
-## 6. 资源释放
+它不应该成为普通 MMDevice / WASAPI 的默认封装方式。
 
-应区分：
+## 5. HSTRING
 
-- RCW：`Marshal.ReleaseComObject`
-- 原始 COM pointer：`Marshal.Release`
-- HSTRING：`WindowsDeleteString`
+WinRT 的 HSTRING 不是 LPWSTR。
 
-不要把三者混为一谈。
+SonicRoute internal AudioPolicyConfig 使用：
 
-## SonicRoute 参考实现
+```text
+WindowsCreateString
+WindowsGetStringRawBuffer
+WindowsDeleteString
+```
 
-- WASAPI declarations: https://github.com/kunkunkunQoQ/SonicRoute/blob/master/SonicRoute.Core/Interop/WasapiInterfaces.cs
-- AudioPolicyConfig: https://github.com/kunkunkunQoQ/SonicRoute/blob/master/SonicRoute.Core/Interop/AudioPolicyConfig.cs
+原因是项目希望明确控制 internal WinRT ABI，而不是依赖不确定的自动封送。
+
+## 6. PROPVARIANT
+
+设备 PropertyStore 常返回 `PROPVARIANT`。
+
+```text
+IPropertyStore.GetValue
+        ↓
+inspect vt
+        ↓
+read union
+        ↓
+PropVariantClear
+```
+
+结构布局要按目标架构认真核对，尤其不能只因为 x64 能跑就默认 ARM64 一定正确。
+
+## 7. COM apartment
+
+需要关注：
+
+- STA / MTA；
+- callback 从哪个线程进入；
+- interface 是否要求在创建线程释放；
+- UI Dispatcher 与 COM worker 边界。
+
+Microsoft 对部分 WASAPI service interface 明确要求：`GetService` 得到的对象应在同一线程 Release。
+
+详见：
+
+[COM Threading & Apartments](14-COM-Threading-and-Apartments.md)
+
+## 8. RCW Release 的两个极端都不对
+
+### 从不释放
+
+长期驻留程序会积累 COM 引用。
+
+### 到处 FinalReleaseComObject
+
+如果其他代码还持有同一 RCW，可能提前把对象释放。
+
+更重要的是：
+
+> ownership 必须清楚。
+
+SonicRoute meter worker 的模式比较清晰：
+
+- worker 创建；
+- worker 使用；
+- worker 刷新时释放；
+- worker 退出时统一释放。
+
+## 9. Callback 对象生命周期
+
+注册：
+
+```text
+RegisterXXX(callback)
+```
+
+要确保 managed callback 仍有强引用。
+
+退出时也应成对：
+
+```text
+UnregisterXXX(callback)
+```
+
+否则可能出现：
+
+- native 仍想回调；
+- managed 对象已经不可达；
+- 或 callback 持有对象导致资源长期不释放。
+
+## 10. Exception 不应该取代 HRESULT
+
+对公开 COM API：
+
+- 可让 .NET 自动转换异常；
+- 也可保留 `PreserveSig` 手工处理。
+
+对 undocumented API，更建议保留原始 HRESULT，因为“具体失败码”常常比异常类型更重要。
+
+## 11. 参考源码
+
+- COM / PROPVARIANT / HSTRING  
+  https://github.com/kunkunkunQoQ/SonicRoute/blob/master/SonicRoute.Core/Interop/ComInterop.cs
+- Public Core Audio declarations  
+  https://github.com/kunkunkunQoQ/SonicRoute/blob/master/SonicRoute.Core/Interop/WasapiInterfaces.cs
+- Internal AudioPolicyConfig  
+  https://github.com/kunkunkunQoQ/SonicRoute/blob/master/SonicRoute.Core/Interop/AudioPolicyConfig.cs
