@@ -1,8 +1,10 @@
-# 系统默认音频设备：读取是公开的，设置要分开看
+# 系统默认音频设备：公开读取 vs 内部设置
 
-> 状态：🟢 Public API（读取） + 🔴 Undocumented（传统桌面程序设置）
+> 状态：🟢 Public API（读取） + 🔴 Undocumented（常见桌面设置方式） + ✅ SonicRoute Verified
 
-Windows Core Audio 对“读取默认 endpoint”提供了公开 API：
+“读取默认设备”和“设置默认设备”并不是一对完全对称的公开接口。
+
+## 1. 读取默认 endpoint：公开 API
 
 ```text
 IMMDeviceEnumerator
@@ -12,78 +14,146 @@ GetDefaultAudioEndpoint(flow, role)
 IMMDevice
 ```
 
-这里必须同时指定：
+参数：
 
-- data flow：`eRender` / `eCapture`
-- role：`eConsole` / `eMultimedia` / `eCommunications`
+- `EDataFlow`
+- `ERole`
 
-因此“默认设备”实际上是一个 **flow + role** 组合。
+例如：
 
-## 读取默认设备
+```text
+(eRender, eConsole)
+(eRender, eMultimedia)
+(eRender, eCommunications)
+(eCapture, eConsole)
+(eCapture, eMultimedia)
+(eCapture, eCommunications)
+```
 
-这是正式公开能力。
+## 2. 默认设备不是一个值
 
-典型用途：
+更准确的模型是：
 
-- 获取当前默认扬声器
-- 获取默认麦克风
-- 判断 communications role 是否与 console role 相同
-- 在默认设备变化后重新绑定 session / meter
+```text
+DefaultEndpoint[flow][role]
+```
 
-参考：
+通讯软件常关心 Communications role，而普通媒体播放更常关注 Console / Multimedia。
 
-https://learn.microsoft.com/windows/win32/api/mmdeviceapi/nf-mmdeviceapi-immdeviceenumerator-getdefaultaudioendpoint
+## 3. 设置默认 endpoint：常见实现依赖 IPolicyConfig
 
-## 设置默认设备
+SonicRoute 当前使用未公开 COM class：
 
-这部分不要和读取混在一起。
+```text
+CLSID_PolicyConfigClient
+870AF99C-171D-4F9E-AF0D-E63DF40C2BC9
+```
 
-传统桌面工具常见的 `IPolicyConfig::SetDefaultEndpoint` / PolicyConfig 方案属于 **未公开 COM 接口**，并不是和 `GetDefaultAudioEndpoint` 对称的公开 Core Audio setter。
+接口 IID：
 
-因此：
+```text
+F8679F50-850A-41CF-9C72-430F290290C8
+```
+
+方法表中包含：
+
+```text
+SetDefaultEndpoint
+```
+
+但：
+
+> `IPolicyConfig` 并不是 Microsoft 为普通 Win32 应用公开承诺稳定的 Core Audio API。
+
+详见：
+[System PolicyConfig](../undocumented/System-PolicyConfig.md)
+
+## 4. 一个真实的 SonicRoute 研究问题
+
+SonicRoute 当前源码把 `SetDefaultEndpoint` 第二参数声明为：
+
+```text
+EDataFlow
+```
+
+多个其他公开实现使用：
+
+```text
+ERole
+```
+
+因为两个 enum 恰好都使用 0 / 1 / 2，ABI 上可能看起来正常，但语义完全不同。
+
+单独记录：
+
+[PolicyConfig：ERole / EDataFlow 参数语义复核](../findings/PolicyConfig-Role-vs-DataFlow.md)
+
+当前应继续标记为“需要独立实测确认”，而不是只凭社区 header 直接定性。
+
+## 5. Device ID 也不同
+
+SonicRoute 当前注释记录：
+
+- `IPolicyConfig.SetDefaultEndpoint` 使用 `IMMDevice.GetId()` 返回的 endpoint ID；
+- per-app AudioPolicyConfig 会包装成内部策略需要的完整 device-interface path。
+
+所以不能因为两个 API 都有 `deviceId` 参数，就默认格式一样。
+
+## 6. 如何正确验证“默认设备切换”
+
+不要只看 Windows UI。
+
+建议调用前后都读取：
+
+```text
+Render  / Console
+Render  / Multimedia
+Render  / Communications
+Capture / Console
+Capture / Multimedia
+Capture / Communications
+```
+
+并记录：
+
+- endpoint ID；
+- notification；
+- HRESULT；
+- 实际改变了哪个 role。
+
+## 7. 默认设备变化通知
+
+`IMMNotificationClient::OnDefaultDeviceChanged` 会提供：
+
+- flow；
+- role；
+- new endpoint ID。
+
+这比高频轮询默认设备更适合作为主机制。
+
+## 8. 边界速查
 
 ```text
 GetDefaultAudioEndpoint
-    → Public API
+    🟢 Public
 
-PolicyConfig.SetDefaultEndpoint
-    → Undocumented implementation used by many desktop tools
+OnDefaultDeviceChanged
+    🟢 Public
+
+SetDefaultEndpoint via IPolicyConfig
+    🔴 Undocumented
+
+SetPersistedDefaultAudioEndpoint
+    🔴 Undocumented
 ```
 
-## Role 的实际处理
+## 9. 官方资料
 
-如果程序要模拟“切换系统默认播放设备”的用户体验，通常需要明确是否同时更新：
-
-- Console
-- Multimedia
-- Communications
-
-不要只因为 UI 上显示一个“默认设备”，就假设三个 role 永远一致。
-
-## 和按应用路由不要混淆
-
-系统默认 endpoint：
-
-```text
-default endpoint for a role
-```
-
-按应用持久化 endpoint：
-
-```text
-persisted default endpoint for a process/app
-```
-
-两者都是“设备选择”，但底层策略不是同一个概念。
-
-## 研究建议
-
-涉及设置默认设备时，文档和代码中应明确标注：
-
-- 使用了哪个 PolicyConfig IID
-- 设置了哪些 role
-- Windows Build
-- HRESULT
-- 是否有公开替代方案
-
-这能避免把内部接口误写成 Windows SDK 的稳定能力。
+- GetDefaultAudioEndpoint  
+  https://learn.microsoft.com/windows/win32/api/mmdeviceapi/nf-mmdeviceapi-immdeviceenumerator-getdefaultaudioendpoint
+- EDataFlow  
+  https://learn.microsoft.com/windows/win32/api/mmdeviceapi/ne-mmdeviceapi-edataflow
+- ERole  
+  https://learn.microsoft.com/windows/win32/api/mmdeviceapi/ne-mmdeviceapi-erole
+- IMMNotificationClient  
+  https://learn.microsoft.com/windows/win32/api/mmdeviceapi/nn-mmdeviceapi-immnotificationclient
