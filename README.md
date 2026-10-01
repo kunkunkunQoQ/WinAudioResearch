@@ -193,6 +193,25 @@ Audio Policy
 - [38 - 第三方 Windows Audio 开发生态](docs/38-Third-Party-Audio-Ecosystem.md)
 - [39 - Windows Audio 系统进程与服务](docs/39-Windows-Audio-Services-and-Processes.md)
 - [40 - Audio Session 持久化与 Ducking](docs/40-Audio-Session-Persistence-and-Ducking.md)
+- [41 - Bluetooth Classic / LE Audio](docs/41-Bluetooth-Audio-Classic-LE.md)
+- [42 - USB Audio / UAC1 / UAC2](docs/42-USB-Audio.md)
+- [43 - HDMI / DisplayPort / Digital Audio](docs/43-HDMI-DisplayPort-Digital-Audio.md)
+- [44 - Audio Endpoint Property Keys](docs/44-Audio-Endpoint-Property-Keys.md)
+- [45 - Audio ETW / WPR / WPA Diagnostics](docs/45-Audio-ETW-WPR-WPA-Diagnostics.md)
+- [46 - ACM / DMO / MFT / Codecs](docs/46-ACM-DMO-MFT-Codecs.md)
+- [47 - Audio Power Management](docs/47-Audio-Power-Management.md)
+- [48 - ASIO / Pro Audio](docs/48-ASIO-and-Pro-Audio.md)
+- [49 - Jacks / Connectors / Microphone Arrays](docs/49-Jacks-Connectors-and-Microphone-Arrays.md)
+- [50 - Voice Activation / Keyword Detection](docs/50-Voice-Activation-and-Keyword-Detection.md)
+- [51 - Audio Device Modules / HSA](docs/51-Audio-Device-Modules-and-HSA.md)
+- [52 - Microphone Privacy / Protected Audio](docs/52-Microphone-Privacy-and-Protected-Audio.md)
+- [53 - VST3 Plug-in Ecosystem](docs/53-VST3-Plugin-Ecosystem.md)
+- [54 - Audio HLK Testing / Certification](docs/54-Audio-HLK-Testing-and-Certification.md)
+- [55 - Microphone / Communications Audio](docs/55-Microphone-Communications-Audio.md)
+- [56 - Realtime Audio Threading / MMCSS](docs/56-Realtime-Audio-Threading-and-MMCSS.md)
+- [57 - Digital Audio Fundamentals](docs/57-Digital-Audio-Fundamentals-for-Windows-Developers.md)
+- [58 - Open-source Windows Audio Codebases](docs/58-Open-Source-Windows-Audio-Codebases.md)
+- [59 - Community Articles / Learning Resources](docs/59-Community-Articles-and-Learning-Resources.md)
 
 ### Undocumented
 
@@ -292,6 +311,18 @@ SetPersistedDefaultAudioEndpoint
 | [SonicRoute Wiki](https://github.com/kunkunkunQoQ/SonicRoute/wiki) | 面向 SonicRoute 用户 / 贡献者的产品和技术说明 |
 | [WinAudioRoute](https://github.com/kunkunkunQoQ/WinAudioRoute) | 可复用 Windows 音频控制库 |
 | **WinAudioResearch** | 分析 Windows Audio API、内部策略、兼容性与实测行为 |
+
+## 全网检索覆盖
+
+当前仓库已经不仅整理 Microsoft Core Audio，还持续维护一份外部资料覆盖表：
+
+- [Web Research Index](references/Web-Research-Index.md)
+- [References 总入口](references/README.md)
+- [第三方 Windows Audio 开发生态](docs/38-Third-Party-Audio-Ecosystem.md)
+- [开源 Windows Audio Codebase 索引](docs/58-Open-Source-Windows-Audio-Codebases.md)
+- [社区文章 / 学习资料](docs/59-Community-Articles-and-Learning-Resources.md)
+
+目标是逐步把 Windows 音频开发需要查的 **官方 API、SDK/WDK、驱动、协议、专业音频标准、开源实现、社区经验与 undocumented 研究** 集中到一个仓库里，同时保留来源等级，避免把社区经验误写成 Windows 官方契约。
 
 ## 参考原则
 
