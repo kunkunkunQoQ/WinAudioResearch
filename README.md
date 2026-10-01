@@ -113,6 +113,12 @@ Audio Policy
 完整 IID / Header / 最低系统版本：  
 **[API Reference Matrix](docs/11-API-Reference-Matrix.md)**
 
+想直接从需求选择技术栈：  
+**[Windows Audio API 选择指南](docs/33-API-Decision-Guide.md)**
+
+想查 Microsoft 官方入口：  
+**[Microsoft 官方 Windows Audio 文档总索引](docs/18-Microsoft-Official-Documentation-Index.md)**
+
 ## 推荐阅读顺序
 
 刚开始研究 Windows Audio：
@@ -161,6 +167,32 @@ Audio Policy
 - [15 - Session Enumeration Edge Cases](docs/15-Session-Enumeration-Edge-Cases.md)
 - [16 - Research Validation Checklist](docs/16-Research-Validation-Checklist.md)
 - [17 - Glossary](docs/17-Glossary.md)
+
+### Windows Audio 全栈 / 官方平台
+
+- [18 - Microsoft 官方 Windows Audio 文档总索引](docs/18-Microsoft-Official-Documentation-Index.md)
+- [19 - WASAPI 深入：IAudioClient / Event / Exclusive / IAudioClient3](docs/19-WASAPI-Advanced.md)
+- [20 - DeviceTopology](docs/20-DeviceTopology.md)
+- [21 - AudioGraph / Windows.Media.Audio](docs/21-AudioGraph-and-WinRT-Audio.md)
+- [22 - Spatial Audio / Windows Sonic](docs/22-Spatial-Audio.md)
+- [23 - Audio Processing Objects (APO)](docs/23-Audio-Processing-Objects-APO.md)
+- [24 - Media Foundation Audio](docs/24-Media-Foundation-Audio.md)
+- [25 - Audio Driver Stack：WDM / WaveRT / KS / ACX](docs/25-Audio-Driver-Stack-WDM-WaveRT-ACX-KS.md)
+- [26 - Low Latency / RAW / Hardware Offload](docs/26-Low-Latency-Raw-Offload.md)
+- [27 - WASAPI Loopback / Process Loopback](docs/27-Loopback-and-Process-Audio-Capture.md)
+- [28 - XAudio2](docs/28-XAudio2.md)
+- [29 - Windows MIDI / MIDI 2.0](docs/29-Windows-MIDI.md)
+- [30 - Legacy Windows Audio APIs](docs/30-Legacy-Windows-Audio-APIs.md)
+- [31 - WAVEFORMATEX / WAVEFORMATEXTENSIBLE / Channel Mask](docs/31-Audio-Formats-WAVEFORMAT.md)
+- [32 - Microsoft 官方 Audio Samples / Tools](docs/32-Microsoft-Audio-Samples-and-Tools.md)
+- [33 - Windows Audio API 选择指南](docs/33-API-Decision-Guide.md)
+- [34 - Audio Effects / Processing Modes](docs/34-Audio-Effects-and-Processing-Modes.md)
+- [35 - AudioEndpointBuilder / 默认设备选择算法](docs/35-Endpoint-Builder-and-Default-Selection.md)
+- [36 - Windows.Devices.Enumeration / MediaCapture](docs/36-Modern-Device-Enumeration-and-MediaCapture.md)
+- [37 - Header / Library / DLL 对照表](docs/37-Headers-Libraries-DLLs.md)
+- [38 - 第三方 Windows Audio 开发生态](docs/38-Third-Party-Audio-Ecosystem.md)
+- [39 - Windows Audio 系统进程与服务](docs/39-Windows-Audio-Services-and-Processes.md)
+- [40 - Audio Session 持久化与 Ducking](docs/40-Audio-Session-Persistence-and-Ducking.md)
 
 ### Undocumented
 
@@ -275,30 +307,37 @@ SetPersistedDefaultAudioEndpoint
 
 已覆盖：
 
-- MMDevice / endpoint
-- Audio Session
-- session / endpoint volume
-- peak meter
-- device notifications 基础
-- per-app persisted endpoint
-- system default endpoint internal policy
-- C# / COM / WinRT interop
-- Windows 版本边界
-- SonicRoute 实战案例
-
-后续：
-
-- WASAPI render / capture 最小实验
-- loopback capture
-- exclusive mode
-- `IAudioClient2` / `IAudioClient3`
-- engine period / low latency
+- MMDevice / Endpoint / PropertyStore
+- Audio Session / volume / mute / meter / persistence / ducking
+- WASAPI shared / exclusive / loopback / process loopback / IAudioClient3
 - DeviceTopology
-- Spatial Audio
-- AudioGraph
-- APO
-- Bluetooth profile / communications role
+- AudioGraph / MediaCapture / Windows.Devices.Enumeration
+- Spatial Audio / Windows Sonic
+- XAudio2
+- Media Foundation Audio
+- Audio formats / WAVEFORMATEXTENSIBLE / channel masks
+- APO / processing modes / IAudioEffectsManager
+- Windows Audio Engine / audiodg / audiosrv / AudioEndpointBuilder
+- WDM / WaveRT / Kernel Streaming / ACX / virtual audio driver concepts
+- Hardware offload / RAW / low latency
+- MIDI / Windows MIDI Services / MIDI 2.0
+- Legacy WinMM / DirectSound / DirectShow context
+- per-app persisted endpoint / system-default internal policy
+- C# / COM / WinRT interop
+- Headers / DLLs / official samples / third-party ecosystem
+- SonicRoute 实战案例与 undocumented 验证方法
+
+后续重点：
+
+- 可直接运行的最小实验项目
+- Bluetooth A2DP / HFP / LE Audio
+- USB Audio / HDMI / DisplayPort endpoint 行为
+- Audio device property 全量索引
+- Windows audio ETW / glitch / latency diagnostics
+- ASIO 与 WASAPI 对比
+- Codec / ACM / DMO 历史兼容
 - ARM64 真机行为记录
+- Windows 新 Build 的 undocumented API regression matrix
 
 ## License
 
