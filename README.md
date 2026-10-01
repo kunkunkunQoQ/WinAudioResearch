@@ -63,6 +63,7 @@
 - [SonicRoute 实测结论](findings/SonicRoute.md)
 - [COM 生命周期与资源释放](findings/COM-Lifetime.md)
 - [已知坑点](findings/Known-Pitfalls.md)
+- [PolicyConfig：ERole / EDataFlow 参数语义复核](findings/PolicyConfig-Role-vs-DataFlow.md)
 
 ## Windows Audio 的核心关系
 
