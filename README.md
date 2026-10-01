@@ -231,6 +231,10 @@ Audio Policy
 - [76 - Audio Testing / Measurement](docs/76-Audio-Testing-and-Measurement.md)
 - [77 - Exclusive Mode / Bit-perfect](docs/77-Exclusive-Mode-and-Bit-Perfect-Audio.md)
 - [78 - Windows Audio Version Capability Matrix](docs/78-Windows-Audio-Version-Capability-Matrix.md)
+- [79 - Windows ARM64 Audio Development](docs/79-Windows-ARM64-Audio-Development.md)
+- [80 - Driver Signing / Distribution](docs/80-Driver-Signing-and-Distribution.md)
+- [81 - Services / Session 0 / Windows Audio](docs/81-Services-Session0-and-Windows-Audio.md)
+- [82 - WASAPI HRESULT / Troubleshooting Catalog](docs/82-WASAPI-HRESULT-Troubleshooting-Catalog.md)
 
 ### Undocumented
 
