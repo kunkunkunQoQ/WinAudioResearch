@@ -1,156 +1,307 @@
 # WinAudioResearch
 
-> Windows Audio API research, implementation notes and reproducible experiments.  
-> Windows 音频接口、实现机制、兼容性与实战研究笔记。
+> **Windows Audio API research, implementation notes, compatibility records and real-world findings.**  
+> Windows 音频接口、实现机制、兼容性、未公开接口与实战研究笔记。
 
-这个仓库用于整理 Windows 音频开发中的接口关系、调用链、兼容性差异、未公开机制和真实项目中的踩坑经验。
+WinAudioResearch 是一个面向 Windows 音频开发者的技术资料仓库。它不是另一个音频控制软件，也不是简单复制一套 COM 接口声明，而是把 Windows 音频开发里分散在 Microsoft Learn、Windows SDK、开源项目与真实产品源码中的知识整理成一套 **可查、可验证、可复现** 的资料。
 
-它不是一个新的音频管理器，也不是 WinAudioRoute 的替代品。这里的重点是 **分析、解释、记录和分享技术**；代码仅用于最小复现和验证。
+第一批内容主要来自 [SonicRoute](https://github.com/kunkunkunQoQ/SonicRoute) 的真实开发经验，并与 Microsoft 官方文档和其他公开实现交叉核对。
 
-## 为什么建立这个仓库
+## 这个仓库主要回答什么
 
-在开发 [SonicRoute](https://github.com/kunkunkunQoQ/SonicRoute) 的过程中，实际使用并验证了 Windows Core Audio / WASAPI 的多组接口，包括：
+这里希望逐步回答：
 
-- MMDevice 设备枚举与设备属性
-- Audio Session 会话枚举
-- 按应用音量 / 静音
-- 设备级 EndpointVolume
-- 实时音频电平
-- 设备变化通知
-- 按应用输出 / 输入路由
-- Windows 10 / Windows 11 接口差异
-- C# / COM / WinRT 互操作与生命周期管理
+- Endpoint、Audio Session、WASAPI Stream 分别是什么？
+- 为什么一个进程可能对应多个 Audio Session？
+- 为什么只扫描默认播放设备会漏掉被路由到其他设备的应用？
+- 应用音量、设备主音量、每声道音量分别应该用什么接口？
+- `IAudioMeterInformation` 测的是设备电平还是应用电平？
+- USB / 蓝牙设备切换后为什么旧 COM 对象会突然失效？
+- `GetDefaultAudioEndpoint` 是公开 API，为什么“设置默认设备”常依赖未公开 `IPolicyConfig`？
+- Windows 的“每应用输出 / 输入设备”为什么不属于普通 Audio Session API？
+- `Windows.Media.Internal.AudioPolicyConfig`、内部 IID 与 vtable slot 有什么风险？
+- C# 里的 RCW、raw COM pointer、HSTRING、PROPVARIANT 应该怎么管理？
+- 怎样记录 HRESULT、Windows Build 和接口 IID，才能让一次“能用”变成研究结论？
 
-其中有些属于 Microsoft 正式公开的 API，有些则依赖 Windows 内部、未文档化接口。长期把这些知识只留在产品源码里，很难看清边界，也不方便其他开发者复用经验，因此单独建立本仓库。
+## 仓库边界
 
-## 内容状态标记
+这个仓库 **不是**：
 
-文档会尽量标明结论来源和稳定程度：
+- 第二个 SonicRoute；
+- 一个完整音频 SDK；
+- NAudio / EarTrumpet 的替代品；
+- 把未公开接口包装成“稳定 API”。
+
+这里更关心：
+
+1. 接口为什么这样连接；
+2. 哪些能力是 Microsoft 明确公开支持的；
+3. 哪些只是项目实测；
+4. 哪些依赖 Windows 内部接口；
+5. Windows 更新后应该怎么重新验证。
+
+## 证据与稳定性标记
 
 | 标记 | 含义 |
 |---|---|
-| 🟢 **Public API** | Microsoft 文档化、Windows SDK 中公开的接口 |
-| 🟡 **Observed** | 在真实系统 / 项目中观察到的行为，但不代表 Microsoft 提供兼容性保证 |
-| 🔴 **Undocumented** | Windows 内部或未公开接口，可能随系统版本变化 |
-| 🧪 **Experiment** | 仍在验证的实验或推断 |
-| ✅ **SonicRoute Verified** | 已在 SonicRoute 的实际实现中使用或验证 |
+| 🟢 **Public API** | Microsoft Learn / Windows SDK 文档化接口 |
+| 🟡 **Observed** | 在真实系统 / 项目中观察到的行为，但不是 Microsoft 兼容性承诺 |
+| 🔴 **Undocumented** | Windows 内部、未公开或没有稳定 SDK 契约的接口 |
+| 🧪 **Experiment** | 仍需要更多 Build / 设备验证 |
+| ✅ **SonicRoute Verified** | 已在 SonicRoute 实际实现中使用或验证 |
 
-> “已验证”不等于“Microsoft 承诺稳定”。尤其是未公开接口，两者必须分开看待。
+> **“SonicRoute 已验证”不等于“Microsoft 保证未来稳定”。**
 
-## 导航
-
-### 基础架构
-
-- [Windows Audio 架构与接口地图](docs/00-Windows-Audio-Architecture.md)
-- [MMDevice：设备枚举与端点](docs/01-MMDevice.md)
-- [Audio Session：应用音频会话](docs/02-Audio-Sessions.md)
-- [音量、静音与 EndpointVolume](docs/03-Volume-and-Mute.md)
-- [IAudioMeterInformation：实时声音活动](docs/04-Audio-Meter.md)
-- [设备变化与通知机制](docs/05-Device-Notifications.md)
-- [WASAPI 与 IAudioClient](docs/08-WASAPI.md)
-- [C# / COM / WinRT 互操作](docs/09-CSharp-COM-Interop.md)
-- [Windows 版本兼容性](docs/10-Windows-Version-Compatibility.md)
-
-### 按应用音频路由
-
-- [按应用音频路由原理](docs/06-Per-App-Audio-Routing.md)
-- [未公开接口研究入口](undocumented/README.md)
-- [AudioPolicyConfig](undocumented/AudioPolicyConfig.md)
-- [IAudioPolicyConfigFactory](undocumented/IAudioPolicyConfigFactory.md)
-
-### 实战记录
-
-- [SonicRoute 实测结论](findings/SonicRoute.md)
-- [COM 生命周期与资源释放](findings/COM-Lifetime.md)
-- [已知坑点](findings/Known-Pitfalls.md)
-- [PolicyConfig：ERole / EDataFlow 参数语义复核](findings/PolicyConfig-Role-vs-DataFlow.md)
-
-## Windows Audio 的核心关系
+## Windows Audio 的核心分层
 
 ```text
-MMDeviceEnumerator
-       |
-       +--> IMMDevice ------------------------------+
-       |                                            |
-       |                                            +--> IAudioClient / WASAPI
-       |                                            |
-       |                                            +--> IAudioEndpointVolume
-       |                                            |
-       |                                            +--> IAudioMeterInformation
-       |
-       +--> default endpoint / endpoint notifications
-       
-IMMDevice
-   |
-   +--> IAudioSessionManager2
-            |
-            +--> IAudioSessionEnumerator
-                    |
-                    +--> IAudioSessionControl2
-                              |
-                              +--> PID / state / identifier
-                              +--> ISimpleAudioVolume
-                              +--> IAudioMeterInformation
+Application
+    │
+    ├── Audio Session
+    │     ├─ IAudioSessionManager2
+    │     ├─ IAudioSessionControl2
+    │     └─ ISimpleAudioVolume
+    │
+    ├── WASAPI Stream
+    │     ├─ IAudioClient
+    │     ├─ IAudioRenderClient
+    │     └─ IAudioCaptureClient
+    │
+    ▼
+Windows Audio Engine
+    │
+    ▼
+Audio Endpoint
+    │
+    ├─ IMMDevice
+    ├─ IPropertyStore
+    ├─ IAudioEndpointVolume
+    ├─ IAudioMeterInformation
+    └─ endpoint notifications
+    │
+    ▼
+Driver / Hardware
 ```
 
-这里最容易混淆的一点是：
+另有不属于普通公开 Core Audio 控制面的策略层：
 
-- **Endpoint** 是设备层，例如耳机、音箱、麦克风。
-- **Session** 是会话层，例如某个应用在某个设备上的音频会话。
-- **WASAPI stream** 是实际的数据流层。
-- Windows 的“按应用默认设备”不是普通 Audio Session API 的一部分。
+```text
+Audio Policy
+   ├─ System default endpoint
+   └─ Per-app persisted endpoint
+           ▲
+           └─ 部分能力依赖未公开 PolicyConfig / AudioPolicyConfig
+```
+
+## 快速接口表
+
+| 接口 / 对象 | 状态 | 主要用途 | SonicRoute |
+|---|---|---|---|
+| `IMMDeviceEnumerator` | 🟢 | 枚举 endpoint、默认设备、设备通知 | ✅ |
+| `IMMDevice` | 🟢 | endpoint 入口、Activate、PropertyStore、ID | ✅ |
+| `IPropertyStore` | 🟢 | 读取 FriendlyName 等设备属性 | ✅ |
+| `IAudioSessionManager2` | 🟢 | 枚举 / 监听 Audio Session | ✅ |
+| `IAudioSessionControl2` | 🟢 | PID、state、identifier、grouping | ✅ |
+| `ISimpleAudioVolume` | 🟢 | session master volume / mute | ✅ |
+| `IAudioEndpointVolume` | 🟢 | endpoint master volume / mute | ✅ |
+| `IAudioMeterInformation` | 🟢 | endpoint / session peak meter | ✅ |
+| `IAudioClient` | 🟢 | WASAPI stream 初始化和控制 | 研究中 |
+| `IAudioClient3` | 🟢 | shared engine period / low-latency 相关 | 待扩展 |
+| `IPolicyConfig` | 🔴 | 常见于设置系统默认 endpoint | ✅ / 需持续验证 |
+| `IAudioPolicyConfigFactory` | 🔴 | 持久化 per-app endpoint | ✅ |
+
+完整 IID / Header / 最低系统版本：  
+**[API Reference Matrix](docs/11-API-Reference-Matrix.md)**
+
+## 推荐阅读顺序
+
+刚开始研究 Windows Audio：
+
+1. [Windows Audio 架构与接口地图](docs/00-Windows-Audio-Architecture.md)
+2. [MMDevice：设备枚举与端点](docs/01-MMDevice.md)
+3. [Audio Session：应用音频会话](docs/02-Audio-Sessions.md)
+4. [音量与静音](docs/03-Volume-and-Mute.md)
+5. [实时声音活动 / Peak Meter](docs/04-Audio-Meter.md)
+
+已经熟悉 Core Audio：
+
+6. [按应用音频路由](docs/06-Per-App-Audio-Routing.md)
+7. [默认音频设备](docs/07-Default-Audio-Device.md)
+8. [C# / COM / WinRT](docs/09-CSharp-COM-Interop.md)
+9. [Windows 版本兼容性](docs/10-Windows-Version-Compatibility.md)
+10. [HRESULT 与诊断](docs/13-HRESULT-and-Diagnostics.md)
+
+研究未公开接口：
+
+11. [Undocumented 入口](undocumented/README.md)
+12. [AudioPolicyConfig](undocumented/AudioPolicyConfig.md)
+13. [IAudioPolicyConfigFactory](undocumented/IAudioPolicyConfigFactory.md)
+14. [System PolicyConfig](undocumented/System-PolicyConfig.md)
+15. [研究验证清单](docs/16-Research-Validation-Checklist.md)
+
+## 完整文档目录
+
+### Core Audio / WASAPI
+
+- [00 - Windows Audio 架构](docs/00-Windows-Audio-Architecture.md)
+- [01 - MMDevice / Endpoint](docs/01-MMDevice.md)
+- [02 - Audio Session](docs/02-Audio-Sessions.md)
+- [03 - Volume / Mute](docs/03-Volume-and-Mute.md)
+- [04 - Audio Meter](docs/04-Audio-Meter.md)
+- [05 - Device Notifications](docs/05-Device-Notifications.md)
+- [06 - Per-App Audio Routing](docs/06-Per-App-Audio-Routing.md)
+- [07 - Default Audio Device](docs/07-Default-Audio-Device.md)
+- [08 - WASAPI / IAudioClient](docs/08-WASAPI.md)
+- [09 - C# / COM / WinRT Interop](docs/09-CSharp-COM-Interop.md)
+- [10 - Windows Compatibility](docs/10-Windows-Version-Compatibility.md)
+- [11 - API Reference Matrix](docs/11-API-Reference-Matrix.md)
+- [12 - Device IDs & Properties](docs/12-Device-IDs-and-Properties.md)
+- [13 - HRESULT & Diagnostics](docs/13-HRESULT-and-Diagnostics.md)
+- [14 - COM Threading & Apartments](docs/14-COM-Threading-and-Apartments.md)
+- [15 - Session Enumeration Edge Cases](docs/15-Session-Enumeration-Edge-Cases.md)
+- [16 - Research Validation Checklist](docs/16-Research-Validation-Checklist.md)
+- [17 - Glossary](docs/17-Glossary.md)
+
+### Undocumented
+
+- [Undocumented 入口](undocumented/README.md)
+- [AudioPolicyConfig](undocumented/AudioPolicyConfig.md)
+- [IAudioPolicyConfigFactory](undocumented/IAudioPolicyConfigFactory.md)
+- [System PolicyConfig / SetDefaultEndpoint](undocumented/System-PolicyConfig.md)
+
+### SonicRoute 实战记录
+
+- [SonicRoute 已验证结论](findings/SonicRoute.md)
+- [COM 生命周期](findings/COM-Lifetime.md)
+- [Known Pitfalls](findings/Known-Pitfalls.md)
+- [PolicyConfig：ERole / EDataFlow 参数复核](findings/PolicyConfig-Role-vs-DataFlow.md)
+- [Per-App 路由持久化观察](findings/Per-App-Routing-Persistence.md)
+
+## SonicRoute 提供的真实案例
+
+### 设备枚举
+
+当前源码：
+
+```text
+IMMDeviceEnumerator
+  → EnumAudioEndpoints
+  → IMMDevice
+  → OpenPropertyStore
+  → PKEY_Device_FriendlyName
+```
+
+SonicRoute 当前为播放 / 录音设备列表设置约 **3 秒短 TTL 缓存**，用于减少启动和快速连续操作时重复 COM 枚举。这是应用层性能策略，不是 Windows API 要求。
+
+### 全系统 Audio Session
+
+SonicRoute 会扫描 render + capture 的 ACTIVE endpoint，再逐个枚举 session，并按 PID 做产品层聚合。
+
+当前实现还处理一种“幽灵会话”情况：
+
+> session 尚未标记 Expired，但对应进程已经不存在。
+
+SonicRoute 会额外检查进程存活并过滤这类 UI 无法操作的项。这是 **Observed / product behavior**。
+
+### 应用实时声音活动
+
+当前实现会：
+
+- 扫描全部 ACTIVE render endpoint；
+- 从 session 获取 `IAudioMeterInformation`；
+- 同 PID 多 session 聚合 peak；
+- 约 33ms 采样；
+- 约 2s 重新扫描 session；
+- UI 层使用 attack / release 平滑；
+- 面板关闭后停止 worker 并释放 COM。
+
+这些数字属于 SonicRoute 的实现经验，不是 Windows API 固定值。
+
+### Per-App Audio Routing
+
+当前实现：
+
+```text
+Windows.Media.Internal.AudioPolicyConfig
+        ↓
+RoGetActivationFactory
+        ↓
+IAudioPolicyConfigFactory
+        ↓
+SetPersistedDefaultAudioEndpoint
+```
+
+这一整条链属于 **Undocumented** 研究范围。
+
+## 关于未公开接口
+
+对未公开接口，至少记录：
+
+- Windows edition / build
+- x64 / ARM64
+- runtime
+- interface IID
+- CLSID / activatable class
+- vtable slot（若有）
+- 参数
+- HRESULT
+- 调用前状态
+- 调用后状态
+- 重启 / 注销后是否保持
+- 是否存在公开替代接口
+
+建议使用 [研究验证清单](docs/16-Research-Validation-Checklist.md)。
 
 ## 与其他仓库的关系
 
 | 仓库 | 定位 |
 |---|---|
-| [SonicRoute](https://github.com/kunkunkunQoQ/SonicRoute) | 最终用户音频控制工具，也是本仓库的重要实战来源 |
-| [WinAudioRoute](https://github.com/kunkunkunQoQ/WinAudioRoute) | 可复用的 Windows 音频控制库 |
-| **WinAudioResearch** | 对 Windows 音频接口和实现机制本身进行分析、记录与分享 |
-
-SonicRoute Wiki 中与底层实现有关的内容会逐步提炼到这里，但不会简单复制产品文档。
+| [SonicRoute](https://github.com/kunkunkunQoQ/SonicRoute) | 最终用户 Windows 音频控制工具，也是本仓库的重要实战来源 |
+| [SonicRoute Wiki](https://github.com/kunkunkunQoQ/SonicRoute/wiki) | 面向 SonicRoute 用户 / 贡献者的产品和技术说明 |
+| [WinAudioRoute](https://github.com/kunkunkunQoQ/WinAudioRoute) | 可复用 Windows 音频控制库 |
+| **WinAudioResearch** | 分析 Windows Audio API、内部策略、兼容性与实测行为 |
 
 ## 参考原则
 
-1. 优先引用 Microsoft Learn / Windows SDK。
-2. 对未公开接口同时给出第三方实现参考和实际验证结果。
-3. 明确区分“官方定义”和“项目实测”。
-4. 尽量给出最小调用链，而不是堆一整套框架。
-5. 涉及 Windows 内部接口时必须注明版本风险。
-6. 发现结论失效时，保留历史和系统 Build 信息。
+1. Public API 优先引用 Microsoft Learn / Windows SDK。
+2. 第三方项目不能替代 Microsoft 对公开接口的定义。
+3. Undocumented API 必须明确风险。
+4. “别人也这样实现”只算交叉参考，不算官方保证。
+5. SonicRoute 行为写成 Verified / Observed，不自动升级成 Windows 规范。
+6. Windows 大版本更新后，对内部接口重新验证。
+7. 保留失败结果与 HRESULT；失败同样是研究数据。
 
-## 当前重点
+## Roadmap
 
-第一阶段重点整理 SonicRoute 已实际涉及的接口：
+已覆盖：
 
-- `IMMDeviceEnumerator`
-- `IMMDevice`
-- `IPropertyStore`
-- `IAudioSessionManager2`
-- `IAudioSessionEnumerator`
-- `IAudioSessionControl2`
-- `ISimpleAudioVolume`
-- `IAudioEndpointVolume`
-- `IAudioMeterInformation`
-- `IMMNotificationClient`
-- `IAudioPolicyConfigFactory` / `AudioPolicyConfig`（未公开）
+- MMDevice / endpoint
+- Audio Session
+- session / endpoint volume
+- peak meter
+- device notifications 基础
+- per-app persisted endpoint
+- system default endpoint internal policy
+- C# / COM / WinRT interop
+- Windows 版本边界
+- SonicRoute 实战案例
 
-后续再扩展：
+后续：
 
-- WASAPI render / capture
-- Loopback capture
-- Exclusive mode
-- IAudioClient2 / IAudioClient3
-- Spatial Audio
-- AudioGraph / WinRT Audio
-- Audio Processing Objects (APO)
+- WASAPI render / capture 最小实验
+- loopback capture
+- exclusive mode
+- `IAudioClient2` / `IAudioClient3`
+- engine period / low latency
 - DeviceTopology
-- Bluetooth / communications role 行为
+- Spatial Audio
+- AudioGraph
+- APO
+- Bluetooth profile / communications role
+- ARM64 真机行为记录
 
 ## License
 
 MIT
 
----
-
-如果你正在研究 Windows 音频接口，也欢迎提交 Issue / PR 补充不同 Windows Build、驱动和设备上的行为差异。
+欢迎提交 Issue / PR，特别欢迎补充 **不同 Windows Build、驱动、USB / 蓝牙设备、x64 / ARM64** 下的行为差异。
