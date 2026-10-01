@@ -1,56 +1,161 @@
-# Windows 版本兼容性
+# Windows 版本兼容性：公开 API 与内部 ABI 要分开记录
 
 > 状态：🟢 Public API + 🟡 Observed + 🔴 Undocumented
 
-公开 Core Audio 接口和未公开 AudioPolicyConfig 的兼容性要分开讨论。
+Windows Audio 兼容性至少要分成两套逻辑：
 
-## 公开 Core Audio
+1. **公开 SDK 接口的最低支持系统**
+2. **未公开接口在具体 Build 上的实测结果**
 
-MMDevice、EndpointVolume 和基础 WASAPI 从 Windows Vista 时代就存在；`IAudioSessionManager2` 从 Windows 7 起可用于桌面应用。
+不能混成一句：
 
-这部分应直接以 Microsoft Learn 的 Minimum supported client 为准。
+> “Win10/11 都支持。”
 
-## AudioPolicyConfig
+## 1. Public API：看 Minimum supported client
 
-SonicRoute 当前实测代码区分：
+| 接口 | Header | 最低客户端 |
+|---|---|---|
+| `IMMDeviceEnumerator` | mmdeviceapi.h | Windows Vista |
+| `IAudioClient` | audioclient.h | Windows Vista |
+| `ISimpleAudioVolume` | audioclient.h | Windows Vista |
+| `IAudioEndpointVolume` | endpointvolume.h | Windows Vista |
+| `IAudioMeterInformation` | endpointvolume.h | Windows Vista |
+| `IAudioSessionManager2` | audiopolicy.h | Windows 7 |
+| `IAudioSessionControl2` | audiopolicy.h | Windows 7 |
+| `IAudioClient3` | audioclient.h | Windows 10 |
 
-| 系统 | IID |
-|---|---|
-| Windows 11 21H2+ | `ab3d4648-e242-459f-b02f-541c70306324` |
-| Downlevel / Windows 10 | `2a59116d-6c4f-45e0-a74f-707e3fef9258` |
+“最低支持”也不代表所有驱动、蓝牙 profile、虚拟设备行为完全一致。
 
-这些 IID 属于未公开实现细节，不存在 Microsoft 稳定兼容承诺。
+## 2. Undocumented API：只能记录实测 Build
 
-## Build 判断
-
-SonicRoute 在兼容 .NET Framework 4.8 时遇到过一个典型问题：
-
-`Environment.OSVersion` 可能受到应用 manifest / compatibility 行为影响，从而返回与真实 Windows Build 不一致的兼容版本信息。
-
-项目最终使用原生版本查询路径获得真实 Build，再决定 AudioPolicyConfig IID。
-
-这是 **项目实测结论**，不是建议所有程序都绕过标准版本辅助 API。
-
-## 建议记录格式
-
-研究未公开接口时，每个验证结果至少记录：
+例如 SonicRoute 当前 AudioPolicyConfig：
 
 ```text
-Windows edition:
+Windows 11 21H2+ IID
+AB3D4648-E242-459F-B02F-541C70306324
+
+Downlevel IID
+2A59116D-6C4F-45E0-A74F-707E3FEF9258
+```
+
+这里不能写：
+
+> officially supported on Windows 10+
+
+更准确的是：
+
+> 当前项目按这些系统分支选择 internal IID；需要继续按 Build 验证。
+
+## 3. 版本检测也可能影响 internal API
+
+SonicRoute 在 .NET Framework 兼容工作中记录过：
+
+- manifest compatibility 声明会影响某些版本 API 的结果；
+- 如果把 Win11 判断成旧 Build，internal IID 选择可能错误；
+- 表面上可能只是“路由静默失败”。
+
+项目因此采用原生方式获取更可靠的真实 Build。
+
+这是：
+
+> ✅ SonicRoute Verified / implementation note
+
+不意味着所有 .NET 应用都必须自己 P/Invoke 版本 API。
+
+## 4. Architecture 也是兼容维度
+
+至少记录：
+
+```text
+x64
+ARM64
+```
+
+原因：
+
+- COM interface ABI 理论上架构透明；
+- 但手写结构布局、function pointer delegate、native packing 可能不是；
+- 第三方驱动 / DLL 也可能限制架构。
+
+尤其要关注：
+
+```text
+PROPVARIANT
+WAVEFORMATEX / WAVEFORMATEXTENSIBLE
+raw vtable function pointer
+```
+
+不能因为 x64 能跑就假设 ARM64 一定正确。
+
+## 5. 驱动 / endpoint 类型也是变量
+
+同一 Windows Build 下：
+
+- Realtek HDA
+- USB DAC
+- Bluetooth A2DP
+- Bluetooth HFP
+- HDMI / DP
+- virtual audio device
+
+都可能表现不同。
+
+建议兼容报告至少包含：
+
+```text
+Windows:
 Build:
 Architecture:
 Runtime:
-Interface IID:
+Endpoint type:
+Driver:
 Operation:
 HRESULT:
-Result:
+Observed result:
 ```
 
-不要只记录“Win11 可用”。
+## 6. 重新验证触发条件
 
-## 兼容性原则
+出现以下情况时，应重新跑 undocumented 测试：
 
-1. Public API 看 Microsoft 文档。
-2. Undocumented API 看具体 Build 实测。
-3. Windows 大版本升级后重新验证内部 IID / ABI。
-4. 失败时优先安全降级，不要静默写入未知策略。
+- Windows feature update；
+- Insider major build；
+- Audio Service 行为变化；
+- 新增 ARM64 支持；
+- Windows 音量合成器实现改变；
+- 长期参考项目调整 internal IID；
+- vtable 调用开始出现新 HRESULT。
+
+## 7. 失败也要保留
+
+不要只提交：
+
+```text
+Build 26xxx works
+```
+
+更有价值的是：
+
+```text
+Build:
+Operation:
+Expected:
+Actual:
+HRESULT:
+Repro rate:
+Regression from:
+```
+
+失败可以帮助判断到底是：
+
+- IID 变化；
+- ABI 变化；
+- 参数格式变化；
+- 权限变化；
+- 单驱动问题。
+
+## 8. 相关文档
+
+- [API Reference Matrix](11-API-Reference-Matrix.md)
+- [HRESULT & Diagnostics](13-HRESULT-and-Diagnostics.md)
+- [Research Validation Checklist](16-Research-Validation-Checklist.md)
