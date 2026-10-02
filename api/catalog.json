@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "last_verified": "2026-10-02",
+  "total_records": 300,
+  "symbol_records": 169,
+  "method_records": 131,
+  "tables": [
+    {
+      "path": "api/core-mmdevice.csv",
+      "type": "symbol",
+      "family": "MMDevice",
+      "records": 15
+    },
+    {
+      "path": "api/wasapi.csv",
+      "type": "symbol",
+      "family": "WASAPI",
+      "records": 26
+    },
+    {
+      "path": "api/audio-session.csv",
+      "type": "symbol",
+      "family": "AudioSession",
+      "records": 11
+    },
+    {
+      "path": "api/endpoint-volume.csv",
+      "type": "symbol",
+      "family": "EndpointVolume",
+      "records": 8
+    },
+    {
+      "path": "api/device-topology.csv",
+      "type": "symbol",
+      "family": "DeviceTopology",
+      "records": 24
+    },
+    {
+      "path": "api/spatial-audio.csv",
+      "type": "symbol",
+      "family": "SpatialAudio",
+      "records": 11
+    },
+    {
+      "path": "api/winrt-audio.csv",
+      "type": "symbol",
+      "family": "WinRT",
+      "records": 16
+    },
+    {
+      "path": "api/driver-platform.csv",
+      "type": "symbol",
+      "family": "DriverPlatform",
+      "records": 19
+    },
+    {
+      "path": "api/undocumented.csv",
+      "type": "symbol",
+      "family": "Undocumented",
+      "records": 9
+    },
+    {
+      "path": "api/audio-properties.csv",
+      "type": "symbol",
+      "family": "Properties",
+      "records": 16
+    },
+    {
+      "path": "api/hresults.csv",
+      "type": "symbol",
+      "family": "HRESULT",
+      "records": 14
+    },
+    {
+      "path": "api/methods-mmdevice.csv",
+      "type": "method",
+      "family": "MMDevice",
+      "records": 18
+    },
+    {
+      "path": "api/methods-wasapi.csv",
+      "type": "method",
+      "family": "WASAPI",
+      "records": 36
+    },
+    {
+      "path": "api/methods-session.csv",
+      "type": "method",
+      "family": "AudioSession",
+      "records": 33
+    },
+    {
+      "path": "api/methods-endpointvolume.csv",
+      "type": "method",
+      "family": "EndpointVolume",
+      "records": 23
+    },
+    {
+      "path": "api/methods-spatial.csv",
+      "type": "method",
+      "family": "SpatialAudio",
+      "records": 21
+    }
+  ]
+}
