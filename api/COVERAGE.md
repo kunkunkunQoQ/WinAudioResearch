@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **394** |
-| Method records | **306** |
+| Symbol / type / property / HRESULT records | **419** |
+| Method records | **356** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
 | API relationship records | **86** |
-| **Total** | **970** |
+| **Total** | **1045** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -32,8 +32,8 @@ api/  → machine-readable symbol / method / version / source database
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
-| ACX | 21 | - | Symbol-level |
-| KS Audio | 14 | - | Symbol-level |
+| ACX | 21 | 50 | Strong core |
+| KS Audio | 39 | - | Strong core |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
@@ -72,8 +72,8 @@ Describes important driver/framework entry points. WDK surface area is much larg
 ## Next database targets
 
 1. **callback / COM apartment / realtime / lifetime constraints database**
-2. **ACX methods and callback/DDI inventory**
-3. **larger Kernel Streaming property/event/node catalog**
+2. **ACX element / target / request APIs beyond the new core DDI index**
+3. **larger Kernel Streaming property/event/node catalog beyond the core control set**
 4. **complete endpoint / DeviceInformation property-key catalog**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
