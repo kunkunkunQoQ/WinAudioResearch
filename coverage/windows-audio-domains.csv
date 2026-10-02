@@ -1,0 +1,38 @@
+domain_id,domain,subdomain,current_level,target_level,priority,structured_db,long_form_docs,audit_target,notes
+APP-01,Application APIs,MMDevice,4,5,P1,api/core-mmdevice.csv,docs/01-MMDevice.md,SDK header/reference audit,Classic Core Audio endpoint enumeration
+APP-02,Application APIs,WASAPI / IAudioClient,4,5,P1,api/wasapi.csv;api/methods-wasapi.csv,docs/08-WASAPI.md;docs/19-WASAPI-Advanced.md,Modern audioclient.h audit,Streaming core
+APP-03,Application APIs,Audio Sessions,4,5,P1,api/audio-session.csv;api/methods-session.csv,docs/02-Audio-Sessions.md,AudioPolicy/session header audit,Session lifecycle grouping ducking
+APP-04,Application APIs,EndpointVolume,4,5,P1,api/endpoint-volume.csv,docs/03-Volume-and-Mute.md,endpointvolume.h audit,Endpoint master volume meter
+APP-05,Application APIs,DeviceTopology,4,5,P1,api/device-topology.csv,docs/20-DeviceTopology.md,devicetopology.h audit,Hardware topology controls
+APP-06,Application APIs,Modern effects / state monitor,2,5,P1,api/wasapi.csv;api/apo.csv,docs/64-Windows11-AEC-and-Effects-APIs.md,SDK header audit,IAudioEffectsManager IAudioStateMonitor AEC control
+APP-07,Application APIs,Spatial Audio,4,5,P2,api/spatial-audio.csv;api/methods-spatial.csv,docs/22-Spatial-Audio.md,Spatial header audit,Client HRTF metadata
+APP-08,Application APIs,WinRT Audio / AudioGraph,3,5,P2,api/winrt-audio.csv;api/members-winrt-audio.csv,docs/21-AudioGraph-and-WinRT-Audio.md,WinRT namespace member audit,Modern high-level audio
+MEDIA-01,Media / Game,Media Foundation Audio,3,5,P2,api/media-foundation.csv;api/methods-media-foundation.csv,docs/24-Media-Foundation-Audio.md,MF audio interface and attribute audit,SAR SourceReader SinkWriter MFT
+MEDIA-02,Media / Game,XAudio2 / XAPO,4,5,P2,api/xaudio2.csv;api/methods-xaudio2.csv,docs/28-XAudio2.md,xaudio2/xapo header audit,Game audio
+MEDIA-03,Media / Game,MIDI,4,5,P2,api/midi.csv;api/members-midi.csv,docs/29-Windows-MIDI.md,Windows MIDI Services + WinMM audit,MIDI 1 and MIDI 2
+LEGACY-01,Legacy,WinMM wave / mixer,1,4,P3,,docs/30-Legacy-Windows-Audio-APIs.md,SDK API inventory,Historical compatibility
+LEGACY-02,Legacy,DirectSound / DirectMusic,2,4,P3,api/ks-audio.csv,docs/30-Legacy-Windows-Audio-APIs.md,Legacy SDK + KS mapping audit,Important for historical driver contracts
+DRIVER-01,Driver,ACX,5,6,P1,api/acx.csv;api/methods-acx.csv,docs/71-ACX-Deep-Dive.md;docs/97-ACX-Public-Header-Coverage-Audit.md,Per-header current WDK audit,Modern class extension
+DRIVER-02,Driver,WaveRT,3,5,P1,api/wavert.csv;api/methods-wavert.csv,docs/70-WaveRT-Deep-Dive.md,portcls WaveRT interface audit,Realtime driver streaming
+DRIVER-03,Driver,PortCls,1,5,P1,api/driver-platform.csv,docs/25-Audio-Driver-Stack-WDM-WaveRT-ACX-KS.md,PortCls header/interface audit,Legacy/current port-miniport layer
+DRIVER-04,Driver,Kernel Streaming Audio,4,5,P1,api/ks-audio.csv,docs/74-Kernel-Streaming-Deep-Dive.md;docs/98-KS-Audio-Property-Set-Coverage.md,KS member/type/event audit,Property event pin topology foundation
+DRIVER-05,Driver,APO / effects,3,5,P1,api/apo.csv;api/methods-apo.csv,docs/23-Audio-Processing-Objects-APO.md,APO header + INF audit,System effects processing
+POLICY-01,Policy / Identity,EndpointBuilder / default policy,2,5,P2,api/audio-properties.csv,docs/35-Endpoint-Builder-and-Default-Selection.md,Public docs + observed behavior audit,Endpoint construction and selection
+POLICY-02,Policy / Identity,Per-app persisted endpoint,3,4,P2,api/undocumented.csv,docs/06-Per-App-Audio-Routing.md;undocumented/AudioPolicyConfig.md,Build regression audit,Undocumented keep separated
+PROPERTY-01,Properties,Endpoint / DeviceInformation / INF keys,3,5,P1,api/audio-properties.csv,docs/44-Audio-Endpoint-Property-Keys.md,PKEY/DEVPKEY audit,Property identity and driver policy
+FORMAT-01,Formats,WAVEFORMAT / channel masks,3,5,P2,api/audio-formats.csv,docs/31-Audio-Formats-WAVEFORMAT.md,SDK subtype/type audit,PCM channel model
+FORMAT-02,Formats,KS data formats / ranges,2,5,P1,api/ks-audio.csv,docs/74-Kernel-Streaming-Deep-Dive.md,ks.h/ksmedia.h format audit,Driver format negotiation
+FORMAT-03,Formats,IEC61937 / compressed transport,2,4,P2,api/audio-formats.csv,docs/75-IEC61937-Digital-Bitstream-Audio.md,Subtype GUID and transport audit,Digital bitstream
+HW-01,Hardware / Transport,USB Audio,2,5,P2,,docs/42-USB-Audio.md,Windows USB audio driver/version audit,UAC device behavior
+HW-02,Hardware / Transport,Bluetooth Classic / LE Audio,2,5,P2,,docs/41-Bluetooth-Audio-Classic-LE.md,Profile codec Windows-version audit,A2DP HFP LE Audio
+HW-03,Hardware / Transport,HDMI / DisplayPort,2,5,P2,,docs/43-HDMI-DisplayPort-Digital-Audio.md,Endpoint/EDID/codec audit,Display audio
+HW-04,Hardware / Transport,HD Audio / SoC / DSP,1,4,P3,,docs/25-Audio-Driver-Stack-WDM-WaveRT-ACX-KS.md,Hardware architecture audit,Codec DSP I2S multi-circuit
+DIAG-01,Diagnostics,ETW / WPR / WPA,2,5,P2,,docs/45-Audio-ETW-WPR-WPA-Diagnostics.md,Provider/event workflow audit,Glitch troubleshooting
+DIAG-02,Diagnostics,KsStudio / Driver Verifier / HLK,2,5,P2,,docs/54-Audio-HLK-Testing-and-Certification.md;docs/62-Windows-Audio-Developer-Tools.md,Tool/test inventory,Driver validation
+PERF-01,Performance,Realtime / latency / MMCSS,3,5,P2,api/windows-capabilities.csv,docs/56-Realtime-Audio-Threading-and-MMCSS.md,API + measurement audit,Buffer timing scheduling
+SEC-01,Security / App Model,Privacy / AppContainer / protected audio,2,5,P3,,docs/52-Microphone-Privacy-and-Protected-Audio.md;docs/65-AppModel-MSIX-AppContainer-Audio.md,Policy/capability audit,Privacy and protected media
+COMPAT-01,Compatibility,Windows version matrix,3,6,P1,api/windows-capabilities.csv,docs/78-Windows-Audio-Version-Capability-Matrix.md,Build evidence expansion,Version boundaries
+COMPAT-02,Compatibility,x64 / ARM64,1,5,P3,,docs/79-Windows-ARM64-Audio-Development.md,Real-device verification,ABI and driver/runtime behavior
+ERROR-01,Errors,HRESULT / NTSTATUS,2,5,P1,api/hresults.csv,docs/82-WASAPI-HRESULT-Troubleshooting-Catalog.md,Header error-code audit,Diagnostics database
+OSS-01,Ecosystem,Official samples / open source,3,5,P2,api/samples.csv,docs/32-Microsoft-Audio-Samples-and-Tools.md;docs/58-Open-Source-Windows-Audio-Codebases.md,Source/project audit,Cross-reference not specification
+UNDOC-01,Undocumented,Audio policy / internal interfaces,3,6,P2,api/undocumented.csv,undocumented/README.md,Per-build regression evidence,Strictly separated from public APIs
