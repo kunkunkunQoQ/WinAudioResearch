@@ -18,6 +18,45 @@ Pin 还声明支持的数据格式范围、通信方式、data flow、instance �
 
 KS 支持 filter property、pin property、node property。请求通常由 property-set GUID、property ID 和 target 共同确定。Jack state、control change 等也可以通过 KS event 暴露。
 
+
+
+## KSPROPSETID_Audio 控制面
+
+`KSPROPSETID_Audio` 的范围远大于 volume / mute。当前结构库已经扩展记录：
+
+- bass / mid / treble / loudness
+- EQ bands / EQ level
+- chorus / reverb
+- AGC
+- channel config
+- mux / demux
+- device-specific property
+- microphone sensitivity / SNR / array geometry
+- latency / position / presentation position
+- WaveRT write position
+- copy protection / dynamic range
+- sample rate / SRC quality
+- peak meter / peak meter 2
+
+对应文件：
+
+```text
+api/ks-audio.csv
+```
+
+部分 KS hardware control 会被 Core Audio DeviceTopology 映射成用户态接口，例如：
+
+```text
+KSPROPERTY_AUDIO_VOLUMELEVEL → IAudioVolumeLevel
+KSPROPERTY_AUDIO_MUTE        → IAudioMute
+KSPROPERTY_AUDIO_AGC         → IAudioAutoGainControl
+KSPROPERTY_AUDIO_MUX_SOURCE  → IAudioInputSelector
+KSPROPERTY_AUDIO_DEMUX_DEST  → IAudioOutputSelector
+```
+
+这些关系也已经写入 `api/relationships.csv`，因此可以从用户态接口反查到底层 KS control。
+
+
 ## Wave Filter 与 Topology Filter
 
 Wave filter 主要负责 PCM streaming；topology filter 更偏硬件控制、jack、volume、mux 和物理连接。一个 audio adapter 往往同时暴露多类 filter。
