@@ -236,6 +236,11 @@ Audio Policy
 - [81 - Services / Session 0 / Windows Audio](docs/81-Services-Session0-and-Windows-Audio.md)
 - [82 - WASAPI HRESULT / Troubleshooting Catalog](docs/82-WASAPI-HRESULT-Troubleshooting-Catalog.md)
 
+### Resources / 外部资料总入口
+
+- [Resources Hub：官方文档、SDK/WDK、Microsoft Samples、成熟开源、博客](resources/README.md)
+- [References：来源分级与引用原则](references/README.md)
+
 ### Undocumented
 
 - [Undocumented 入口](undocumented/README.md)
