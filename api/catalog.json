@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 970,
-  "symbol_records": 394,
-  "method_records": 306,
+  "total_records": 1045,
+  "symbol_records": 419,
+  "method_records": 356,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -75,7 +75,7 @@
       "path": "api/ks-audio.csv",
       "type": "symbol",
       "family": "KSAudio",
-      "records": 14
+      "records": 39
     },
     {
       "path": "api/media-foundation.csv",
@@ -94,6 +94,12 @@
       "type": "member",
       "family": "WinRT",
       "records": 48
+    },
+    {
+      "path": "api/methods-acx.csv",
+      "type": "method",
+      "family": "ACX",
+      "records": 50
     },
     {
       "path": "api/methods-apo.csv",
