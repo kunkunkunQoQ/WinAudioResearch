@@ -1,8 +1,8 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 1810,
-  "symbol_records": 932,
+  "total_records": 1848,
+  "symbol_records": 962,
   "method_records": 532,
   "tables": [
     {
@@ -75,7 +75,7 @@
       "path": "api/ks-audio.csv",
       "type": "symbol",
       "family": "KSAudio",
-      "records": 251
+      "records": 281
     },
     {
       "path": "api/media-foundation.csv",
@@ -171,7 +171,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 162
+      "records": 170
     },
     {
       "path": "api/samples.csv",
@@ -226,5 +226,5 @@
   "capability_records": 20,
   "dependency_records": 20,
   "sample_records": 14,
-  "relationship_records": 162
+  "relationship_records": 170
 }
