@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **1103** |
-| Method records | **753** |
+| Symbol / type / property / HRESULT records | **1117** |
+| Method records | **818** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **26** |
 | Official sample records | **20** |
-| API relationship records | **209** |
-| **Total** | **2261** |
+| API relationship records | **228** |
+| **Total** | **2359** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -26,11 +26,12 @@ api/  → machine-readable symbol / method / version / source database
 
 | Family | Symbol DB | Method DB | Current level |
 |---|---:|---:|---|
-| MMDevice | 15 | 18 | Strong |
-| WASAPI / AudioClient | 26 | 36 | Strong |
-| Audio Session | 11 | 33 | Strong |
-| EndpointVolume | 8 | 23 | Strong |
-| DeviceTopology | 32 | 25 | Strong |
+| MMDevice | 17 | 26 | **Audited / L5** |
+| WASAPI / AudioClient | 27 | 50 | **Audited / L5** |
+| Audio Session | 11 | 33 | **Audited / L5** |
+| EndpointVolume | 8 | 24 | **Audited / L5** |
+| DeviceTopology | 32 | 64 | **Audited / L5** |
+| AudioStateMonitor | 11 | 3 | **Header audited / L5** |
 | WaveRT | 29 | 28 | Strong / integrated; RTAudio contract map added |
 | PortCls | 112 | 194 | Integrated; broad method audit complete, final edge audit pending |
 | ACX | 288 | 226 | Strong; header audit active |
@@ -73,8 +74,8 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **PortCls final edge audit: Node2 / obscure helper methods / exact IID + version metadata**
-2. **ACX per-header exhaustiveness audit and newer-version deltas using the new coverage audit**
+1. **APO / Media-Class INF contracts and Windows 11 system-effects registration**
+2. **Core Audio IID/CLSID + Header/Library/DLL dependency normalization after header audit**
 3. **KS method/media-seeking/allocator contracts beyond completed WaveRT/RTAudio map**
 4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
@@ -97,6 +98,7 @@ Describes important driver/framework entry points. WDK surface area is much larg
 - [PortCls Method Coverage Audit](../docs/104-PortCls-Method-Coverage-Audit.md)
 - [WaveRT / RTAudio Contract Map](../docs/103-WaveRT-RTAudio-Contract-Map.md)
 - [DirectMusic Kernel DDI](../docs/102-DirectMusic-Kernel-DDI.md)
+- [Core Audio SDK Header Coverage Audit](../docs/105-Core-Audio-SDK-Header-Coverage-Audit.md)
 
 ## Accuracy rule
 
@@ -116,7 +118,7 @@ Every change under `api/` is checked by:
 python scripts/validate_api_db.py
 ```
 
-GitHub Actions also runs the same validator for API database changes.
+GitHub Actions runs the validator on synchronized main-branch snapshots (`catalog.json` / schema / validator changes) and on every API change in pull requests. This avoids expected red runs from intermediate one-file commits while preserving strict PR validation.
 
 The validator checks:
 
