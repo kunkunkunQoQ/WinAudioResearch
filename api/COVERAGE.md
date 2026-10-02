@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **392** |
-| Method records | **269** |
+| Symbol / type / property / HRESULT records | **394** |
+| Method records | **306** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
 | API relationship records | **86** |
-| **Total** | **931** |
+| **Total** | **970** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -34,7 +34,7 @@ api/  → machine-readable symbol / method / version / source database
 | WaveRT | 12 | 20 | Strong core |
 | ACX | 21 | - | Symbol-level |
 | KS Audio | 14 | - | Symbol-level |
-| Spatial Audio | 38 | 21 | Strong |
+| Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
 | APO / System Effects | 18 | 15 | Strong core |
