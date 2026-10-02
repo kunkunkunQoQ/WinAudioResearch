@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **1159 structured records** — 517 symbol/type/property/error records, 372 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies, 14 official samples and 86 API relationships.
+Current catalog: **1238 structured records** — 560 symbol/type/property/error records, 383 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies, 14 official samples and 111 API relationships.
 
 来源优先级：
 
