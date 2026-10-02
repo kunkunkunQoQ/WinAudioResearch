@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **1074** |
-| Method records | **604** |
+| Symbol / type / property / HRESULT records | **1103** |
+| Method records | **753** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
-| Dependency records | **24** |
-| Official sample records | **14** |
-| API relationship records | **185** |
-| **Total** | **2051** |
+| Dependency records | **26** |
+| Official sample records | **20** |
+| API relationship records | **209** |
+| **Total** | **2261** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -31,15 +31,16 @@ api/  → machine-readable symbol / method / version / source database
 | Audio Session | 11 | 33 | Strong |
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 32 | 25 | Strong |
-| WaveRT | 12 | 28 | Strong / integrated |
-| PortCls | 112 | 64 | Integrated; header-index baseline |
+| WaveRT | 29 | 28 | Strong / integrated; RTAudio contract map added |
+| PortCls | 112 | 194 | Integrated; broad method audit complete, final edge audit pending |
 | ACX | 288 | 226 | Strong; header audit active |
-| KS Audio | 281 | - | Strong core; 27/27 audio sets + generic KS foundation |
+| KS Audio | 284 | - | Strong core; 27/27 audio sets + generic KS + RTAudio mapping |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
 | APO / System Effects | 18 | 15 | Strong core |
 | MIDI: WinMM + Windows MIDI Services | 28 | 82 members | Strong modern + legacy symbols |
+| DirectMusic Kernel DDI | 9 | 19 | Legacy contract indexed |
 | WinRT Audio / Device / Capture | 16 | 48 members | Strong core |
 | Driver / ACX / KS / WaveRT | 19 | - | Platform-level |
 | Audio Properties | 62 | - | Strong core |
@@ -72,9 +73,9 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **PortCls per-interface method exhaustiveness audit + DirectMusic dmusicks.h coverage**
+1. **PortCls final edge audit: Node2 / obscure helper methods / exact IID + version metadata**
 2. **ACX per-header exhaustiveness audit and newer-version deltas using the new coverage audit**
-3. **WaveRT supporting structs/RTAudio mappings + KS method/media-seeking/allocator details**
+3. **KS method/media-seeking/allocator contracts beyond completed WaveRT/RTAudio map**
 4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
@@ -93,6 +94,9 @@ Describes important driver/framework entry points. WDK surface area is much larg
 - [ACX Public Header Coverage Audit](../docs/97-ACX-Public-Header-Coverage-Audit.md)
 - [KS Audio Property Set Coverage](../docs/98-KS-Audio-Property-Set-Coverage.md)
 - [PortCls Reference and Coverage](../docs/101-PortCls-Reference-and-Coverage.md)
+- [PortCls Method Coverage Audit](../docs/104-PortCls-Method-Coverage-Audit.md)
+- [WaveRT / RTAudio Contract Map](../docs/103-WaveRT-RTAudio-Contract-Map.md)
+- [DirectMusic Kernel DDI](../docs/102-DirectMusic-Kernel-DDI.md)
 
 ## Accuracy rule
 
