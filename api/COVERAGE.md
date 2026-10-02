@@ -6,9 +6,13 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **253** |
+| Symbol / type / property / HRESULT records | **300** |
 | Method records | **249** |
-| **Total** | **502** |
+| Member / property / event records | **130** |
+| Capability/version records | **20** |
+| Dependency records | **20** |
+| Official sample records | **14** |
+| **Total** | **733** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -30,11 +34,11 @@ api/  → machine-readable symbol / method / version / source database
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
 | APO / System Effects | 18 | 15 | Strong core |
-| MIDI: WinMM + Windows MIDI Services | 28 | - | Symbol-level |
-| WinRT Audio / Device / Capture | 16 | - | Symbol-level |
+| MIDI: WinMM + Windows MIDI Services | 28 | 82 members | Strong modern + legacy symbols |
+| WinRT Audio / Device / Capture | 16 | 48 members | Strong core |
 | Driver / ACX / KS / WaveRT | 19 | - | Platform-level |
-| Audio Properties | 16 | - | Growing |
-| HRESULT | 14 | - | Growing |
+| Audio Properties | 28 | - | Growing |
+| HRESULT | 26 | - | Growing |
 | Undocumented | 9 | - | Explicitly separated |
 
 ## Definition of coverage levels
