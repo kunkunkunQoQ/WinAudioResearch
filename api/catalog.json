@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "last_verified": "2026-10-02",
   "total_records": 502,
   "symbol_records": 253,
@@ -149,5 +149,9 @@
       "family": "XAudio2",
       "records": 21
     }
-  ]
+  ],
+  "member_records": 0,
+  "capability_records": 0,
+  "dependency_records": 0,
+  "sample_records": 0
 }
