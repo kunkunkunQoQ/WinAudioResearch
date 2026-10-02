@@ -39,7 +39,7 @@ Microsoft explicitly documents this split and notes that a bound port/miniport p
 Current PortCls baseline:
 
 - **112** symbol/type/function records
-- **64** helper/interface method records
+- **194** helper/interface method records
 
 This is a **header-index baseline**, not yet a claim that every method of every legacy interface is exhaustively indexed.
 
@@ -372,3 +372,11 @@ Next pass:
   https://learn.microsoft.com/windows-hardware/drivers/audio/understanding-the-wavert-port-driver
 - WaveRT miniport driver  
   https://learn.microsoft.com/windows-hardware/drivers/audio/wavert-miniport-driver
+
+## Related focused audits
+
+- [PortCls Method Coverage Audit](104-PortCls-Method-Coverage-Audit.md)
+- [WaveRT / RTAudio Contract Map](103-WaveRT-RTAudio-Contract-Map.md)
+- [DirectMusic Kernel DDI](102-DirectMusic-Kernel-DDI.md)
+
+The broad PortCls surface now has strong method coverage across DMA, registry, service groups, WaveCyclic/WavePci, power/PnP, audio-engine/offload, notifications, ETW, DRM and dynamic subdevice helpers. A small edge audit remains before L5.
