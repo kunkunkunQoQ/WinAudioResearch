@@ -49,6 +49,7 @@ python scripts/query_api.py --status Undocumented
 - [Windows Audio 架构与接口地图](00-Windows-Audio-Architecture.md)
 - [Glossary / 术语表](17-Glossary.md)
 - [Windows Audio API 选择指南](33-API-Decision-Guide.md)
+- [Windows Audio Master Coverage Plan](99-Windows-Audio-Master-Coverage-Plan.md)
 - [Digital Audio Fundamentals for Windows Developers](57-Digital-Audio-Fundamentals-for-Windows-Developers.md)
 - [Microsoft 官方 Windows Audio 文档总索引](18-Microsoft-Official-Documentation-Index.md)
 - [API Reference Matrix](11-API-Reference-Matrix.md)
