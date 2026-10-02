@@ -218,3 +218,21 @@ Related research findings:
 6. 第三方和 reverse-engineering 来源不得覆盖成“官方事实”；
 7. Windows Build 敏感的结论要记录版本；
 8. 重叠文章可以保留，但必须通过本索引明确各自定位。
+
+
+---
+
+## 15. 近期扩展专题（83–92）
+
+这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
+
+- [Bluetooth Codec / Windows Version Matrix](83-Bluetooth-Codec-Windows-Version-Matrix.md)
+- [Modern Audio DeviceInformation Properties](84-Modern-Audio-DeviceInformation-Properties.md)
+- [Windows 11 Voice Clarity](85-Voice-Clarity-Windows-11.md)
+- [Audio HLK Fidelity / Glitch / Latency Tests](86-Audio-HLK-Fidelity-Glitch-Latency-Tests.md)
+- [Windows Built-in Audio Codecs Version Notes](87-Windows-Built-in-Audio-Codecs-Version-Notes.md)
+- [Microsoft Audio ETW / CollectAudioLogs](88-Microsoft-Audio-ETW-Logging-Tools.md)
+- [Modern .NET Win32 / COM Interop](89-Modern-DotNet-Win32-COM-Interop.md)
+- [Modern C++ COM Patterns：WIL / WRL / C++/WinRT](90-Modern-Cpp-COM-Patterns-WIL-WRL-CppWinRT.md)
+- [CLAP Audio Plug-in Format](91-CLAP-Audio-Plugin-Format.md)
+- [AAX / JACK / Pro Audio Host Ecosystem](92-AAX-JACK-and-Pro-Audio-Host-Ecosystem.md)
