@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **2261 structured records** — 1103 symbol/type/property/error records, 753 method records, 130 WinRT/MIDI members, 20 capability records, 26 dependencies, 20 official/archived Microsoft sample records and 209 API relationships.
+Current catalog: **2359 structured records** — 1117 symbol/type/property/error records, 818 method records, 130 WinRT/MIDI members, 20 capability records, 26 dependencies, 20 official/archived Microsoft sample records and 228 API relationships.
 
 来源优先级：
 
@@ -76,6 +76,7 @@ not:
 - [core-mmdevice.csv](core-mmdevice.csv)
 - [wasapi.csv](wasapi.csv)
 - [audio-session.csv](audio-session.csv)
+- [audio-state-monitor.csv](audio-state-monitor.csv)
 - [endpoint-volume.csv](endpoint-volume.csv)
 - [device-topology.csv](device-topology.csv)
 - [spatial-audio.csv](spatial-audio.csv)
@@ -100,6 +101,7 @@ not:
 - [methods-mmdevice.csv](methods-mmdevice.csv)
 - [methods-wasapi.csv](methods-wasapi.csv)
 - [methods-session.csv](methods-session.csv)
+- [methods-audio-state-monitor.csv](methods-audio-state-monitor.csv)
 - [methods-endpointvolume.csv](methods-endpointvolume.csv)
 - [methods-devicetopology.csv](methods-devicetopology.csv)
 - [methods-spatial.csv](methods-spatial.csv)
@@ -147,7 +149,7 @@ python scripts/query_relations.py IMMDevice --depth 3 --dot > graph.dot
 python scripts/validate_api_db.py
 ```
 
-The GitHub Actions workflow `.github/workflows/validate-api-db.yml` automatically validates database changes.
+The GitHub Actions workflow `.github/workflows/validate-api-db.yml` validates synchronized database snapshots. Main-branch pushes run validation when `catalog.json`, schema or validator/workflow files change; pull requests still validate every `api/**` change.
 
 ## Query examples
 
