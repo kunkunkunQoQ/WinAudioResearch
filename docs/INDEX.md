@@ -61,6 +61,7 @@ python scripts/query_api.py --status Undocumented
 - [Windows SDK Audio Header Catalog](66-Windows-SDK-Audio-Header-Catalog.md)
 - [Core Audio / WASAPI Interface Catalog](64-Core-Audio-Interface-Catalog.md)
 - [Core Audio SDK Header Coverage Audit](105-Core-Audio-SDK-Header-Coverage-Audit.md)
+- [Core Audio IID/CLSID and Dependencies Audit](110-Core-Audio-Identifiers-and-Dependencies-Audit.md)
 - [Core Audio Structures / Enums Catalog](66-Core-Audio-Structures-Enums-Catalog.md)
 
 ---
@@ -278,7 +279,7 @@ Related research findings:
 
 ---
 
-## 15. 近期扩展专题（83–109）
+## 15. 近期扩展专题（83–110）
 
 这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
 
@@ -301,3 +302,5 @@ Related research findings:
 - [APO Processing Modes / APOERR / MsApoFxProxy Audit](107-APO-Processing-Modes-and-APOERR-Audit.md)
 - [APO Effect GUID / IID-SID / Base Helper Final Audit](108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md)
 - [KS Generic Streaming Contracts Audit](109-KS-Generic-Streaming-Contracts-Audit.md)
+
+- [Core Audio IID/CLSID and Dependencies Audit](110-Core-Audio-Identifiers-and-Dependencies-Audit.md)

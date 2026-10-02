@@ -10,10 +10,10 @@ Last verified: **2026-10-02**
 | Method records | **854** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
-| Dependency records | **32** |
+| Dependency records | **102** |
 | Official sample records | **23** |
 | API relationship records | **361** |
-| **Total** | **2755** |
+| **Total** | **2825** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -78,7 +78,7 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **Core Audio IID/CLSID + Header/Library/DLL dependency normalization**
+1. **Core Audio adjacent SDK declarations + callback/apartment/lifetime evidence** (63 existing IID/CLSID records and dependencies normalized in audit 110)
 2. **remaining PortCls edge-method/IID/version audit**
 3. **ACX newer-WDK per-header delta audit**
 4. **remaining generic KS events/categories/AVStream callback boundaries**
@@ -106,6 +106,7 @@ Describes important driver/framework entry points. WDK surface area is much larg
 - [APO Processing Modes / APOERR / MsApoFxProxy Audit](../docs/107-APO-Processing-Modes-and-APOERR-Audit.md)
 - [APO Effect GUID / IID-SID / Base Helper Final Audit](../docs/108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md)
 - [KS Generic Streaming Contracts Audit](../docs/109-KS-Generic-Streaming-Contracts-Audit.md)
+- [Core Audio IID/CLSID and Dependencies Audit](../docs/110-Core-Audio-Identifiers-and-Dependencies-Audit.md)
 
 ## Accuracy rule
 

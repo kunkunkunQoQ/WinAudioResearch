@@ -25,7 +25,7 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **2755 条结构化记录**：
+当前数据库包含 **2825 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
@@ -33,7 +33,7 @@
 | Method / callback / DDI | **854** |
 | WinRT / MIDI members | **130** |
 | Capability / version | **20** |
-| Dependency | **32** |
+| Dependency | **102** |
 | Official samples | **23** |
 | API relationships | **361** |
 
@@ -66,7 +66,7 @@ python scripts/query_relations.py IMMDevice --depth 2
 python scripts/validate_api_db.py
 ```
 
-数据库由 GitHub Actions 自动校验 schema、重复项、来源链接和 catalog 计数。
+数据库由 GitHub Actions 自动校验 schema、重复项、来源链接和 catalog 计数。Core Audio 的 **63 个 IID/CLSID** 与依赖另有[固定 SDK 来源审计](docs/110-Core-Audio-Identifiers-and-Dependencies-Audit.md)，包含自动来源比对。
 
 ## Windows Audio 分层
 

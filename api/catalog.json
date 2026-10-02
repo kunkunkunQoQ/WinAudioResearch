@@ -1,7 +1,7 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2755,
+  "total_records": 2825,
   "symbol_records": 1335,
   "method_records": 854,
   "tables": [
@@ -69,7 +69,7 @@
       "path": "api/dependencies.csv",
       "type": "dependency",
       "family": "BuildDependencies",
-      "records": 32
+      "records": 102
     },
     {
       "path": "api/device-topology.csv",
@@ -290,7 +290,7 @@
   ],
   "member_records": 130,
   "capability_records": 20,
-  "dependency_records": 32,
+  "dependency_records": 102,
   "sample_records": 23,
   "relationship_records": 361
 }

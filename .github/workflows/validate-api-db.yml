@@ -9,7 +9,10 @@ on:
     paths:
       - "api/catalog.json"
       - "api/schema.json"
+      - "api/core-audio-audit.json"
       - "scripts/validate_api_db.py"
+      - "scripts/validate_core_audio_audit.py"
+      - "tests/test_core_audio_audit.py"
       - ".github/workflows/validate-api-db.yml"
 
   # Pull requests still validate every API database change. A PR represents the
@@ -18,6 +21,8 @@ on:
     paths:
       - "api/**"
       - "scripts/validate_api_db.py"
+      - "scripts/validate_core_audio_audit.py"
+      - "tests/test_core_audio_audit.py"
       - ".github/workflows/validate-api-db.yml"
 
   workflow_dispatch:
@@ -41,3 +46,9 @@ jobs:
 
       - name: Validate API database
         run: python scripts/validate_api_db.py
+
+      - name: Test Core Audio audit checks
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify Core Audio identifiers against pinned Microsoft headers
+        run: python scripts/validate_core_audio_audit.py --fetch-headers

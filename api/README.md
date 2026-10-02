@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **2755 structured records** — 1335 symbol/type/property/error records, 854 method records, 130 WinRT/MIDI members, 20 capability records, 32 dependencies, 23 official/archived Microsoft sample records and 361 API relationships.
+Current catalog: **2825 structured records** — 1335 symbol/type/property/error records, 854 method records, 130 WinRT/MIDI members, 20 capability records, 102 dependencies, 23 official/archived Microsoft sample records and 361 API relationships.
 
 来源优先级：
 
@@ -134,6 +134,7 @@ not:
 
 - [catalog.json](catalog.json) — table inventory + record counts
 - [schema.json](schema.json) — common symbol-record schema
+- [core-audio-audit.json](core-audio-audit.json) — pinned SDK identity/dependency evidence and explicit header gaps; [audit guide](../docs/110-Core-Audio-Identifiers-and-Dependencies-Audit.md)
 - [COVERAGE.md](COVERAGE.md) — current coverage and next targets
 
 ### Tooling
@@ -152,6 +153,7 @@ python scripts/query_relations.py IAudioClient --direction both --depth 2
 python scripts/query_relations.py IMMDevice --depth 3 --dot > graph.dot
 
 python scripts/validate_api_db.py
+python scripts/validate_core_audio_audit.py --fetch-headers
 ```
 
 The GitHub Actions workflow `.github/workflows/validate-api-db.yml` validates synchronized database snapshots. Main-branch pushes run validation when `catalog.json`, schema or validator/workflow files change; pull requests still validate every `api/**` change.

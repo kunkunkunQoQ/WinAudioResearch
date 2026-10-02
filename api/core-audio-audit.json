@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "verified": "2026-10-02",
+  "source_repository": "https://github.com/microsoft/win32metadata",
+  "source_commit": "5c5efbc01d4c87f6830ec304d42777991d533154",
+  "source_path": "generation/WinSDK/RecompiledIdlHeaders/um",
+  "groups": [
+    {
+      "table": "api/core-mmdevice.csv",
+      "header": "mmdeviceapi.h",
+      "header_sha256": "dcacabdf69f267a7892ab61f22f3293fc3173c2d962306ce89a0145def7b7b1a",
+      "interfaces": {
+        "IMMDeviceEnumerator": "A95664D2-9614-4F35-A746-DE8DB63617E6",
+        "IMMDeviceCollection": "0BD7A1BE-7A1A-44DB-8397-CC5392387B5E",
+        "IMMDevice": "D666063F-1587-4E43-81F1-B948E807363F",
+        "IMMEndpoint": "1BE09788-6894-4089-8586-9A2A6C265AC5",
+        "IMMNotificationClient": "7991EEC9-7E89-4D85-8390-6C703CEC60C0",
+        "IActivateAudioInterfaceAsyncOperation": "72A22D78-CDE4-431D-B8CC-843A71199B6D",
+        "IActivateAudioInterfaceCompletionHandler": "41D949AB-9862-444A-80F6-C261334DA5EB",
+        "IAudioSystemEffectsPropertyStore": "302AE7F9-D7E0-43E4-971B-1F8293613D2A",
+        "IAudioSystemEffectsPropertyChangeNotificationClient": "20049D40-56D5-400E-A2EF-385599FEED49"
+      },
+      "classes": {
+        "MMDeviceEnumerator": "BCDE0395-E52F-467C-8E3D-C4579291692E"
+      },
+      "excluded_declarations": {
+        "IMMDeviceActivator": "SDK declaration outside the indexed endpoint-client acquisition paths; activation-provider contract review remains pending."
+      }
+    },
+    {
+      "table": "api/wasapi.csv",
+      "header": "Audioclient.h",
+      "header_sha256": "f0ddbd205f63352f5f1d04e429f7a168ebebfbebe5e879c36c876ac7ec520df2",
+      "interfaces": {
+        "IAudioClient": "1CB9AD4C-DBFA-4C32-B178-C2F568A703B2",
+        "IAudioClient2": "726778CD-F60A-4EDA-82DE-E47610CD78AA",
+        "IAudioClient3": "7ED4EE07-8E67-4CD4-8C1A-2B7A5987AD42",
+        "IAudioRenderClient": "F294ACFC-3146-4483-A7BF-ADDCA7C260E2",
+        "IAudioCaptureClient": "C8ADBD64-E71E-48A0-A4DE-185C395CD317",
+        "IAudioClock": "CD63314F-3FBA-4A1B-812C-EF96358728E7",
+        "IAudioClock2": "6F49FF73-6727-49AC-A008-D98CF5E70048",
+        "IAudioClockAdjustment": "F6E4C0A0-46D9-4FB8-BE21-57A3EF2B626C",
+        "IAudioStreamVolume": "93014887-242D-4068-8A15-CF5E93B90FE3",
+        "IChannelAudioVolume": "1C158861-B533-4B30-B1CF-E853E51C59B8",
+        "ISimpleAudioVolume": "87CE5498-68D6-44E5-9215-6DA47EF883D8",
+        "IAudioClientDuckingControl": "C789D381-A28C-4168-B28F-D3A837924DC3",
+        "IAudioEffectsManager": "4460B3AE-4B44-4527-8676-7548A8ACD260",
+        "IAudioEffectsChangedNotificationClient": "A5DED44F-3C5D-4B2B-BD1E-5DC1EE20BBF6",
+        "IAudioViewManagerService": "A7A7EF10-1F49-45E0-AD35-612057CC8F74",
+        "IAcousticEchoCancellationControl": "F4AE25B5-AAA3-437D-B6B3-DBBE2D0E9549"
+      },
+      "classes": {},
+      "excluded_declarations": {
+        "IAudioAmbisonicsControl": "Adjacent WASAPI control interface; method and version audit remains pending."
+      }
+    },
+    {
+      "table": "api/audio-session.csv",
+      "header": "audiopolicy.h",
+      "header_sha256": "f9f85bd6f47c32ff4dbb3f9abb2c97e3472b5b4531a0003e6c79dc8d665ddb38",
+      "interfaces": {
+        "IAudioSessionManager": "BFA971F1-4D5E-40BB-935E-967039BFBEE4",
+        "IAudioSessionManager2": "77AA99A0-1BD6-484F-8BC7-2C654C9A9B6F",
+        "IAudioSessionControl": "F4B1A599-7266-4319-A8CA-E70ACB11E8CD",
+        "IAudioSessionControl2": "BFB7FF88-7239-4FC9-8FA2-07C950BE9C6D",
+        "IAudioSessionEnumerator": "E2F5BB11-0570-40CA-ACDD-3AA01277DEE8",
+        "IAudioSessionEvents": "24918ACC-64B3-37C1-8CA9-74A66E9957A8",
+        "IAudioSessionNotification": "641DD20B-4D41-49CC-ABA3-174B9477BB08",
+        "IAudioVolumeDuckNotification": "C3B284D4-6D39-4359-B3CF-B56DDB3BB39C"
+      },
+      "classes": {},
+      "excluded_declarations": {}
+    },
+    {
+      "table": "api/endpoint-volume.csv",
+      "header": "endpointvolume.h",
+      "header_sha256": "e9a35c9edf8c9dd931da5fe1ea84344f0e20595d037ec6e97fa189d3d155ccd0",
+      "interfaces": {
+        "IAudioEndpointVolume": "5CDF2C82-841E-4546-9722-0CF74078229A",
+        "IAudioEndpointVolumeEx": "66E11784-F695-4F28-A505-A7080081A78F",
+        "IAudioEndpointVolumeCallback": "657804FA-D6AD-4496-8A60-352752AF4F89",
+        "IAudioMeterInformation": "C02216F6-8C67-4B5B-9D00-D008E73E0064"
+      },
+      "classes": {},
+      "excluded_declarations": {}
+    },
+    {
+      "table": "api/device-topology.csv",
+      "header": "devicetopology.h",
+      "header_sha256": "00c16e449d4937f0a99ac796f4ea1b7652a2909b8463c771af25faf23d16e1fc",
+      "interfaces": {
+        "IDeviceTopology": "2A07407E-6497-4A18-9787-32F79BD0D98F",
+        "IConnector": "9C2C4058-23F5-41DE-877A-DF3AF236A09E",
+        "IPart": "AE2DE0E4-5BCA-4F2D-AA46-5D13F8FDB3A9",
+        "IPartsList": "6DAA848C-5EB0-45CC-AEA5-998A2CDA1FFB",
+        "ISubunit": "82149A85-DBA6-4487-86BB-EA8F7FEFCC71",
+        "IControlInterface": "45D37C3F-5140-444A-AE24-400789F3CBF3",
+        "IKsJackDescription": "4509F757-2D46-4637-8E62-CE7DB944F57B",
+        "IKsJackDescription2": "478F3A9B-E0C9-4827-9228-6F5505FFE76A",
+        "IKsJackSinkInformation": "D9BD72ED-290F-4581-9FF3-61027A8FE532",
+        "IKsFormatSupport": "3CB4A69D-BB6F-4D2B-95B7-452D2C155DB5",
+        "IAudioVolumeLevel": "7FB7B48F-531D-44A2-BCB3-5AD5A134B3DC",
+        "IAudioMute": "DF45AEEA-B74A-4B6B-AFAD-2366B6AA012E",
+        "IAudioAutoGainControl": "85401FD4-6DE4-4B9D-9869-2D6753A82F3C",
+        "IAudioBass": "A2B1A1D9-4DB3-425D-A2B2-BD335CB3E2E5",
+        "IAudioTreble": "0A717812-694E-4907-B74B-BAFA5CFDCA7B",
+        "IAudioLoudness": "7D8B1437-DD53-4350-9C1B-1EE2890BD938",
+        "IAudioInputSelector": "4F03DC02-5E6E-4653-8F72-A030C123D598",
+        "IAudioOutputSelector": "BB515F69-94A7-429E-8B9C-271B3F11A3AB",
+        "IAudioChannelConfig": "BB11C46F-EC28-493C-B88A-5DB88062CE98",
+        "IDeviceSpecificProperty": "3B22BCBF-2586-4AF0-8583-205D391B807C",
+        "IPerChannelDbLevel": "C2F8E001-F205-4BC9-99BC-C13B1E048CCB",
+        "IAudioMidrange": "5E54B6D7-B44B-40D9-9A9E-E691D9CE6EDF",
+        "IAudioPeakMeter": "DD79923C-0599-45E0-B8B6-C8DF7DB6E796",
+        "IControlChangeNotify": "A09513ED-C709-4D21-BD7B-5F34C47F3947"
+      },
+      "classes": {},
+      "excluded_declarations": {
+        "DeviceTopology": "SDK coclass declaration; supported endpoint topology acquisition uses IMMDevice.Activate. Direct coclass activation is outside this audit.",
+        "IKsControl": "Adjacent generic KS control ABI; dedicated property/method/event and acquisition review remains pending.",
+        "IKsJackDescription3": "Newer jack description interface; method and version audit remains pending.",
+        "IKsJackContainerId": "Adjacent jack identity interface; method and version audit remains pending."
+      }
+    },
+    {
+      "table": "api/audio-state-monitor.csv",
+      "header": "audiostatemonitorapi.h",
+      "header_sha256": "7f5fe5b83f2f14ad44025ad99d8747bb60b3631a28f5768888f2d9f70f00e23b",
+      "interfaces": {
+        "IAudioStateMonitor": "63BD8738-E30D-4C77-BF5C-834E87C657E2"
+      },
+      "classes": {},
+      "excluded_declarations": {}
+    }
+  ],
+  "function_dependencies": {
+    "CreateCaptureAudioStateMonitor": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createcaptureaudiostatemonitor"
+    },
+    "CreateCaptureAudioStateMonitorForCategory": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createcaptureaudiostatemonitorforcategory"
+    },
+    "CreateCaptureAudioStateMonitorForCategoryAndDeviceId": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createcaptureaudiostatemonitorforcategoryanddeviceid"
+    },
+    "CreateCaptureAudioStateMonitorForCategoryAndDeviceRole": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createcaptureaudiostatemonitorforcategoryanddevicerole"
+    },
+    "CreateRenderAudioStateMonitor": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createrenderaudiostatemonitor"
+    },
+    "CreateRenderAudioStateMonitorForCategory": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createrenderaudiostatemonitorforcategory"
+    },
+    "CreateRenderAudioStateMonitorForCategoryAndDeviceId": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createrenderaudiostatemonitorforcategoryanddeviceid"
+    },
+    "CreateRenderAudioStateMonitorForCategoryAndDeviceRole": {
+      "family": "AudioStateMonitor",
+      "header": "audiostatemonitorapi.h",
+      "library": "windows.media.mediacontrol.lib",
+      "dll_or_runtime": "Windows audio-state monitor runtime",
+      "status": "Public",
+      "min_client": "Build 19043",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createrenderaudiostatemonitorforcategoryanddevicerole"
+    },
+    "CoInitializeEx": {
+      "family": "COM",
+      "header": "combaseapi.h",
+      "library": "Ole32.lib",
+      "dll_or_runtime": "Ole32.dll",
+      "status": "Public",
+      "min_client": "Windows 2000",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-coinitializeex"
+    },
+    "CoUninitialize": {
+      "family": "COM",
+      "header": "combaseapi.h",
+      "library": "Ole32.lib",
+      "dll_or_runtime": "Ole32.dll",
+      "status": "Public",
+      "min_client": "Windows 2000",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-couninitialize"
+    },
+    "CoCreateInstance": {
+      "family": "COM",
+      "header": "combaseapi.h",
+      "library": "Ole32.lib",
+      "dll_or_runtime": "Ole32.dll",
+      "status": "Public",
+      "min_client": "Windows 2000",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-cocreateinstance"
+    },
+    "CoTaskMemFree": {
+      "family": "COM",
+      "header": "combaseapi.h",
+      "library": "Ole32.lib",
+      "dll_or_runtime": "Ole32.dll",
+      "status": "Public",
+      "min_client": "Windows 2000",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-cotaskmemfree"
+    },
+    "ActivateAudioInterfaceAsync": {
+      "family": "MMDevice",
+      "header": "mmdeviceapi.h",
+      "library": "Mmdevapi.lib",
+      "dll_or_runtime": "Mmdevapi.dll",
+      "status": "Public",
+      "min_client": "Windows 8",
+      "docs_url": "https://learn.microsoft.com/windows/win32/api/mmdeviceapi/nf-mmdeviceapi-activateaudiointerfaceasync"
+    }
+  }
+}
