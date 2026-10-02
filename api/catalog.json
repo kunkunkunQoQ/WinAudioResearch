@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2359,
-  "symbol_records": 1117,
-  "method_records": 818,
+  "total_records": 2466,
+  "symbol_records": 1170,
+  "method_records": 838,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -15,7 +15,7 @@
       "path": "api/apo.csv",
       "type": "symbol",
       "family": "APO",
-      "records": 18
+      "records": 51
     },
     {
       "path": "api/audio-formats.csv",
@@ -24,10 +24,16 @@
       "records": 23
     },
     {
+      "path": "api/audio-inf.csv",
+      "type": "symbol",
+      "family": "AudioINF",
+      "records": 16
+    },
+    {
       "path": "api/audio-properties.csv",
       "type": "symbol",
       "family": "Properties",
-      "records": 62
+      "records": 66
     },
     {
       "path": "api/audio-session.csv",
@@ -51,7 +57,7 @@
       "path": "api/dependencies.csv",
       "type": "dependency",
       "family": "BuildDependencies",
-      "records": 26
+      "records": 30
     },
     {
       "path": "api/device-topology.csv",
@@ -117,7 +123,7 @@
       "path": "api/methods-apo.csv",
       "type": "method",
       "family": "APO",
-      "records": 15
+      "records": 35
     },
     {
       "path": "api/methods-audio-state-monitor.csv",
@@ -207,13 +213,13 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 228
+      "records": 255
     },
     {
       "path": "api/samples.csv",
       "type": "sample",
       "family": "MicrosoftSamples",
-      "records": 20
+      "records": 23
     },
     {
       "path": "api/spatial-audio.csv",
@@ -260,7 +266,7 @@
   ],
   "member_records": 130,
   "capability_records": 20,
-  "dependency_records": 26,
-  "sample_records": 20,
-  "relationship_records": 228
+  "dependency_records": 30,
+  "sample_records": 23,
+  "relationship_records": 255
 }
