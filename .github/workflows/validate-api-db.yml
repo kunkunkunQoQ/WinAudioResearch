@@ -1,27 +1,43 @@
 name: Validate API database
 
 on:
+  # On main-branch pushes, validate only synchronization/validator changes.
+  # API tables are often updated through multiple sequential commits (for example
+  # by the GitHub connector), so validating every intermediate CSV commit creates
+  # expected red runs before catalog.json is synchronized.
   push:
     paths:
-      - "api/**"
+      - "api/catalog.json"
+      - "api/schema.json"
       - "scripts/validate_api_db.py"
       - ".github/workflows/validate-api-db.yml"
+
+  # Pull requests still validate every API database change. A PR represents the
+  # complete proposed snapshot and must never merge with stale catalog counts.
   pull_request:
     paths:
       - "api/**"
       - "scripts/validate_api_db.py"
       - ".github/workflows/validate-api-db.yml"
 
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: validate-api-db-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
       - name: Validate API database
         run: python scripts/validate_api_db.py
