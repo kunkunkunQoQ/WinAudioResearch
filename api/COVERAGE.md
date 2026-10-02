@@ -6,13 +6,13 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **300** |
-| Method records | **249** |
+| Symbol / type / property / HRESULT records | **347** |
+| Method records | **269** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
-| **Total** | **733** |
+| **Total** | **800** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -30,6 +30,9 @@ api/  → machine-readable symbol / method / version / source database
 | Audio Session | 11 | 33 | Strong |
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 24 | 25 | Strong |
+| WaveRT | 12 | 20 | Strong core |
+| ACX | 21 | - | Symbol-level |
+| KS Audio | 14 | - | Symbol-level |
 | Spatial Audio | 11 | 21 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
