@@ -107,6 +107,10 @@ Areas that still require deeper member/type auditing:
 - exact FMRX structure/type metadata;
 - old WDM property sets outside Microsoft's current audio-specific list.
 
+## Generic KS follow-up
+
+The generic KS layer described below has now been structured in `api/ks-core.csv` and `api/methods-ks.csv`, including Pin / Connection / Standard interfaces / MediaSeeking / Clock / allocator and StreamIo. See [KS Generic Streaming Contracts Audit](109-KS-Generic-Streaming-Contracts-Audit.md).
+
 ## Next KS audit boundary
 
 The next stage should expand beyond the 27-family checklist into related KS contracts that audio drivers rely on but that are not all listed as audio-specific property sets:

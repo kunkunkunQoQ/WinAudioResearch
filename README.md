@@ -25,17 +25,17 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **2551 条结构化记录**：
+当前数据库包含 **2755 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
-| Symbol / type / property / HRESULT | **1221** |
-| Method / callback / DDI | **850** |
+| Symbol / type / property / HRESULT | **1335** |
+| Method / callback / DDI | **854** |
 | WinRT / MIDI members | **130** |
 | Capability / version | **20** |
 | Dependency | **32** |
 | Official samples | **23** |
-| API relationships | **275** |
+| API relationships | **361** |
 
 主要覆盖：
 
@@ -48,7 +48,7 @@
 - MIDI / Windows MIDI Services
 - APO / Effects / Processing Modes / current SDK `AUDIO_EFFECT_TYPE_*` GUID family
 - Audio INF / APO packaging / Windows 11 CAPX property stores
-- WaveRT / Kernel Streaming
+- WaveRT / Kernel Streaming / generic KS Pin-Connection-Allocator-Clock contracts
 - **ACX：Circuit、Stream、Element、DataFormat、Target、Manager、Factory、Device、Driver、ObjectBag**
 - Audio endpoint / DeviceInformation / Driver INF property keys
 - HRESULT / capability / dependency / relationship graph

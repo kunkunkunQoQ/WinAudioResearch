@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **2551 structured records** — 1221 symbol/type/property/error records, 850 method records, 130 WinRT/MIDI members, 20 capability records, 32 dependencies, 23 official/archived Microsoft sample records and 275 API relationships.
+Current catalog: **2755 structured records** — 1335 symbol/type/property/error records, 854 method records, 130 WinRT/MIDI members, 20 capability records, 32 dependencies, 23 official/archived Microsoft sample records and 361 API relationships.
 
 来源优先级：
 
@@ -90,6 +90,7 @@ not:
 - [portcls.csv](portcls.csv)
 - [acx.csv](acx.csv)
 - [ks-audio.csv](ks-audio.csv)
+- [ks-core.csv](ks-core.csv)
 - [driver-platform.csv](driver-platform.csv)
 - [audio-formats.csv](audio-formats.csv)
 - [audio-effects.csv](audio-effects.csv)
@@ -115,6 +116,7 @@ not:
 - [methods-wavert.csv](methods-wavert.csv)
 - [methods-portcls.csv](methods-portcls.csv)
 - [methods-dmusicks.csv](methods-dmusicks.csv)
+- [methods-ks.csv](methods-ks.csv)
 
 ### Members / capabilities / dependencies / samples
 

@@ -34,6 +34,7 @@
 - [WaveRT](../api/wavert.csv)
 - [ACX](../api/acx.csv)
 - [KS Audio](../api/ks-audio.csv)
+- [KS Core](../api/ks-core.csv)
 - [Audio Formats](../api/audio-formats.csv)
 - [Windows Capabilities](../api/windows-capabilities.csv)
 - [Build Dependencies](../api/dependencies.csv)
@@ -181,6 +182,7 @@ python scripts/query_api.py --status Undocumented
 - [ACX Public Header Coverage Audit](97-ACX-Public-Header-Coverage-Audit.md)
 - [KS Audio Property Set Coverage](98-KS-Audio-Property-Set-Coverage.md)
 - [KS Core Foundation：General / Connection / Interfaces / Events](100-KS-Core-Foundation.md)
+- [KS Generic Streaming Contracts Audit](109-KS-Generic-Streaming-Contracts-Audit.md)
 - [Audio Driver INF / Endpoint Configuration](75-Audio-Driver-INF-and-Endpoint-Configuration.md)
 - [Windows ARM64 Audio Development](79-Windows-ARM64-Audio-Development.md)
 - [Driver Signing / Distribution](80-Driver-Signing-and-Distribution.md)
@@ -276,7 +278,7 @@ Related research findings:
 
 ---
 
-## 15. 近期扩展专题（83–108）
+## 15. 近期扩展专题（83–109）
 
 这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
 
@@ -298,3 +300,4 @@ Related research findings:
 - [Thunderbolt / PCIe Pro Audio on Windows](96-Thunderbolt-PCIe-Pro-Audio-on-Windows.md)
 - [APO Processing Modes / APOERR / MsApoFxProxy Audit](107-APO-Processing-Modes-and-APOERR-Audit.md)
 - [APO Effect GUID / IID-SID / Base Helper Final Audit](108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md)
+- [KS Generic Streaming Contracts Audit](109-KS-Generic-Streaming-Contracts-Audit.md)
