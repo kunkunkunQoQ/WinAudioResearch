@@ -14,6 +14,8 @@
 |---|---|
 | 查某个 API / Header / IID / 最低系统版本 | **[API Database](api/README.md)** |
 | 看当前数据库覆盖范围 | **[API Coverage](api/COVERAGE.md)** |
+| 看大型资料库总体建设计划 | **[Master Coverage Plan](docs/99-Windows-Audio-Master-Coverage-Plan.md)** |
+| 看机器可读领域覆盖矩阵 | **[Domain Coverage Matrix](coverage/windows-audio-domains.csv)** |
 | 从需求选择 Windows Audio API | **[API Decision Guide](docs/33-API-Decision-Guide.md)** |
 | 理解 Windows Audio 整体架构 | **[Architecture](docs/00-Windows-Audio-Architecture.md)** |
 | 查 Microsoft 官方资料入口 | **[Official Documentation Index](docs/18-Microsoft-Official-Documentation-Index.md)** |
@@ -23,17 +25,17 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **1810 条结构化记录**：
+当前数据库包含 **1848 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
-| Symbol / type / property / HRESULT | **932** |
+| Symbol / type / property / HRESULT | **962** |
 | Method / callback / DDI | **532** |
 | WinRT / MIDI members | **130** |
 | Capability / version | **20** |
 | Dependency | **20** |
 | Official samples | **14** |
-| API relationships | **162** |
+| API relationships | **170** |
 
 主要覆盖：
 
