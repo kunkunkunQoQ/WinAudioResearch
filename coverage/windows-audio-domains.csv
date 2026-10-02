@@ -13,8 +13,8 @@ MEDIA-03,Media / Game,MIDI,4,5,P2,api/midi.csv;api/members-midi.csv,docs/29-Wind
 LEGACY-01,Legacy,WinMM wave / mixer,1,4,P3,,docs/30-Legacy-Windows-Audio-APIs.md,SDK API inventory,Historical compatibility
 LEGACY-02,Legacy,DirectSound / DirectMusic,2,4,P3,api/ks-audio.csv,docs/30-Legacy-Windows-Audio-APIs.md,Legacy SDK + KS mapping audit,Important for historical driver contracts
 DRIVER-01,Driver,ACX,5,6,P1,api/acx.csv;api/methods-acx.csv,docs/71-ACX-Deep-Dive.md;docs/97-ACX-Public-Header-Coverage-Audit.md,Per-header current WDK audit,Modern class extension
-DRIVER-02,Driver,WaveRT,3,5,P1,api/wavert.csv;api/methods-wavert.csv,docs/70-WaveRT-Deep-Dive.md,portcls WaveRT interface audit,Realtime driver streaming
-DRIVER-03,Driver,PortCls,1,5,P1,api/driver-platform.csv,docs/25-Audio-Driver-Stack-WDM-WaveRT-ACX-KS.md,PortCls header/interface audit,Legacy/current port-miniport layer
+DRIVER-02,Driver,WaveRT,4,5,P1,api/wavert.csv;api/methods-wavert.csv,docs/70-WaveRT-Deep-Dive.md;docs/101-PortCls-Reference-and-Coverage.md,WaveRT supporting structs and RTAudio cross-link audit,Realtime driver streaming
+DRIVER-03,Driver,PortCls,4,5,P1,api/portcls.csv;api/methods-portcls.csv;api/dependencies.csv,docs/101-PortCls-Reference-and-Coverage.md,Per-interface method audit plus dmusicks.h,Port-miniport layer integrated with relationships and dependencies
 DRIVER-04,Driver,Kernel Streaming Audio,4,5,P1,api/ks-audio.csv,docs/74-Kernel-Streaming-Deep-Dive.md;docs/98-KS-Audio-Property-Set-Coverage.md,KS member/type/event audit,Property event pin topology foundation
 DRIVER-05,Driver,APO / effects,3,5,P1,api/apo.csv;api/methods-apo.csv,docs/23-Audio-Processing-Objects-APO.md,APO header + INF audit,System effects processing
 POLICY-01,Policy / Identity,EndpointBuilder / default policy,2,5,P2,api/audio-properties.csv,docs/35-Endpoint-Builder-and-Default-Selection.md,Public docs + observed behavior audit,Endpoint construction and selection
