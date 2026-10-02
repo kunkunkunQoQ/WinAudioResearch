@@ -113,6 +113,24 @@ Audio Policy
 完整 IID / Header / 最低系统版本：  
 **[API Reference Matrix](docs/11-API-Reference-Matrix.md)**
 
+### Machine-readable API Database
+
+仓库同时维护独立的结构化 API 数据库：
+
+- **[API Database](api/README.md)** — 当前 **502 条**结构化记录
+- **[Coverage](api/COVERAGE.md)** — 各 API family 覆盖率
+- **[catalog.json](api/catalog.json)** — 机器可读表清单与记录计数
+
+可直接查询：
+
+```bash
+python scripts/query_api.py IAudioClient
+python scripts/query_api.py --status Undocumented
+python scripts/query_api.py --family MediaFoundation
+```
+
+数据库修改由 GitHub Actions 自动执行 `scripts/validate_api_db.py` 校验。
+
 想直接从需求选择技术栈：  
 **[Windows Audio API 选择指南](docs/33-API-Decision-Guide.md)**
 
