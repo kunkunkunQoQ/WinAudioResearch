@@ -244,3 +244,14 @@ https://github.com/microsoft/Windows-driver-samples/tree/main/audio/sysvad
 
 - IAudioEffectsManager  
   https://learn.microsoft.com/windows/win32/api/audioclient/nn-audioclient-iaudioeffectsmanager
+
+## Structured audit
+
+The machine-readable APO/CAPX/INF audit is maintained separately:
+
+- [APO / CAPX / Media-Class INF Coverage Audit](106-APO-CAPX-Media-Class-INF-Coverage-Audit.md)
+- [APO symbol database](../api/apo.csv)
+- [APO method database](../api/methods-apo.csv)
+- [Audio INF database](../api/audio-inf.csv)
+
+The audit includes Windows 11 logging, realtime work queues, notification framework, AEC auxiliary inputs, CAPX effect property stores, SFX/MFX/EFX registration and deployment class differences.
