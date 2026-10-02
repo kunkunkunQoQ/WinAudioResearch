@@ -82,3 +82,16 @@ ProcMon 可能看到 endpoint property、effects store、policy store 的实际 
   https://learn.microsoft.com/windows-hardware/drivers/audio/pkey-compositefx-endpointeffectclsid
 - Default Volume in dB  
   https://learn.microsoft.com/windows-hardware/drivers/audio/pkey-audioendpoint-default-volumeindb
+
+## APO package class split
+
+APO deployment is version-sensitive:
+
+| Target | APO package setup class |
+|---|---|
+| Windows 10 | `SoftwareComponent` |
+| Windows 11 21H2 / build 22000+ | `AudioProcessingObject` |
+
+Windows 10 APO labels should have an OS ceiling so they do not deploy the SoftwareComponent package onto Windows 11. A corresponding Windows 11 package should use the AudioProcessingObject class.
+
+For machine-readable INF/APO packaging contracts see [api/audio-inf.csv](../api/audio-inf.csv) and [APO / CAPX / Media-Class INF Coverage Audit](106-APO-CAPX-Media-Class-INF-Coverage-Audit.md).
