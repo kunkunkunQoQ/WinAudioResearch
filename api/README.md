@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **733 structured records** — 300 symbol/type/property/error records, 249 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies and 14 official samples.
+Current catalog: **800 structured records** — 347 symbol/type/property/error records, 269 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies and 14 official samples.
 
 来源优先级：
 
@@ -89,6 +89,12 @@ not:
 - [hresults.csv](hresults.csv)
 - [undocumented.csv](undocumented.csv)
 
+- [wavert.csv](wavert.csv)
+
+- [acx.csv](acx.csv)
+
+- [ks-audio.csv](ks-audio.csv)
+
 ### Method databases
 
 - [methods-mmdevice.csv](methods-mmdevice.csv)
@@ -112,6 +118,8 @@ not:
 - [dependencies.csv](dependencies.csv)
 
 - [samples.csv](samples.csv)
+
+- [methods-wavert.csv](methods-wavert.csv)
 
 ### Database metadata
 
