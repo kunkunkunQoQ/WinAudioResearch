@@ -165,6 +165,9 @@ python scripts/query_api.py --status Undocumented
 - [Virtual Audio Devices / Network Audio](61-Virtual-Audio-Devices-and-Network-Audio.md)
 - [WaveRT Deep Dive](70-WaveRT-Deep-Dive.md)
 - [PortCls Reference and Coverage](101-PortCls-Reference-and-Coverage.md)
+- [DirectMusic Kernel DDI / dmusicks.h](102-DirectMusic-Kernel-DDI.md)
+- [WaveRT / RTAudio Contract Map](103-WaveRT-RTAudio-Contract-Map.md)
+- [PortCls Method Coverage Audit](104-PortCls-Method-Coverage-Audit.md)
 - [ACX Deep Dive](71-ACX-Deep-Dive.md)
 - [Kernel Streaming Deep Dive](74-Kernel-Streaming-Deep-Dive.md)
 - [ACX Public Header Coverage Audit](97-ACX-Public-Header-Coverage-Audit.md)
@@ -265,7 +268,7 @@ Related research findings:
 
 ---
 
-## 15. 近期扩展专题（83–98）
+## 15. 近期扩展专题（83–104）
 
 这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
 
