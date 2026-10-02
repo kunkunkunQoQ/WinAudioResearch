@@ -461,9 +461,9 @@ The next database families should be added in this order.
 
 ### Priority 1 — Complete the lower layers
 
-- PortCls per-interface method audit and DirectMusic DDI (`dmusicks.h`)
-- WaveRT supporting structs / RTAudio cross-reference audit
+- PortCls final edge-method/IID/version audit
 - KS generic method/media-seeking/allocator contracts
+- Core Audio SDK header exhaustiveness audit
 - ACX per-header delta audit
 - APO interfaces + registration/property contracts
 
@@ -650,10 +650,10 @@ That is the long-term definition of “large Windows audio knowledge base”.
 
 ## 12. Immediate next rounds
 
-1. Finish PortCls method-level audit and add DirectMusic `dmusicks.h` interfaces.
-2. Expand WaveRT supporting structures and RTAudio cross-links.
-3. Audit all current ACX WDK header pages against the database.
-4. Audit Core Audio SDK headers beyond interface-level coverage.
+1. Finish the small remaining PortCls edge-method/IID/version audit.
+2. Audit Core Audio SDK headers beyond interface-level coverage.
+3. Expand APO / Media-Class INF contracts.
+4. Continue ACX per-header newer-version delta audit.
 5. Build complete PKEY / DEVPKEY and processing-mode GUID catalogs.
 6. Expand HRESULT / error catalog.
 7. Build official sample index by technology and API.
