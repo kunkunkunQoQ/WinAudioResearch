@@ -268,6 +268,10 @@ Before promoting the whole APO domain to a strict L5, remaining work is:
 6. map APO package/component INF examples by Windows build;
 7. verify current installed WDK headers in addition to Microsoft Learn.
 
+## Follow-up
+
+The processing-mode GUID inventory, canonical `APOERR_*` values and `MsApoFxProxy` discovery contract are completed in [APO Processing Modes / APOERR / MsApoFxProxy Coverage Audit](107-APO-Processing-Modes-and-APOERR-Audit.md).
+
 ## Primary sources
 
 - Audio Devices DDI Reference — https://learn.microsoft.com/windows/win32/api/_audio/
