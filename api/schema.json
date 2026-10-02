@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WinAudioResearch API record",
+  "type": "object",
+  "required": [
+    "symbol",
+    "kind",
+    "family",
+    "status",
+    "verified"
+  ],
+  "properties": {
+    "symbol": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "header_or_namespace": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "Public",
+        "Public-WDK",
+        "Public-WinRT",
+        "Legacy",
+        "Undocumented",
+        "Observed",
+        "Experimental"
+      ]
+    },
+    "min_client": {
+      "type": "string"
+    },
+    "iid_or_guid": {
+      "type": "string"
+    },
+    "acquisition": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "docs_url": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
