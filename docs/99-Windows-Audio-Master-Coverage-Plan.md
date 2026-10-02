@@ -461,11 +461,12 @@ The next database families should be added in this order.
 
 ### Priority 1 — Complete the lower layers
 
+- APO interfaces + registration/property contracts
+- Media-Class INF / endpoint configuration contracts
+- Core Audio IID/CLSID and Header/Library/DLL normalization
 - PortCls final edge-method/IID/version audit
 - KS generic method/media-seeking/allocator contracts
-- Core Audio SDK header exhaustiveness audit
 - ACX per-header delta audit
-- APO interfaces + registration/property contracts
 
 ### Priority 2 — Complete application runtime
 
@@ -650,9 +651,9 @@ That is the long-term definition of “large Windows audio knowledge base”.
 
 ## 12. Immediate next rounds
 
-1. Finish the small remaining PortCls edge-method/IID/version audit.
-2. Audit Core Audio SDK headers beyond interface-level coverage.
-3. Expand APO / Media-Class INF contracts.
+1. Expand APO / Media-Class INF contracts and Windows 11 system-effects registration.
+2. Normalize Core Audio IID/CLSID + Header/Library/DLL dependencies after the completed header audit.
+3. Finish the small remaining PortCls edge-method/IID/version audit.
 4. Continue ACX per-header newer-version delta audit.
 5. Build complete PKEY / DEVPKEY and processing-mode GUID catalogs.
 6. Expand HRESULT / error catalog.
