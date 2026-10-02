@@ -168,6 +168,7 @@ python scripts/query_api.py --status Undocumented
 - [Kernel Streaming Deep Dive](74-Kernel-Streaming-Deep-Dive.md)
 - [ACX Public Header Coverage Audit](97-ACX-Public-Header-Coverage-Audit.md)
 - [KS Audio Property Set Coverage](98-KS-Audio-Property-Set-Coverage.md)
+- [KS Core Foundation：General / Connection / Interfaces / Events](100-KS-Core-Foundation.md)
 - [Audio Driver INF / Endpoint Configuration](75-Audio-Driver-INF-and-Endpoint-Configuration.md)
 - [Windows ARM64 Audio Development](79-Windows-ARM64-Audio-Development.md)
 - [Driver Signing / Distribution](80-Driver-Signing-and-Distribution.md)
