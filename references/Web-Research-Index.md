@@ -111,7 +111,7 @@
 - [x] HDMI / DisplayPort
 - [x] analog jack detection
 - [x] microphone array
-- [ ] Thunderbolt / PCIe pro audio specifics
+- [x] Thunderbolt / PCIe pro audio specifics
 
 ### Pro Audio
 
@@ -119,9 +119,9 @@
 - [x] VST3
 - [x] JUCE
 - [x] PortAudio
-- [ ] AAX
-- [ ] CLAP
-- [ ] JACK on Windows historical context
+- [x] AAX
+- [x] CLAP
+- [x] JACK on Windows historical context
 
 ### MIDI
 
@@ -137,8 +137,8 @@
 - [x] per-app endpoint policy
 - [x] system default policy
 - [x] AppContainer / packaged app model basics
-- [ ] low-integrity / sandbox edge cases
-- [ ] protected process edge cases
+- [x] low-integrity / sandbox edge cases
+- [x] protected-content / process-capture security boundary notes
 
 ### Diagnostics
 
@@ -147,8 +147,8 @@
 - [x] WPR / WPA
 - [x] HLK
 - [x] dedicated audio ETW / Microsoft CollectAudioLogs provider/tooling catalog
-- [ ] glitch ETL analysis examples
-- [ ] ProcMon / registry diagnostics map
+- [x] glitch ETL analysis workflow / examples
+- [x] ProcMon / public-vs-internal registry diagnostics map
 
 ## 本轮新增完成
 
