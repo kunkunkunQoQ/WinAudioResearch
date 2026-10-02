@@ -1,15 +1,15 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 1521,
-  "symbol_records": 727,
-  "method_records": 474,
+  "total_records": 1694,
+  "symbol_records": 835,
+  "method_records": 525,
   "tables": [
     {
       "path": "api/acx.csv",
       "type": "symbol",
       "family": "ACX",
-      "records": 207
+      "records": 276
     },
     {
       "path": "api/apo.csv",
@@ -75,7 +75,7 @@
       "path": "api/ks-audio.csv",
       "type": "symbol",
       "family": "KSAudio",
-      "records": 127
+      "records": 166
     },
     {
       "path": "api/media-foundation.csv",
@@ -99,7 +99,7 @@
       "path": "api/methods-acx.csv",
       "type": "method",
       "family": "ACX",
-      "records": 168
+      "records": 219
     },
     {
       "path": "api/methods-apo.csv",
@@ -171,7 +171,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 136
+      "records": 150
     },
     {
       "path": "api/samples.csv",
@@ -226,5 +226,5 @@
   "capability_records": 20,
   "dependency_records": 20,
   "sample_records": 14,
-  "relationship_records": 136
+  "relationship_records": 150
 }
