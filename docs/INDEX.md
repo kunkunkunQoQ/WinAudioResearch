@@ -164,6 +164,7 @@ python scripts/query_api.py --status Undocumented
 - [Audio HLK Testing / Certification](54-Audio-HLK-Testing-and-Certification.md)
 - [Virtual Audio Devices / Network Audio](61-Virtual-Audio-Devices-and-Network-Audio.md)
 - [WaveRT Deep Dive](70-WaveRT-Deep-Dive.md)
+- [PortCls Reference and Coverage](101-PortCls-Reference-and-Coverage.md)
 - [ACX Deep Dive](71-ACX-Deep-Dive.md)
 - [Kernel Streaming Deep Dive](74-Kernel-Streaming-Deep-Dive.md)
 - [ACX Public Header Coverage Audit](97-ACX-Public-Header-Coverage-Audit.md)
