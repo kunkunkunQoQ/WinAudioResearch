@@ -26,6 +26,7 @@
 - [APO](../api/apo.csv)
 - [WinRT Audio](../api/winrt-audio.csv)
 - [Audio properties](../api/audio-properties.csv)
+- [Audio Processing Modes](../api/audio-processing-modes.csv)
 - [Audio INF / APO Packaging](../api/audio-inf.csv)
 - [HRESULT](../api/hresults.csv)
 - [Undocumented](../api/undocumented.csv)
@@ -123,6 +124,7 @@ python scripts/query_api.py --status Undocumented
 - [Windows 11 AEC / Effects APIs](64-Windows11-AEC-and-Effects-APIs.md)
 - [APO Interface Catalog](65-APO-Interface-Catalog.md)
 - [APO / CAPX / Media-Class INF Coverage Audit](106-APO-CAPX-Media-Class-INF-Coverage-Audit.md)
+- [APO Processing Modes / APOERR / MsApoFxProxy Audit](107-APO-Processing-Modes-and-APOERR-Audit.md)
 - [Audio Effects Property Store / Device Modules](68-Audio-Effects-PropertyStore-and-DeviceModules.md)
 - [Deep Noise Suppression / Modern Speech Effects](72-Deep-Noise-Suppression-and-Modern-Speech-Effects.md)
 - [IAudioEffectsManager](74-IAudioEffectsManager.md)
@@ -272,7 +274,7 @@ Related research findings:
 
 ---
 
-## 15. 近期扩展专题（83–106）
+## 15. 近期扩展专题（83–107）
 
 这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
 
@@ -292,3 +294,4 @@ Related research findings:
 - [AppContainer / Low Integrity / Protected Capture Boundaries](94-AppContainer-Low-Integrity-and-Protected-Capture-Boundaries.md)
 - [Audio Glitch ETL Analysis Workflow](95-Audio-Glitch-ETL-Analysis-Workflow.md)
 - [Thunderbolt / PCIe Pro Audio on Windows](96-Thunderbolt-PCIe-Pro-Audio-on-Windows.md)
+- [APO Processing Modes / APOERR / MsApoFxProxy Audit](107-APO-Processing-Modes-and-APOERR-Audit.md)

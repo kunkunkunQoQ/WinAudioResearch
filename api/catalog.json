@@ -1,8 +1,8 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2466,
-  "symbol_records": 1170,
+  "total_records": 2504,
+  "symbol_records": 1198,
   "method_records": 838,
   "tables": [
     {
@@ -15,7 +15,7 @@
       "path": "api/apo.csv",
       "type": "symbol",
       "family": "APO",
-      "records": 51
+      "records": 55
     },
     {
       "path": "api/audio-formats.csv",
@@ -34,6 +34,12 @@
       "type": "symbol",
       "family": "Properties",
       "records": 66
+    },
+    {
+      "path": "api/audio-processing-modes.csv",
+      "type": "symbol",
+      "family": "SignalProcessingMode",
+      "records": 10
     },
     {
       "path": "api/audio-session.csv",
@@ -87,7 +93,7 @@
       "path": "api/hresults.csv",
       "type": "symbol",
       "family": "HRESULT",
-      "records": 36
+      "records": 50
     },
     {
       "path": "api/ks-audio.csv",
@@ -213,7 +219,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 255
+      "records": 265
     },
     {
       "path": "api/samples.csv",
@@ -268,5 +274,5 @@
   "capability_records": 20,
   "dependency_records": 30,
   "sample_records": 23,
-  "relationship_records": 255
+  "relationship_records": 265
 }
