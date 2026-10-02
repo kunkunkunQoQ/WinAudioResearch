@@ -13,7 +13,7 @@
 | 想做什么 | 从这里开始 |
 |---|---|
 | 查某个 API / Header / IID / 最低系统版本 | **[API Database](api/README.md)** |
-| 看当前数据库覆盖范围 | **[API Coverage](api/COVERAGE.md)** |
+| 看当前数据库覆盖范围 | **[API Coverage](api/COVERAGE.md)** · [Core Audio Audit](docs/105-Core-Audio-SDK-Header-Coverage-Audit.md) |
 | 看大型资料库总体建设计划 | **[Master Coverage Plan](docs/99-Windows-Audio-Master-Coverage-Plan.md)** |
 | 看机器可读领域覆盖矩阵 | **[Domain Coverage Matrix](coverage/windows-audio-domains.csv)** · [Coverage Matrix Guide](coverage/README.md) |
 | 从需求选择 Windows Audio API | **[API Decision Guide](docs/33-API-Decision-Guide.md)** |
@@ -25,21 +25,21 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **2261 条结构化记录**：
+当前数据库包含 **2359 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
-| Symbol / type / property / HRESULT | **1103** |
-| Method / callback / DDI | **753** |
+| Symbol / type / property / HRESULT | **1117** |
+| Method / callback / DDI | **818** |
 | WinRT / MIDI members | **130** |
 | Capability / version | **20** |
 | Dependency | **26** |
 | Official samples | **20** |
-| API relationships | **209** |
+| API relationships | **228** |
 
 主要覆盖：
 
-- Core Audio / MMDevice / Audio Session / Endpoint Volume
+- Core Audio / MMDevice / Audio Session / Endpoint Volume / AudioStateMonitor
 - WASAPI / IAudioClient / Loopback / Process Loopback
 - DeviceTopology
 - Spatial Audio
