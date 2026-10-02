@@ -236,3 +236,9 @@ Related research findings:
 - [Modern C++ COM Patterns：WIL / WRL / C++/WinRT](90-Modern-Cpp-COM-Patterns-WIL-WRL-CppWinRT.md)
 - [CLAP Audio Plug-in Format](91-CLAP-Audio-Plugin-Format.md)
 - [AAX / JACK / Pro Audio Host Ecosystem](92-AAX-JACK-and-Pro-Audio-Host-Ecosystem.md)
+
+
+- [ProcMon / Audio Registry Diagnostics](93-ProcMon-and-Audio-Registry-Diagnostics.md)
+- [AppContainer / Low Integrity / Protected Capture Boundaries](94-AppContainer-Low-Integrity-and-Protected-Capture-Boundaries.md)
+- [Audio Glitch ETL Analysis Workflow](95-Audio-Glitch-ETL-Analysis-Workflow.md)
+- [Thunderbolt / PCIe Pro Audio on Windows](96-Thunderbolt-PCIe-Pro-Audio-on-Windows.md)
