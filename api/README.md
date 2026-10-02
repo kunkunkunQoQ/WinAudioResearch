@@ -20,6 +20,8 @@ Last verified baseline:
 2026-10-02
 ```
 
+Current catalog: **502 structured records** — 253 symbol/type/property/error records and 249 method records.
+
 来源优先级：
 
 1. Windows SDK / WDK public headers
@@ -69,6 +71,8 @@ not:
 
 ## Files
 
+### Symbol / type databases
+
 - [core-mmdevice.csv](core-mmdevice.csv)
 - [wasapi.csv](wasapi.csv)
 - [audio-session.csv](audio-session.csv)
@@ -76,11 +80,45 @@ not:
 - [device-topology.csv](device-topology.csv)
 - [spatial-audio.csv](spatial-audio.csv)
 - [winrt-audio.csv](winrt-audio.csv)
+- [media-foundation.csv](media-foundation.csv)
+- [xaudio2.csv](xaudio2.csv)
+- [midi.csv](midi.csv)
+- [apo.csv](apo.csv)
 - [driver-platform.csv](driver-platform.csv)
+- [audio-properties.csv](audio-properties.csv)
+- [hresults.csv](hresults.csv)
 - [undocumented.csv](undocumented.csv)
+
+### Method databases
+
 - [methods-mmdevice.csv](methods-mmdevice.csv)
 - [methods-wasapi.csv](methods-wasapi.csv)
 - [methods-session.csv](methods-session.csv)
+- [methods-endpointvolume.csv](methods-endpointvolume.csv)
+- [methods-devicetopology.csv](methods-devicetopology.csv)
+- [methods-spatial.csv](methods-spatial.csv)
+- [methods-media-foundation.csv](methods-media-foundation.csv)
+- [methods-xaudio2.csv](methods-xaudio2.csv)
+- [methods-apo.csv](methods-apo.csv)
+
+### Database metadata
+
+- [catalog.json](catalog.json) — table inventory + record counts
+- [schema.json](schema.json) — common record schema
+- [COVERAGE.md](COVERAGE.md) — current coverage and next targets
+
+### Tooling
+
+From repository root:
+
+```bash
+python scripts/query_api.py IAudioClient
+python scripts/query_api.py --status Undocumented
+python scripts/query_api.py --family WASAPI
+python scripts/validate_api_db.py
+```
+
+The GitHub Actions workflow `.github/workflows/validate-api-db.yml` automatically validates database changes.
 
 ## Query examples
 
