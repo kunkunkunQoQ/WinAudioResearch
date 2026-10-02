@@ -1,0 +1,4 @@
+interface,method,header,status,min_client,purpose,docs_url,verified,notes
+IAudioStateMonitor,GetSoundLevel,audiostatemonitorapi.h,Public,Build 19043,Gets current sound level for monitored stream set,https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-iaudiostatemonitor-getsoundlevel,2026-10-02,
+IAudioStateMonitor,RegisterCallback,audiostatemonitorapi.h,Public,Build 19043,Registers AudioStateMonitorCallback and returns registration handle,https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-iaudiostatemonitor-registercallback,2026-10-02,
+IAudioStateMonitor,UnregisterCallback,audiostatemonitorapi.h,Public,Build 19043,Unregisters previously registered callback,https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-iaudiostatemonitor-unregistercallback,2026-10-02,May block until in-flight callbacks complete
