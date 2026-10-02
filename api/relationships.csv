@@ -159,3 +159,5 @@ KSPROPSETID_Itd3d,targets,KSNODETYPE_3D_EFFECTS,KSAudio,Legacy,,Optional ITD pro
 KSPROPSETID_Synth,targets,KSNODETYPE_SYNTHESIZER,KSAudio,Legacy,,Synth property set configures DirectMusic synthesizer node,https://learn.microsoft.com/windows-hardware/drivers/audio/ksnodetype-synthesizer,2026-10-02,
 KSPROPSETID_Synth_Dls,targets,KSNODETYPE_SYNTHESIZER,KSAudio,Legacy,,DLS download set operates on synthesizer node,https://learn.microsoft.com/windows-hardware/drivers/audio/kspropsetid-synth-dls,2026-10-02,
 KSPROPSETID_Sysaudio,managed-by,SysAudio,KSAudio,Legacy,,SysAudio system driver manages virtual audio devices and graphs,https://learn.microsoft.com/windows-hardware/drivers/audio/kspropsetid-sysaudio,2026-10-02,
+KSPROPSETID_FMRXControl,controls,FM receiver state,KSAudio,Legacy,Windows 10 Mobile,Controls FM receiver operational state,https://learn.microsoft.com/windows-hardware/drivers/audio/audio-drivers-property-sets,2026-10-02,
+KSPROPSETID_FMRXTopology,describes,FM endpoint routing,KSAudio,Legacy,Windows 10 Mobile,Provides output endpoint antenna endpoint and volume properties,https://learn.microsoft.com/windows-hardware/drivers/audio/ksmedia-h,2026-10-02,
