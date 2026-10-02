@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **800 structured records** — 347 symbol/type/property/error records, 269 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies and 14 official samples.
+Current catalog: **886 structured records** — 347 symbol/type/property/error records, 269 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies, 14 official samples and 86 API relationships.
 
 来源优先级：
 
@@ -84,16 +84,14 @@ not:
 - [xaudio2.csv](xaudio2.csv)
 - [midi.csv](midi.csv)
 - [apo.csv](apo.csv)
+- [wavert.csv](wavert.csv)
+- [acx.csv](acx.csv)
+- [ks-audio.csv](ks-audio.csv)
 - [driver-platform.csv](driver-platform.csv)
+- [audio-formats.csv](audio-formats.csv)
 - [audio-properties.csv](audio-properties.csv)
 - [hresults.csv](hresults.csv)
 - [undocumented.csv](undocumented.csv)
-
-- [wavert.csv](wavert.csv)
-
-- [acx.csv](acx.csv)
-
-- [ks-audio.csv](ks-audio.csv)
 
 ### Method databases
 
@@ -106,25 +104,24 @@ not:
 - [methods-media-foundation.csv](methods-media-foundation.csv)
 - [methods-xaudio2.csv](methods-xaudio2.csv)
 - [methods-apo.csv](methods-apo.csv)
+- [methods-wavert.csv](methods-wavert.csv)
 
-- [audio-formats.csv](audio-formats.csv)
+### Members / capabilities / dependencies / samples
 
 - [members-winrt-audio.csv](members-winrt-audio.csv)
-
 - [members-midi.csv](members-midi.csv)
-
 - [windows-capabilities.csv](windows-capabilities.csv)
-
 - [dependencies.csv](dependencies.csv)
-
 - [samples.csv](samples.csv)
 
-- [methods-wavert.csv](methods-wavert.csv)
+### Relationship graph
+
+- [relationships.csv](relationships.csv) — Activate / GetService / QueryInterface / callback / create / contains edges
 
 ### Database metadata
 
 - [catalog.json](catalog.json) — table inventory + record counts
-- [schema.json](schema.json) — common record schema
+- [schema.json](schema.json) — common symbol-record schema
 - [COVERAGE.md](COVERAGE.md) — current coverage and next targets
 
 ### Tooling
@@ -136,7 +133,12 @@ python scripts/query_api.py IAudioClient
 python scripts/query_api.py --status Undocumented
 python scripts/query_api.py --family WASAPI
 python scripts/query_api.py --type member AudioGraph
-python scripts/query_api.py --type capability
+python scripts/query_api.py --type relationship IAudioClient
+
+python scripts/query_relations.py IMMDevice --depth 2
+python scripts/query_relations.py IAudioClient --direction both --depth 2
+python scripts/query_relations.py IMMDevice --depth 3 --dot > graph.dot
+
 python scripts/validate_api_db.py
 ```
 
