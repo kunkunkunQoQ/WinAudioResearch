@@ -20,7 +20,7 @@ Last verified baseline:
 2026-10-02
 ```
 
-Current catalog: **502 structured records** — 253 symbol/type/property/error records and 249 method records.
+Current catalog: **733 structured records** — 300 symbol/type/property/error records, 249 method records, 130 WinRT/MIDI members, 20 capability records, 20 dependencies and 14 official samples.
 
 来源优先级：
 
@@ -101,6 +101,18 @@ not:
 - [methods-xaudio2.csv](methods-xaudio2.csv)
 - [methods-apo.csv](methods-apo.csv)
 
+- [audio-formats.csv](audio-formats.csv)
+
+- [members-winrt-audio.csv](members-winrt-audio.csv)
+
+- [members-midi.csv](members-midi.csv)
+
+- [windows-capabilities.csv](windows-capabilities.csv)
+
+- [dependencies.csv](dependencies.csv)
+
+- [samples.csv](samples.csv)
+
 ### Database metadata
 
 - [catalog.json](catalog.json) — table inventory + record counts
@@ -115,6 +127,8 @@ From repository root:
 python scripts/query_api.py IAudioClient
 python scripts/query_api.py --status Undocumented
 python scripts/query_api.py --family WASAPI
+python scripts/query_api.py --type member AudioGraph
+python scripts/query_api.py --type capability
 python scripts/validate_api_db.py
 ```
 
