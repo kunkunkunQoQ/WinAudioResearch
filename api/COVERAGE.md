@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **727** |
-| Method records | **474** |
+| Symbol / type / property / HRESULT records | **835** |
+| Method records | **525** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
-| API relationship records | **136** |
-| **Total** | **1521** |
+| API relationship records | **150** |
+| **Total** | **1694** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -32,8 +32,8 @@ api/  → machine-readable symbol / method / version / source database
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
-| ACX | 207 | 168 | Strong |
-| KS Audio | 127 | - | Strong core |
+| ACX | 276 | 219 | Strong |
+| KS Audio | 166 | - | Strong core |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
@@ -72,8 +72,8 @@ Describes important driver/framework entry points. WDK surface area is much larg
 ## Next database targets
 
 1. **callback / COM apartment / realtime / lifetime constraints database**
-2. **remaining ACX device / driver / object-bag / function-enum APIs and completeness audit against all ACX headers**
-3. **remaining KS audio property sets: SoundDetector, Telephony, AudioGfx, AudioLoopback, Bluetooth module and legacy sets**
+2. **ACX completeness audit against every public ACX header and newer-version additions**
+3. **remaining KS audio property sets: RtAudio, AEC, DRM, SysAudio, Synth, DirectSound3D and legacy sets**
 4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
