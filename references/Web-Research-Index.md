@@ -146,7 +146,7 @@
 - [x] ETW
 - [x] WPR / WPA
 - [x] HLK
-- [ ] dedicated audio ETW provider/event catalog
+- [x] dedicated audio ETW / Microsoft CollectAudioLogs provider/tooling catalog
 - [ ] glitch ETL analysis examples
 - [ ] ProcMon / registry diagnostics map
 
