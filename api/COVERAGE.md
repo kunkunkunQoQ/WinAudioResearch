@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **419** |
-| Method records | **356** |
+| Symbol / type / property / HRESULT records | **517** |
+| Method records | **372** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
 | API relationship records | **86** |
-| **Total** | **1045** |
+| **Total** | **1159** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -32,8 +32,8 @@ api/  → machine-readable symbol / method / version / source database
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
-| ACX | 21 | 50 | Strong core |
-| KS Audio | 39 | - | Strong core |
+| ACX | 37 | 66 | Strong core |
+| KS Audio | 87 | - | Strong core |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
@@ -41,7 +41,7 @@ api/  → machine-readable symbol / method / version / source database
 | MIDI: WinMM + Windows MIDI Services | 28 | 82 members | Strong modern + legacy symbols |
 | WinRT Audio / Device / Capture | 16 | 48 members | Strong core |
 | Driver / ACX / KS / WaveRT | 19 | - | Platform-level |
-| Audio Properties | 28 | - | Growing |
+| Audio Properties | 62 | - | Strong core |
 | HRESULT | 36 | - | Growing |
 | Undocumented | 9 | - | Explicitly separated |
 
@@ -72,9 +72,9 @@ Describes important driver/framework entry points. WDK surface area is much larg
 ## Next database targets
 
 1. **callback / COM apartment / realtime / lifetime constraints database**
-2. **ACX element / target / request APIs beyond the new core DDI index**
-3. **larger Kernel Streaming property/event/node catalog beyond the core control set**
-4. **complete endpoint / DeviceInformation property-key catalog**
+2. **ACX specialized element / target / request / factory APIs beyond AudioEngine and AudioModule**
+3. **KS AudioEngine / jack / topology property sets beyond the expanded KSPROPSETID_Audio catalog**
+4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
 7. **API relationship graph generation and path tests**
