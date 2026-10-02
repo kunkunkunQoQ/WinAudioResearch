@@ -25,17 +25,17 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **1848 条结构化记录**：
+当前数据库包含 **2051 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
-| Symbol / type / property / HRESULT | **962** |
-| Method / callback / DDI | **532** |
+| Symbol / type / property / HRESULT | **1074** |
+| Method / callback / DDI | **604** |
 | WinRT / MIDI members | **130** |
 | Capability / version | **20** |
-| Dependency | **20** |
+| Dependency | **24** |
 | Official samples | **14** |
-| API relationships | **170** |
+| API relationships | **185** |
 
 主要覆盖：
 
@@ -104,7 +104,7 @@ Windows 还存在一部分不属于稳定公开 Core Audio 控制面的策略接
 | WASAPI / Latency / Loopback | [WASAPI](docs/08-WASAPI.md) · [Advanced](docs/19-WASAPI-Advanced.md) · [Loopback](docs/27-Loopback-and-Process-Audio-Capture.md) |
 | Device / Property / Lifecycle | [Device IDs](docs/12-Device-IDs-and-Properties.md) · [Property Keys](docs/44-Audio-Endpoint-Property-Keys.md) · [Lifecycle](docs/73-Audio-Device-Lifecycle-and-Recovery.md) |
 | Effects / APO | [APO](docs/23-Audio-Processing-Objects-APO.md) · [Effects](docs/34-Audio-Effects-and-Processing-Modes.md) |
-| Driver / WDK | [Driver Stack](docs/25-Audio-Driver-Stack-WDM-WaveRT-ACX-KS.md) · [WaveRT](docs/70-WaveRT-Deep-Dive.md) · [ACX](docs/71-ACX-Deep-Dive.md) · [ACX Audit](docs/97-ACX-Public-Header-Coverage-Audit.md) · [KS](docs/74-Kernel-Streaming-Deep-Dive.md) · [KS Coverage](docs/98-KS-Audio-Property-Set-Coverage.md) |
+| Driver / WDK | [Driver Stack](docs/25-Audio-Driver-Stack-WDM-WaveRT-ACX-KS.md) · [WaveRT](docs/70-WaveRT-Deep-Dive.md) · [PortCls](docs/101-PortCls-Reference-and-Coverage.md) · [ACX](docs/71-ACX-Deep-Dive.md) · [ACX Audit](docs/97-ACX-Public-Header-Coverage-Audit.md) · [KS](docs/74-Kernel-Streaming-Deep-Dive.md) · [KS Coverage](docs/98-KS-Audio-Property-Set-Coverage.md) |
 | Hardware / Protocol | [Bluetooth](docs/41-Bluetooth-Audio-Classic-LE.md) · [USB Audio](docs/42-USB-Audio.md) · [HDMI / DP](docs/43-HDMI-DisplayPort-Digital-Audio.md) |
 | Diagnostics / Testing | [ETW / WPR / WPA](docs/45-Audio-ETW-WPR-WPA-Diagnostics.md) · [Testing](docs/76-Audio-Testing-and-Measurement.md) · [HRESULT](docs/82-WASAPI-HRESULT-Troubleshooting-Catalog.md) |
 | Modern / Specialized | [Spatial Audio](docs/22-Spatial-Audio.md) · [MIDI](docs/29-Windows-MIDI.md) · [Voice Activation](docs/50-Voice-Activation-and-Keyword-Detection.md) |
