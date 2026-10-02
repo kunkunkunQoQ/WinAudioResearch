@@ -27,6 +27,13 @@
 - [Audio properties](../api/audio-properties.csv)
 - [HRESULT](../api/hresults.csv)
 - [Undocumented](../api/undocumented.csv)
+- [WaveRT](../api/wavert.csv)
+- [ACX](../api/acx.csv)
+- [KS Audio](../api/ks-audio.csv)
+- [Audio Formats](../api/audio-formats.csv)
+- [Windows Capabilities](../api/windows-capabilities.csv)
+- [Build Dependencies](../api/dependencies.csv)
+- [Official Samples](../api/samples.csv)
 
 查询工具：
 
