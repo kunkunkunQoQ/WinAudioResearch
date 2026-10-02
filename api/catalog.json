@@ -1,8 +1,8 @@
 {
   "version": 2,
   "last_verified": "2026-10-02",
-  "total_records": 686,
-  "symbol_records": 253,
+  "total_records": 733,
+  "symbol_records": 300,
   "method_records": 249,
   "tables": [
     {
@@ -12,10 +12,16 @@
       "records": 18
     },
     {
+      "path": "api/audio-formats.csv",
+      "type": "symbol",
+      "family": "AudioFormats",
+      "records": 23
+    },
+    {
       "path": "api/audio-properties.csv",
       "type": "symbol",
       "family": "Properties",
-      "records": 16
+      "records": 28
     },
     {
       "path": "api/audio-session.csv",
@@ -57,7 +63,7 @@
       "path": "api/hresults.csv",
       "type": "symbol",
       "family": "HRESULT",
-      "records": 14
+      "records": 26
     },
     {
       "path": "api/media-foundation.csv",
