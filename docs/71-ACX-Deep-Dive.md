@@ -421,3 +421,26 @@ Factory 创建的 circuit 不能作为提供 endpoint identity 的 core circuit�
 
 这类机制特别适合可动态出现的 component / multi-circuit endpoint。
 
+---
+
+## Device / Driver / ObjectBag / Versioning
+
+ACX 顶层初始化链现在也已经纳入结构库：
+
+```text
+WDFDRIVER
+  ↓ AcxDriverInitialize
+ACX driver extension
+  ↓
+WDFDEVICE_INIT
+  ↓ AcxDeviceInitInitialize
+WDFDEVICE
+  ↓ AcxDeviceInitialize
+  ├─ AcxDeviceAddCircuit
+  └─ AcxDeviceAddFactoryCircuit
+```
+
+`acxdriver.h` 还提供 `AcxDriverIsVersionAvailable`；`acxfuncenum.h` 提供 `ACX_IS_FUNCTION_AVAILABLE`、`ACX_IS_STRUCTURE_AVAILABLE` 与 `ACX_IS_FIELD_AVAILABLE`，用于在不同 ACX 版本间做能力探测。
+
+`ACXOBJECTBAG` 是 ACX 的 typed data store，可持久化/读取 blob、GUID、signed / unsigned integer、string、multi-string 等值。它用于多个 ACX DDI 的配置和跨对象数据保存，不应与普通应用层 PropertyStore 混为一谈。
+
