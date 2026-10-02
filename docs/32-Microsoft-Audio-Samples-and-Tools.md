@@ -101,6 +101,17 @@ Windows audio driver 学习的核心 sample。
 - offload
 - topology
 
+### SysVAD 结构化子项目
+
+API database 现在单独索引：
+
+- **TabletAudioSample** — WaveRT / offload / 多 endpoint
+- **EndpointsCommon** — endpoint / topology 共用代码
+- **SwapAPO** — SFX / MFX / APO INF 注册
+- **KeywordDetectorAdapter** — voice activation / keyword detector
+
+这些条目不仅作为链接存在，也已经通过 `api/relationships.csv` 关联到 WaveRT、APO、SoundDetector 等 contract。
+
 ### Simple Audio Sample
 
 https://github.com/microsoft/Windows-driver-samples/tree/main/audio/simpleaudiosample
@@ -114,6 +125,15 @@ https://github.com/microsoft/Windows-driver-samples/tree/main/audio/Acx
 新 ACX driver model。
 
 ---
+
+## 3.1 历史 DirectMusic Driver Samples
+
+Microsoft 旧 WDK sample 列表仍记录：
+
+- **Dmusuart** — DirectMusic UART driver
+- **ddksynth** — DirectMusic software synthesizer
+
+它们对应仓库的 `api/dmusicks.csv` / `api/methods-dmusicks.csv`。这些样例属于 Legacy 研究资料，不建议作为现代 Windows 11 新驱动架构模板。
 
 ## 4. Windows MIDI Services
 
