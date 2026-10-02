@@ -1,15 +1,15 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 1159,
-  "symbol_records": 517,
-  "method_records": 372,
+  "total_records": 1238,
+  "symbol_records": 560,
+  "method_records": 383,
   "tables": [
     {
       "path": "api/acx.csv",
       "type": "symbol",
       "family": "ACX",
-      "records": 37
+      "records": 80
     },
     {
       "path": "api/apo.csv",
@@ -99,7 +99,7 @@
       "path": "api/methods-acx.csv",
       "type": "method",
       "family": "ACX",
-      "records": 66
+      "records": 77
     },
     {
       "path": "api/methods-apo.csv",
@@ -171,7 +171,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 86
+      "records": 111
     },
     {
       "path": "api/samples.csv",
@@ -226,5 +226,5 @@
   "capability_records": 20,
   "dependency_records": 20,
   "sample_records": 14,
-  "relationship_records": 86
+  "relationship_records": 111
 }
