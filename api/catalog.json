@@ -1,8 +1,8 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 886,
-  "symbol_records": 347,
+  "total_records": 931,
+  "symbol_records": 392,
   "method_records": 269,
   "tables": [
     {
@@ -51,7 +51,7 @@
       "path": "api/device-topology.csv",
       "type": "symbol",
       "family": "DeviceTopology",
-      "records": 24
+      "records": 32
     },
     {
       "path": "api/driver-platform.csv",
@@ -69,7 +69,7 @@
       "path": "api/hresults.csv",
       "type": "symbol",
       "family": "HRESULT",
-      "records": 26
+      "records": 36
     },
     {
       "path": "api/ks-audio.csv",
@@ -177,7 +177,7 @@
       "path": "api/spatial-audio.csv",
       "type": "symbol",
       "family": "SpatialAudio",
-      "records": 11
+      "records": 38
     },
     {
       "path": "api/undocumented.csv",
