@@ -1,7 +1,7 @@
 {
   "version": 2,
   "last_verified": "2026-10-02",
-  "total_records": 584,
+  "total_records": 686,
   "symbol_records": 253,
   "method_records": 249,
   "tables": [
@@ -28,6 +28,12 @@
       "type": "symbol",
       "family": "MMDevice",
       "records": 15
+    },
+    {
+      "path": "api/dependencies.csv",
+      "type": "dependency",
+      "family": "BuildDependencies",
+      "records": 20
     },
     {
       "path": "api/device-topology.csv",
@@ -58,6 +64,12 @@
       "type": "symbol",
       "family": "MediaFoundation",
       "records": 17
+    },
+    {
+      "path": "api/members-midi.csv",
+      "type": "member",
+      "family": "WindowsMIDIServices",
+      "records": 82
     },
     {
       "path": "api/members-winrt-audio.csv",
@@ -168,8 +180,8 @@
       "records": 21
     }
   ],
-  "member_records": 48,
+  "member_records": 130,
   "capability_records": 20,
-  "dependency_records": 0,
+  "dependency_records": 20,
   "sample_records": 14
 }
