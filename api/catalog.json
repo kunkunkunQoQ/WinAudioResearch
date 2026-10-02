@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2261,
-  "symbol_records": 1103,
-  "method_records": 753,
+  "total_records": 2359,
+  "symbol_records": 1117,
+  "method_records": 818,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -36,10 +36,16 @@
       "records": 11
     },
     {
+      "path": "api/audio-state-monitor.csv",
+      "type": "symbol",
+      "family": "AudioStateMonitor",
+      "records": 11
+    },
+    {
       "path": "api/core-mmdevice.csv",
       "type": "symbol",
       "family": "MMDevice",
-      "records": 15
+      "records": 17
     },
     {
       "path": "api/dependencies.csv",
@@ -114,10 +120,16 @@
       "records": 15
     },
     {
+      "path": "api/methods-audio-state-monitor.csv",
+      "type": "method",
+      "family": "AudioStateMonitor",
+      "records": 3
+    },
+    {
       "path": "api/methods-devicetopology.csv",
       "type": "method",
       "family": "DeviceTopology",
-      "records": 25
+      "records": 64
     },
     {
       "path": "api/methods-dmusicks.csv",
@@ -129,7 +141,7 @@
       "path": "api/methods-endpointvolume.csv",
       "type": "method",
       "family": "EndpointVolume",
-      "records": 23
+      "records": 24
     },
     {
       "path": "api/methods-media-foundation.csv",
@@ -141,7 +153,7 @@
       "path": "api/methods-mmdevice.csv",
       "type": "method",
       "family": "MMDevice",
-      "records": 18
+      "records": 26
     },
     {
       "path": "api/methods-portcls.csv",
@@ -165,7 +177,7 @@
       "path": "api/methods-wasapi.csv",
       "type": "method",
       "family": "WASAPI",
-      "records": 36
+      "records": 50
     },
     {
       "path": "api/methods-wavert.csv",
@@ -195,7 +207,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 209
+      "records": 228
     },
     {
       "path": "api/samples.csv",
@@ -219,7 +231,7 @@
       "path": "api/wasapi.csv",
       "type": "symbol",
       "family": "WASAPI",
-      "records": 26
+      "records": 27
     },
     {
       "path": "api/wavert.csv",
@@ -250,5 +262,5 @@
   "capability_records": 20,
   "dependency_records": 26,
   "sample_records": 20,
-  "relationship_records": 209
+  "relationship_records": 228
 }
