@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **1198** |
-| Method records | **838** |
+| Symbol / type / property / HRESULT records | **1221** |
+| Method records | **850** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
-| Dependency records | **30** |
+| Dependency records | **32** |
 | Official sample records | **23** |
-| API relationship records | **265** |
-| **Total** | **2504** |
+| API relationship records | **275** |
+| **Total** | **2551** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -39,14 +39,15 @@ api/  → machine-readable symbol / method / version / source database
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
-| APO / System Effects | 55 | 35 | **Audited / L5 core**; CAPX/AEC/notifications/proxy discovery integrated |
-| Audio INF / APO Packaging | 16 | - | Strong core; Win10/Win11 deployment split mapped |
+| APO / System Effects | 59 | 47 | **Audited / L5**; public IIDs/SIDs helper class AERT CAPX/AEC/notifications/proxy discovery integrated |
+| Audio INF / APO Packaging | 16 | - | **Audited / L5 core**; Win10/Win11 deployment split + Media-Class keyword/property-ID audit complete |
 | MIDI: WinMM + Windows MIDI Services | 28 | 82 members | Strong modern + legacy symbols |
 | DirectMusic Kernel DDI | 9 | 19 | Legacy contract indexed |
 | WinRT Audio / Device / Capture | 16 | 48 members | Strong core |
 | Driver / ACX / KS / WaveRT | 19 | - | Platform-level |
 | Audio Properties | 66 | - | Strong core; APO association/INF keys expanded |
 | Signal Processing Modes | 10 | - | **Audited / L5**; GUIDs + KS discovery contract mapped |
+| Audio Effect Type GUIDs | 19 | - | **Audited / L5**; current SDK GUID family including far-field beamforming and deep noise suppression |
 | HRESULT | 50 | - | Strong; WASAPI/Spatial/APO error families indexed |
 | Undocumented | 9 | - | Explicitly separated |
 
@@ -76,17 +77,16 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **baseaudioprocessingobject.h helper-class/macro audit + exact IID/SID normalization**
-2. **remaining Media-Class INF keyword/property ID audit**
-3. **AUDIO_EFFECT_TYPE_* GUID inventory and effect-discovery cross-links**
-4. **KS method/media-seeking/allocator contracts beyond completed WaveRT/RTAudio map**
+1. **KS generic method / media-seeking / allocator contracts beyond the completed WaveRT/RTAudio map**
+2. **Core Audio IID/CLSID + Header/Library/DLL dependency normalization**
+3. **remaining PortCls edge-method/IID/version audit**
+4. **ACX newer-WDK per-header delta audit**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
-6. **exact SDK Header / Library / DLL / NuGet requirements**
+6. **PKEY / DEVPKEY and codec/subtype GUID expansion**
 7. **API relationship path tests and graph completeness checks**
 8. **source provenance / verification metadata per record**
-9. **codec / subtype GUID expansion**
-10. **cross-version regression evidence linked to capability rows**
-
+9. **cross-version regression evidence linked to capability rows**
+10. **minimal runnable experiments after the reference layer stabilizes**
 ## Master planning
 
 - [Windows Audio Master Coverage Plan](../docs/99-Windows-Audio-Master-Coverage-Plan.md)
@@ -103,6 +103,7 @@ Describes important driver/framework entry points. WDK surface area is much larg
 - [Core Audio SDK Header Coverage Audit](../docs/105-Core-Audio-SDK-Header-Coverage-Audit.md)
 - [APO / CAPX / Media-Class INF Coverage Audit](../docs/106-APO-CAPX-Media-Class-INF-Coverage-Audit.md)
 - [APO Processing Modes / APOERR / MsApoFxProxy Audit](../docs/107-APO-Processing-Modes-and-APOERR-Audit.md)
+- [APO Effect GUID / IID-SID / Base Helper Final Audit](../docs/108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md)
 
 ## Accuracy rule
 

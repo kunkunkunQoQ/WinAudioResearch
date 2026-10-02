@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2504,
-  "symbol_records": 1198,
-  "method_records": 838,
+  "total_records": 2551,
+  "symbol_records": 1221,
+  "method_records": 850,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -15,13 +15,19 @@
       "path": "api/apo.csv",
       "type": "symbol",
       "family": "APO",
-      "records": 55
+      "records": 59
     },
     {
       "path": "api/audio-formats.csv",
       "type": "symbol",
       "family": "AudioFormats",
       "records": 23
+    },
+    {
+      "path": "api/audio-effects.csv",
+      "type": "symbol",
+      "family": "AudioEffectType",
+      "records": 19
     },
     {
       "path": "api/audio-inf.csv",
@@ -63,7 +69,7 @@
       "path": "api/dependencies.csv",
       "type": "dependency",
       "family": "BuildDependencies",
-      "records": 30
+      "records": 32
     },
     {
       "path": "api/device-topology.csv",
@@ -129,7 +135,7 @@
       "path": "api/methods-apo.csv",
       "type": "method",
       "family": "APO",
-      "records": 35
+      "records": 47
     },
     {
       "path": "api/methods-audio-state-monitor.csv",
@@ -219,7 +225,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 265
+      "records": 275
     },
     {
       "path": "api/samples.csv",
@@ -272,7 +278,7 @@
   ],
   "member_records": 130,
   "capability_records": 20,
-  "dependency_records": 30,
+  "dependency_records": 32,
   "sample_records": 23,
-  "relationship_records": 265
+  "relationship_records": 275
 }

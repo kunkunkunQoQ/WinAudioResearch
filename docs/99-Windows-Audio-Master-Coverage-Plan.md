@@ -461,12 +461,11 @@ The next database families should be added in this order.
 
 ### Priority 1 — Complete the lower layers
 
-- APO final header/helper audit (`baseaudioprocessingobject.h`, `msapofxproxy.h`) + IID/SID/APOERR normalization
-- Processing-mode GUID inventory and complete Media-Class INF keyword audit
+- KS generic method/media-seeking/allocator contracts
 - Core Audio IID/CLSID and Header/Library/DLL normalization
 - PortCls final edge-method/IID/version audit
-- KS generic method/media-seeking/allocator contracts
 - ACX per-header delta audit
+- APO runtime/build evidence after completed L5 header audit
 
 ### Priority 2 — Complete application runtime
 
@@ -651,13 +650,14 @@ That is the long-term definition of “large Windows audio knowledge base”.
 
 ## 12. Immediate next rounds
 
-1. Complete the final APO helper/proxy/IID-SID/APOERR audit after the new CAPX/INF integration.
-2. Build the complete `AUDIO_SIGNALPROCESSINGMODE_*` GUID inventory and finish Media-Class INF keywords.
-3. Normalize Core Audio IID/CLSID + Header/Library/DLL dependencies after the completed header audit.
-4. Finish the small remaining PortCls edge-method/IID/version audit.
-5. Continue ACX per-header newer-version delta audit.
-5. Build complete PKEY / DEVPKEY and processing-mode GUID catalogs.
-6. Expand HRESULT / error catalog.
-7. Build official sample index by technology and API.
-8. Build source-provenance metadata and per-domain audit pages.
-9. Add minimal runnable experiments only after the reference layer is stable.
+APO public-header coverage reached the L5 audit baseline in docs 106–108. The next rounds move down-stack and then return to application-runtime normalization.
+
+1. Build KS generic method / allocator / media-seeking / clock contract coverage.
+2. Normalize Core Audio IID/CLSID plus Header / Library / DLL dependencies.
+3. Finish the remaining PortCls edge-method/IID/version audit.
+4. Continue ACX current-WDK per-header delta audit.
+5. Expand PKEY / DEVPKEY and codec/subtype GUID catalogs.
+6. Expand AUDCLNT / Media Foundation / XAudio2 HRESULT catalogs.
+7. Build API relationship path tests and source-provenance metadata.
+8. Add L6 APO/CAPX real-build evidence only where reproducible hardware/driver packages are available.
+9. Add minimal runnable experiments after the reference layer is stable.

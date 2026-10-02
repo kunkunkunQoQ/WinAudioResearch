@@ -270,7 +270,7 @@ Before promoting the whole APO domain to a strict L5, remaining work is:
 
 ## Follow-up
 
-The processing-mode GUID inventory, canonical `APOERR_*` values and `MsApoFxProxy` discovery contract are completed in [APO Processing Modes / APOERR / MsApoFxProxy Coverage Audit](107-APO-Processing-Modes-and-APOERR-Audit.md).
+The processing-mode GUID inventory, canonical `APOERR_*` values and `MsApoFxProxy` discovery contract are completed in [APO Processing Modes / APOERR / MsApoFxProxy Coverage Audit](107-APO-Processing-Modes-and-APOERR-Audit.md). The remaining public IID/SID, effect-GUID, base-helper and Media-Class property-ID gaps are closed by [APO Effect GUID / IID-SID / Base Helper Final Audit](108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md).
 
 ## Primary sources
 

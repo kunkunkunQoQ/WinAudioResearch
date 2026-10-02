@@ -159,14 +159,16 @@ The APO domain now has machine-readable coverage for base/realtime interfaces, A
 
 Remaining work is mostly edge/header completeness rather than a missing architectural block.
 
-## 10. Next APO targets
+## 10. Follow-up completion
 
-1. audit helper classes/macros in `baseaudioprocessingobject.h`;
-2. normalize every public APO IID/SID/CLSID against current SDK metadata;
-3. index the `AUDIO_EFFECT_TYPE_*` GUID family and connect it to discovery/control APIs;
-4. finish remaining Media-Class INF keywords/property IDs and version provenance;
-5. add cross-version regression evidence for processing modes and CAPX packages.
+The remaining header-level targets from this audit are completed in [APO Effect GUID / IID-SID / Base Helper Final Audit](108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md):
 
+- `baseaudioprocessingobject.h` base/helper surface;
+- public APO IID and service SID normalization;
+- current `AUDIO_EFFECT_TYPE_*` GUID inventory;
+- remaining Media-Class keyword/property IDs.
+
+The APO domain is therefore promoted to **L5 audited** for the current public header/reference baseline. Remaining work belongs to L6-style runtime evidence: real driver packages, CAPX migration/upgrade behavior, controllable-effect state changes and per-build regressions.
 ## Primary sources
 
 - Audio Signal Processing Modes — https://learn.microsoft.com/windows-hardware/drivers/audio/audio-signal-processing-modes
