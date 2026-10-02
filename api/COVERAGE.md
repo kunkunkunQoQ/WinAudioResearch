@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **347** |
+| Symbol / type / property / HRESULT records | **392** |
 | Method records | **269** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
 | API relationship records | **86** |
-| **Total** | **886** |
+| **Total** | **931** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -30,11 +30,11 @@ api/  → machine-readable symbol / method / version / source database
 | WASAPI / AudioClient | 26 | 36 | Strong |
 | Audio Session | 11 | 33 | Strong |
 | EndpointVolume | 8 | 23 | Strong |
-| DeviceTopology | 24 | 25 | Strong |
+| DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
 | ACX | 21 | - | Symbol-level |
 | KS Audio | 14 | - | Symbol-level |
-| Spatial Audio | 11 | 21 | Strong |
+| Spatial Audio | 38 | 21 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
 | APO / System Effects | 18 | 15 | Strong core |
@@ -42,7 +42,7 @@ api/  → machine-readable symbol / method / version / source database
 | WinRT Audio / Device / Capture | 16 | 48 members | Strong core |
 | Driver / ACX / KS / WaveRT | 19 | - | Platform-level |
 | Audio Properties | 28 | - | Growing |
-| HRESULT | 26 | - | Growing |
+| HRESULT | 36 | - | Growing |
 | Undocumented | 9 | - | Explicitly separated |
 
 ## Definition of coverage levels
