@@ -35,6 +35,10 @@ HEADERS = {
         "sample", "source_repo", "path", "family", "language", "status",
         "purpose", "source_url", "verified", "notes",
     ],
+    "relationship": [
+        "source", "relation", "target", "family", "status", "min_client",
+        "purpose", "docs_url", "verified", "notes",
+    ],
 }
 
 ALLOWED_STATUS = {
@@ -86,6 +90,12 @@ def record_key(table_type: str, row: dict[str, str]) -> tuple[str, ...]:
         return (
             (row.get("source_repo") or "").strip(),
             (row.get("path") or "").strip(),
+        )
+    if table_type == "relationship":
+        return (
+            (row.get("source") or "").strip(),
+            (row.get("relation") or "").strip(),
+            (row.get("target") or "").strip(),
         )
     raise ValueError(table_type)
 
@@ -162,7 +172,7 @@ def main() -> int:
                 fail(errors, f"{label}: duplicate key {key}")
             seen.add(key)
 
-            if status.startswith("Public") and table_type in {"symbol", "method", "member"} and not url:
+            if status.startswith("Public") and table_type in {"symbol", "method", "member", "relationship"} and not url:
                 warnings.append(f"{label}: public record has no official/source URL")
 
     for rel in table_specs:

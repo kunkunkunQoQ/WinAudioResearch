@@ -1,7 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 800,
+  "total_records": 886,
   "symbol_records": 347,
   "method_records": 269,
   "tables": [
@@ -162,6 +162,12 @@
       "records": 28
     },
     {
+      "path": "api/relationships.csv",
+      "type": "relationship",
+      "family": "APIRelationships",
+      "records": 86
+    },
+    {
       "path": "api/samples.csv",
       "type": "sample",
       "family": "MicrosoftSamples",
@@ -213,5 +219,6 @@
   "member_records": 130,
   "capability_records": 20,
   "dependency_records": 20,
-  "sample_records": 14
+  "sample_records": 14,
+  "relationship_records": 86
 }

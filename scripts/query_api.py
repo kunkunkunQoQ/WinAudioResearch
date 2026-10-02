@@ -39,6 +39,8 @@ def display_name(row: dict[str, str]) -> str:
         return row["capability"]
     if row.get("sample"):
         return row["sample"]
+    if row.get("source") and row.get("relation") and row.get("target"):
+        return f"{row['source']} --{row['relation']}--> {row['target']}"
     return "(unnamed)"
 
 
@@ -47,7 +49,7 @@ def main() -> int:
     p.add_argument("query", nargs="?", default="", help="Text search, e.g. IAudioClient")
     p.add_argument("--status", help="Filter by status, e.g. Public or Undocumented")
     p.add_argument("--family", help="Filter by row/catalog family substring")
-    p.add_argument("--type", dest="record_type", help="symbol/method/member/capability/dependency/sample")
+    p.add_argument("--type", dest="record_type", help="symbol/method/member/capability/dependency/sample/relationship")
     p.add_argument("--table", help="Filter by CSV filename substring")
     args = p.parse_args()
 
@@ -74,7 +76,7 @@ def main() -> int:
             "kind", "member_kind", "family", "header_or_namespace", "header",
             "namespace", "status", "min_client", "introduced",
             "changed_or_removed", "iid_or_guid", "library", "dll_or_runtime",
-            "package", "purpose", "docs_url", "source_url", "notes",
+            "package", "source", "relation", "target", "purpose", "docs_url", "source_url", "notes",
         ):
             value = (row.get(key) or "").strip()
             if value:
