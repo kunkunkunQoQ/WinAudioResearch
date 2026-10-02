@@ -25,17 +25,17 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **2466 条结构化记录**：
+当前数据库包含 **2504 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
-| Symbol / type / property / HRESULT | **1170** |
+| Symbol / type / property / HRESULT | **1198** |
 | Method / callback / DDI | **838** |
 | WinRT / MIDI members | **130** |
 | Capability / version | **20** |
 | Dependency | **30** |
 | Official samples | **23** |
-| API relationships | **255** |
+| API relationships | **265** |
 
 主要覆盖：
 
