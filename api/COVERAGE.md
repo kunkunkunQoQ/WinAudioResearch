@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **1221** |
-| Method records | **850** |
+| Symbol / type / property / HRESULT records | **1335** |
+| Method records | **854** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **32** |
 | Official sample records | **23** |
-| API relationship records | **275** |
-| **Total** | **2551** |
+| API relationship records | **362** |
+| **Total** | **2756** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -35,7 +35,8 @@ api/  → machine-readable symbol / method / version / source database
 | WaveRT | 29 | 28 | Strong / integrated; RTAudio contract map added |
 | PortCls | 112 | 194 | Integrated; broad method audit complete, final edge audit pending |
 | ACX | 288 | 226 | Strong; header audit active |
-| KS Audio | 284 | - | Strong core; 27/27 audio sets + generic KS + RTAudio mapping |
+| KS Audio | 284 | - | Strong core; 27/27 Microsoft audio property-set families + RTAudio mapping |
+| KS Core | 114 | 4 | **Integrated / L4+**; General Pin Connection Standard interfaces MediaSeeking Clock StreamIo and allocator contracts mapped |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
@@ -77,10 +78,10 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **KS generic method / media-seeking / allocator contracts beyond the completed WaveRT/RTAudio map**
-2. **Core Audio IID/CLSID + Header/Library/DLL dependency normalization**
-3. **remaining PortCls edge-method/IID/version audit**
-4. **ACX newer-WDK per-header delta audit**
+1. **Core Audio IID/CLSID + Header/Library/DLL dependency normalization**
+2. **remaining PortCls edge-method/IID/version audit**
+3. **ACX newer-WDK per-header delta audit**
+4. **remaining generic KS events/categories/AVStream callback boundaries**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **PKEY / DEVPKEY and codec/subtype GUID expansion**
 7. **API relationship path tests and graph completeness checks**
@@ -104,6 +105,7 @@ Describes important driver/framework entry points. WDK surface area is much larg
 - [APO / CAPX / Media-Class INF Coverage Audit](../docs/106-APO-CAPX-Media-Class-INF-Coverage-Audit.md)
 - [APO Processing Modes / APOERR / MsApoFxProxy Audit](../docs/107-APO-Processing-Modes-and-APOERR-Audit.md)
 - [APO Effect GUID / IID-SID / Base Helper Final Audit](../docs/108-APO-Effect-GUID-IID-SID-and-Base-Helper-Audit.md)
+- [KS Generic Streaming Contracts Audit](../docs/109-KS-Generic-Streaming-Contracts-Audit.md)
 
 ## Accuracy rule
 

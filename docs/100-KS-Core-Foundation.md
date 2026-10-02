@@ -25,7 +25,7 @@ https://learn.microsoft.com/windows-hardware/drivers/stream/kspropsetid-general
 
 Pin factory 描述的是“能够创建什么”。真正创建 pin instance 之后，stream connection 的状态与格式主要由 `KSPROPSETID_Connection` 管理。
 
-当前结构库记录：
+当前结构库已正式落地到 `api/ks-core.csv`：
 
 - `KSPROPERTY_CONNECTION_ALLOCATORFRAMING`
 - `KSPROPERTY_CONNECTION_ALLOCATORFRAMING_EX`
@@ -141,4 +141,4 @@ KS Filter
        └─ events
 ~~~
 
-这也是后续继续整理 MediaSeeking、allocator structures、KS methods、generic event infrastructure、category/node GUIDs，以及 PortCls / AVStream 的基础。
+本阶段之后，MediaSeeking、Clock、StreamIo、StreamAllocator、allocator framing 与 `KSSTREAM_HEADER` 也已经进入结构化数据库。完整审计见 [KS Generic Streaming Contracts Audit](109-KS-Generic-Streaming-Contracts-Audit.md)。后续重点转向剩余 generic event infrastructure、category/node GUIDs，以及 AVStream callback / automation 边界。

@@ -461,8 +461,8 @@ The next database families should be added in this order.
 
 ### Priority 1 — Complete the lower layers
 
-- KS generic method/media-seeking/allocator contracts
 - Core Audio IID/CLSID and Header/Library/DLL normalization
+- remaining generic KS event/category/AVStream boundaries after completed Pin/Connection/Allocator/Clock integration
 - PortCls final edge-method/IID/version audit
 - ACX per-header delta audit
 - APO runtime/build evidence after completed L5 header audit
@@ -650,14 +650,14 @@ That is the long-term definition of “large Windows audio knowledge base”.
 
 ## 12. Immediate next rounds
 
-APO public-header coverage reached the L5 audit baseline in docs 106–108. The next rounds move down-stack and then return to application-runtime normalization.
+APO public-header coverage is L5 and the main generic KS streaming contracts are now machine-readable. The next round returns to application/runtime normalization.
 
-1. Build KS generic method / allocator / media-seeking / clock contract coverage.
-2. Normalize Core Audio IID/CLSID plus Header / Library / DLL dependencies.
-3. Finish the remaining PortCls edge-method/IID/version audit.
-4. Continue ACX current-WDK per-header delta audit.
+1. Normalize Core Audio IID/CLSID plus Header / Library / DLL dependencies.
+2. Finish the remaining PortCls edge-method/IID/version audit.
+3. Continue ACX current-WDK per-header delta audit.
+4. Fill remaining generic KS event/category and AVStream callback boundaries.
 5. Expand PKEY / DEVPKEY and codec/subtype GUID catalogs.
 6. Expand AUDCLNT / Media Foundation / XAudio2 HRESULT catalogs.
 7. Build API relationship path tests and source-provenance metadata.
-8. Add L6 APO/CAPX real-build evidence only where reproducible hardware/driver packages are available.
+8. Add L6 runtime evidence only where reproducible builds/hardware are available.
 9. Add minimal runnable experiments after the reference layer is stable.
