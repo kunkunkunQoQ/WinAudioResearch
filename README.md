@@ -117,7 +117,7 @@ Audio Policy
 
 仓库同时维护独立的结构化 API 数据库：
 
-- **[API Database](api/README.md)** — 当前 **1045 条**结构化记录
+- **[API Database](api/README.md)** — 当前 **1159 条**结构化记录
 - **[Coverage](api/COVERAGE.md)** — 各 API family 覆盖率
 - **[catalog.json](api/catalog.json)** — 机器可读表清单与记录计数
 
