@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **517** |
-| Method records | **372** |
+| Symbol / type / property / HRESULT records | **560** |
+| Method records | **383** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
-| API relationship records | **86** |
-| **Total** | **1159** |
+| API relationship records | **111** |
+| **Total** | **1238** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -32,7 +32,7 @@ api/  → machine-readable symbol / method / version / source database
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
-| ACX | 37 | 66 | Strong core |
+| ACX | 80 | 77 | Strong core |
 | KS Audio | 87 | - | Strong core |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
@@ -72,12 +72,12 @@ Describes important driver/framework entry points. WDK surface area is much larg
 ## Next database targets
 
 1. **callback / COM apartment / realtime / lifetime constraints database**
-2. **ACX specialized element / target / request / factory APIs beyond AudioEngine and AudioModule**
+2. **ACX target / request / factory / data-format APIs beyond the expanded core + element index**
 3. **KS AudioEngine / jack / topology property sets beyond the expanded KSPROPSETID_Audio catalog**
 4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
-7. **API relationship graph generation and path tests**
+7. **API relationship path tests and graph completeness checks**
 8. **source provenance / verification metadata per record**
 9. **codec / subtype GUID expansion**
 10. **cross-version regression evidence linked to capability rows**
