@@ -1,10 +1,16 @@
 {
   "version": 2,
   "last_verified": "2026-10-02",
-  "total_records": 733,
-  "symbol_records": 300,
-  "method_records": 249,
+  "total_records": 798,
+  "symbol_records": 345,
+  "method_records": 269,
   "tables": [
+    {
+      "path": "api/acx.csv",
+      "type": "symbol",
+      "family": "ACX",
+      "records": 21
+    },
     {
       "path": "api/apo.csv",
       "type": "symbol",
@@ -64,6 +70,12 @@
       "type": "symbol",
       "family": "HRESULT",
       "records": 26
+    },
+    {
+      "path": "api/ks-audio.csv",
+      "type": "symbol",
+      "family": "KSAudio",
+      "records": 12
     },
     {
       "path": "api/media-foundation.csv",
@@ -132,6 +144,12 @@
       "records": 36
     },
     {
+      "path": "api/methods-wavert.csv",
+      "type": "method",
+      "family": "WaveRT",
+      "records": 20
+    },
+    {
       "path": "api/methods-xaudio2.csv",
       "type": "method",
       "family": "XAudio2",
@@ -166,6 +184,12 @@
       "type": "symbol",
       "family": "WASAPI",
       "records": 26
+    },
+    {
+      "path": "api/wavert.csv",
+      "type": "symbol",
+      "family": "WaveRT",
+      "records": 12
     },
     {
       "path": "api/windows-capabilities.csv",
