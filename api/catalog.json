@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 931,
-  "symbol_records": 392,
-  "method_records": 269,
+  "total_records": 970,
+  "symbol_records": 394,
+  "method_records": 306,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -135,7 +135,7 @@
       "path": "api/methods-spatial.csv",
       "type": "method",
       "family": "SpatialAudio",
-      "records": 21
+      "records": 58
     },
     {
       "path": "api/methods-wasapi.csv",
@@ -177,7 +177,7 @@
       "path": "api/spatial-audio.csv",
       "type": "symbol",
       "family": "SpatialAudio",
-      "records": 38
+      "records": 40
     },
     {
       "path": "api/undocumented.csv",
