@@ -11,8 +11,8 @@ This stage turns the conceptual KS core documented in `docs/100` into a machine-
 |---|---:|
 | KS Core symbols / types / properties | **114** |
 | KS methods | **4** |
-| New relationship edges | **87** |
-| Repository total after integration | **2756** |
+| New relationship edges | **86** |
+| Repository total after integration | **2755** |
 
 New tables:
 
@@ -92,7 +92,7 @@ Extended framing support includes `KS_FRAMING_RANGE`, `KS_FRAMING_RANGE_WEIGHTED
 
 ## 8. Relationship graph
 
-The 87 new edges deliberately connect sets to members and members to their payload types. Important examples:
+The 86 new edges deliberately connect sets to members and members to their payload types. Important examples:
 
 - Pin DATARANGES → `KSDATARANGE`
 - Pin DATAINTERSECTION / PROPOSEDATAFORMAT → `KSDATAFORMAT`

@@ -25,7 +25,7 @@
 
 ## Machine-readable API Database
 
-当前数据库包含 **2756 条结构化记录**：
+当前数据库包含 **2755 条结构化记录**：
 
 | 类型 | 数量 |
 |---|---:|
@@ -35,7 +35,7 @@
 | Capability / version | **20** |
 | Dependency | **32** |
 | Official samples | **23** |
-| API relationships | **362** |
+| API relationships | **361** |
 
 主要覆盖：
 

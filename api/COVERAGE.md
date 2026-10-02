@@ -12,8 +12,8 @@ Last verified: **2026-10-02**
 | Capability/version records | **20** |
 | Dependency records | **32** |
 | Official sample records | **23** |
-| API relationship records | **362** |
-| **Total** | **2756** |
+| API relationship records | **361** |
+| **Total** | **2755** |
 
 The database is intentionally split from the long-form documentation:
 

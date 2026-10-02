@@ -1,7 +1,7 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2756,
+  "total_records": 2755,
   "symbol_records": 1335,
   "method_records": 854,
   "tables": [
@@ -237,7 +237,7 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 362
+      "records": 361
     },
     {
       "path": "api/samples.csv",
@@ -292,5 +292,5 @@
   "capability_records": 20,
   "dependency_records": 32,
   "sample_records": 23,
-  "relationship_records": 362
+  "relationship_records": 361
 }
