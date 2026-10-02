@@ -106,3 +106,84 @@ Microsoft 的 `KsStudio.exe` 可以查看 filters、pin factories、nodes、prop
   https://learn.microsoft.com/windows-hardware/drivers/stream/ks-minidriver-architecture
 - KsStudio  
   https://learn.microsoft.com/windows-hardware/drivers/audio/ksstudio-utility
+
+
+
+## AudioEngine property set
+
+Windows 8 为 hardware-offloaded audio 引入：
+
+```text
+KSNODETYPE_AUDIO_ENGINE
+        ↓
+KSPROPSETID_AudioEngine
+```
+
+当前库已经记录全部标准 property：
+
+- `KSPROPERTY_AUDIOENGINE_LFXENABLE`
+- `KSPROPERTY_AUDIOENGINE_GFXENABLE`
+- `KSPROPERTY_AUDIOENGINE_MIXFORMAT`
+- `KSPROPERTY_AUDIOENGINE_DEVICEFORMAT`
+- `KSPROPERTY_AUDIOENGINE_SUPPORTEDDEVICEFORMATS`
+- `KSPROPERTY_AUDIOENGINE_DESCRIPTOR`
+- `KSPROPERTY_AUDIOENGINE_BUFFER_SIZE_RANGE`
+- `KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION`
+- `KSPROPERTY_AUDIOENGINE_VOLUMELEVEL`
+
+## KSPROPSETID_Pin
+
+Pin discovery 不只是 category。
+
+`KSPROPSETID_Pin` 还提供：
+
+- pin factory 数量
+- current/global instance 数量
+- communication
+- data flow
+- data ranges / constrained data ranges
+- data intersection
+- interfaces / mediums
+- mode-specific formats
+- friendly name
+- physical connection
+- proposed format
+
+所以分析一个 KS filter 能否创建某种 stream，应先查询 pin factory 能力，再讨论 pin instance。
+
+## Topology / TopologyNode
+
+`KSPROPSETID_Topology` 负责描述 filter 内部：
+
+```text
+categories
+nodes
+connections
+names
+```
+
+而 `KSPROPSETID_TopologyNode` 负责 generic node control：
+
+- enable
+- reset
+
+其中 hardware AEC / noise suppression 需要支持 TopologyNode 的 enable/disable 控制。
+
+## Jack property set
+
+`KSPROPSETID_Jack` 当前已索引：
+
+- DESCRIPTION
+- DESCRIPTION2
+- DESCRIPTION3
+- SINK_INFO
+- CONTAINERID
+
+这些属性会影响：
+
+- jack UI
+- dynamic endpoint
+- DeviceTopology jack information
+- endpoint container association
+- Bluetooth / digital sink behavior
+
