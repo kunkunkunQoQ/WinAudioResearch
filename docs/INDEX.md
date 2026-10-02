@@ -165,6 +165,8 @@ python scripts/query_api.py --status Undocumented
 - [WaveRT Deep Dive](70-WaveRT-Deep-Dive.md)
 - [ACX Deep Dive](71-ACX-Deep-Dive.md)
 - [Kernel Streaming Deep Dive](74-Kernel-Streaming-Deep-Dive.md)
+- [ACX Public Header Coverage Audit](97-ACX-Public-Header-Coverage-Audit.md)
+- [KS Audio Property Set Coverage](98-KS-Audio-Property-Set-Coverage.md)
 - [Audio Driver INF / Endpoint Configuration](75-Audio-Driver-INF-and-Endpoint-Configuration.md)
 - [Windows ARM64 Audio Development](79-Windows-ARM64-Audio-Development.md)
 - [Driver Signing / Distribution](80-Driver-Signing-and-Distribution.md)
@@ -260,7 +262,7 @@ Related research findings:
 
 ---
 
-## 15. 近期扩展专题（83–92）
+## 15. 近期扩展专题（83–98）
 
 这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
 
