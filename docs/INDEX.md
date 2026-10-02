@@ -6,6 +6,37 @@
 
 ---
 
+## API Database / 机器可读接口库
+
+长文档之外，仓库维护独立的结构化 API 数据库：
+
+- [API Database overview](../api/README.md)
+- [Coverage](../api/COVERAGE.md)
+- [Machine-readable catalog](../api/catalog.json)
+- [MMDevice](../api/core-mmdevice.csv)
+- [WASAPI](../api/wasapi.csv)
+- [Audio Session](../api/audio-session.csv)
+- [EndpointVolume](../api/endpoint-volume.csv)
+- [DeviceTopology](../api/device-topology.csv)
+- [Spatial Audio](../api/spatial-audio.csv)
+- [Media Foundation](../api/media-foundation.csv)
+- [XAudio2](../api/xaudio2.csv)
+- [MIDI](../api/midi.csv)
+- [APO](../api/apo.csv)
+- [WinRT Audio](../api/winrt-audio.csv)
+- [Audio properties](../api/audio-properties.csv)
+- [HRESULT](../api/hresults.csv)
+- [Undocumented](../api/undocumented.csv)
+
+查询工具：
+
+```bash
+python scripts/query_api.py IAudioClient
+python scripts/query_api.py --status Undocumented
+```
+
+---
+
 ## 1. 从这里开始
 
 - [Windows Audio 架构与接口地图](00-Windows-Audio-Architecture.md)
