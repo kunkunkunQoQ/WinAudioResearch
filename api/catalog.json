@@ -1,63 +1,15 @@
 {
   "version": 1,
   "last_verified": "2026-10-02",
-  "total_records": 300,
-  "symbol_records": 169,
-  "method_records": 131,
+  "total_records": 502,
+  "symbol_records": 253,
+  "method_records": 249,
   "tables": [
     {
-      "path": "api/core-mmdevice.csv",
+      "path": "api/apo.csv",
       "type": "symbol",
-      "family": "MMDevice",
-      "records": 15
-    },
-    {
-      "path": "api/wasapi.csv",
-      "type": "symbol",
-      "family": "WASAPI",
-      "records": 26
-    },
-    {
-      "path": "api/audio-session.csv",
-      "type": "symbol",
-      "family": "AudioSession",
-      "records": 11
-    },
-    {
-      "path": "api/endpoint-volume.csv",
-      "type": "symbol",
-      "family": "EndpointVolume",
-      "records": 8
-    },
-    {
-      "path": "api/device-topology.csv",
-      "type": "symbol",
-      "family": "DeviceTopology",
-      "records": 24
-    },
-    {
-      "path": "api/spatial-audio.csv",
-      "type": "symbol",
-      "family": "SpatialAudio",
-      "records": 11
-    },
-    {
-      "path": "api/winrt-audio.csv",
-      "type": "symbol",
-      "family": "WinRT",
-      "records": 16
-    },
-    {
-      "path": "api/driver-platform.csv",
-      "type": "symbol",
-      "family": "DriverPlatform",
-      "records": 19
-    },
-    {
-      "path": "api/undocumented.csv",
-      "type": "symbol",
-      "family": "Undocumented",
-      "records": 9
+      "family": "APO",
+      "records": 18
     },
     {
       "path": "api/audio-properties.csv",
@@ -66,28 +18,58 @@
       "records": 16
     },
     {
+      "path": "api/audio-session.csv",
+      "type": "symbol",
+      "family": "AudioSession",
+      "records": 11
+    },
+    {
+      "path": "api/core-mmdevice.csv",
+      "type": "symbol",
+      "family": "MMDevice",
+      "records": 15
+    },
+    {
+      "path": "api/device-topology.csv",
+      "type": "symbol",
+      "family": "DeviceTopology",
+      "records": 24
+    },
+    {
+      "path": "api/driver-platform.csv",
+      "type": "symbol",
+      "family": "DriverPlatform",
+      "records": 19
+    },
+    {
+      "path": "api/endpoint-volume.csv",
+      "type": "symbol",
+      "family": "EndpointVolume",
+      "records": 8
+    },
+    {
       "path": "api/hresults.csv",
       "type": "symbol",
       "family": "HRESULT",
       "records": 14
     },
     {
-      "path": "api/methods-mmdevice.csv",
-      "type": "method",
-      "family": "MMDevice",
-      "records": 18
+      "path": "api/media-foundation.csv",
+      "type": "symbol",
+      "family": "MediaFoundation",
+      "records": 17
     },
     {
-      "path": "api/methods-wasapi.csv",
+      "path": "api/methods-apo.csv",
       "type": "method",
-      "family": "WASAPI",
-      "records": 36
+      "family": "APO",
+      "records": 15
     },
     {
-      "path": "api/methods-session.csv",
+      "path": "api/methods-devicetopology.csv",
       "type": "method",
-      "family": "AudioSession",
-      "records": 33
+      "family": "DeviceTopology",
+      "records": 25
     },
     {
       "path": "api/methods-endpointvolume.csv",
@@ -96,9 +78,75 @@
       "records": 23
     },
     {
+      "path": "api/methods-media-foundation.csv",
+      "type": "method",
+      "family": "MediaFoundation",
+      "records": 40
+    },
+    {
+      "path": "api/methods-mmdevice.csv",
+      "type": "method",
+      "family": "MMDevice",
+      "records": 18
+    },
+    {
+      "path": "api/methods-session.csv",
+      "type": "method",
+      "family": "AudioSession",
+      "records": 33
+    },
+    {
       "path": "api/methods-spatial.csv",
       "type": "method",
       "family": "SpatialAudio",
+      "records": 21
+    },
+    {
+      "path": "api/methods-wasapi.csv",
+      "type": "method",
+      "family": "WASAPI",
+      "records": 36
+    },
+    {
+      "path": "api/methods-xaudio2.csv",
+      "type": "method",
+      "family": "XAudio2",
+      "records": 38
+    },
+    {
+      "path": "api/midi.csv",
+      "type": "symbol",
+      "family": "MIDI",
+      "records": 28
+    },
+    {
+      "path": "api/spatial-audio.csv",
+      "type": "symbol",
+      "family": "SpatialAudio",
+      "records": 11
+    },
+    {
+      "path": "api/undocumented.csv",
+      "type": "symbol",
+      "family": "Undocumented",
+      "records": 9
+    },
+    {
+      "path": "api/wasapi.csv",
+      "type": "symbol",
+      "family": "WASAPI",
+      "records": 26
+    },
+    {
+      "path": "api/winrt-audio.csv",
+      "type": "symbol",
+      "family": "WinRT",
+      "records": 16
+    },
+    {
+      "path": "api/xaudio2.csv",
+      "type": "symbol",
+      "family": "XAudio2",
       "records": 21
     }
   ]
