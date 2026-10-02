@@ -292,3 +292,132 @@ https://github.com/microsoft/Windows-driver-samples/tree/main/audio/Acx/Samples
 
 - ACX Samples  
   https://github.com/microsoft/Windows-driver-samples/tree/main/audio/Acx/Samples
+
+---
+
+## 13. DataFormat / DataFormatList
+
+ACX 使用 `ACXDATAFORMAT` 表示一个音频格式，并用 `ACXDATAFORMATLIST` 管理某个 pin / processing mode 支持的格式集合。
+
+```text
+ACXPIN
+  └─ ACXDATAFORMATLIST
+       ├─ ACXDATAFORMAT
+       ├─ ACXDATAFORMAT
+       └─ ...
+```
+
+格式对象可以直接查询：
+
+- sample rate
+- bits per sample
+- valid bits
+- block align
+- channel count
+- channel mask
+- subformat / major format / specifier
+- WAVEFORMATEX
+- WAVEFORMATEXTENSIBLE
+- KSDATAFORMAT
+
+因此 ACX format 层实际是连接 **Windows audio format / KS format / Wave format** 的重要桥梁。
+
+完整索引：`api/acx.csv` 与 `api/methods-acx.csv`。
+
+---
+
+## 14. ACX Manager / Composite Template
+
+`ACXMANAGER` 负责基于 circuit template 组合 composite endpoint：
+
+```text
+ACXCIRCUITTEMPLATE
+      ↓
+ACXCOMPOSITETEMPLATE
+      ↓
+ACXMANAGER
+      ↓
+composite endpoint
+```
+
+关键 API：
+
+- `AcxCircuitTemplateCreate`
+- `AcxCompositeTemplateCreate`
+- `AcxCompositeTemplateAssignCircuits`
+- `AcxCompositeTemplateSetCoreCircuit`
+- `AcxManagerAddCompositeTemplate`
+- `AcxManagerRemoveCompositeTemplate`
+
+这和前面“一个 endpoint 可以由多个 circuit 组成”的模型直接对应。
+
+---
+
+## 15. ACX Request
+
+ACX request 不是另一套完全脱离 KS 的请求模型。
+
+`ACX_REQUEST_PARAMETERS` 明确包含：
+
+- Property
+- Method
+- Event
+- Create
+
+并通过 `ACX_PROPERTY_ITEM` / `ACX_METHOD_ITEM` / `ACX_EVENT_ITEM` 描述目标项。
+
+这使 ACX 能在 WDF request 模型中继续承载 KS 风格的 property / method / event 语义。
+
+---
+
+## 16. Target objects
+
+跨 driver stack / circuit communication 使用：
+
+- `ACXTARGETCIRCUIT`
+- `ACXTARGETPIN`
+- `ACXTARGETELEMENT`
+- `ACXTARGETSTREAM`
+- `ACXTARGETFACTORYCIRCUIT`
+
+这些对象建立在 `WDFIOTARGET` 上，并可向远端对象发送 ACX property / method 请求。
+
+典型路径：
+
+```text
+local circuit
+   ↓
+ACXTARGETCIRCUIT
+   ├─ ACXTARGETPIN
+   ├─ ACXTARGETELEMENT
+   └─ ACXTARGETSTREAM
+             ↓
+        remote driver stack
+```
+
+因此 multi-circuit 并不意味着所有电路必须存在于同一个 WDF device stack。
+
+---
+
+## 17. FactoryCircuit
+
+`ACXFACTORYCIRCUIT` 用于按需创建 circuit：
+
+```text
+endpoint composition needs circuit
+        ↓
+ACX framework
+        ↓
+ACXFACTORYCIRCUIT
+        ↓
+EvtAcxFactoryCircuitCreateCircuitDevice
+        ↓
+EvtAcxFactoryCircuitCreateCircuit
+        ↓
+ACXCIRCUIT
+```
+
+Factory 创建的 circuit 不能作为提供 endpoint identity 的 core circuit。
+
+这类机制特别适合可动态出现的 component / multi-circuit endpoint。
+
