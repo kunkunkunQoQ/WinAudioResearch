@@ -78,10 +78,10 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **Core Audio adjacent SDK declarations + callback/apartment/lifetime evidence** (63 existing IID/CLSID records and dependencies normalized in audit 110)
-2. **remaining PortCls edge-method/IID/version audit**
-3. **ACX newer-WDK per-header delta audit**
-4. **remaining generic KS events/categories/AVStream callback boundaries**
+1. **remaining PortCls edge-method/IID/version audit**
+2. **ACX newer-WDK per-header delta audit**
+3. **remaining generic KS events/categories/AVStream callback boundaries**
+4. **Core Audio adjacent SDK declarations + callback/apartment/lifetime evidence** (63 existing IID/CLSID records and dependencies normalized in audit 110)
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **PKEY / DEVPKEY and codec/subtype GUID expansion**
 7. **API relationship path tests and graph completeness checks**
@@ -124,6 +124,8 @@ Every change under `api/` is checked by:
 
 ```text
 python scripts/validate_api_db.py
+python scripts/validate_core_audio_audit.py --fetch-headers
+python -m unittest discover -s tests -v
 ```
 
 GitHub Actions runs the validator on synchronized main-branch snapshots (`catalog.json` / schema / validator changes) and on every API change in pull requests. This avoids expected red runs from intermediate one-file commits while preserving strict PR validation.
@@ -137,3 +139,5 @@ The validator checks:
 - duplicate records;
 - HTTPS source links;
 - catalog consistency.
+
+The Core Audio audit additionally checks the 63 indexed IID/CLSID values and matching dependency rows against pinned source evidence. CI downloads the six source headers, compares their SHA-256 hashes and declarations, and verifies that extra UUID declarations have explicit coverage explanations. See [audit 110](../docs/110-Core-Audio-Identifiers-and-Dependencies-Audit.md) for its scope and exclusions.

@@ -461,7 +461,7 @@ The next database families should be added in this order.
 
 ### Priority 1 — Complete the lower layers
 
-- Core Audio IID/CLSID and Header/Library/DLL normalization
+- Core Audio adjacent SDK declarations and callback/apartment/lifetime evidence after completed IID/CLSID dependency normalization
 - remaining generic KS event/category/AVStream boundaries after completed Pin/Connection/Allocator/Clock integration
 - PortCls final edge-method/IID/version audit
 - ACX per-header delta audit
@@ -650,12 +650,12 @@ That is the long-term definition of “large Windows audio knowledge base”.
 
 ## 12. Immediate next rounds
 
-APO public-header coverage is L5 and the main generic KS streaming contracts are now machine-readable. The next round returns to application/runtime normalization.
+APO public-header coverage is L5 and the main generic KS streaming contracts are now machine-readable. [Audit 110](110-Core-Audio-Identifiers-and-Dependencies-Audit.md) has completed normalization of the 63 indexed Core Audio IID/CLSID records and their dependencies, with six adjacent SDK declarations explicitly deferred. The next reference round returns to the remaining driver audits.
 
-1. Normalize Core Audio IID/CLSID plus Header / Library / DLL dependencies.
-2. Finish the remaining PortCls edge-method/IID/version audit.
-3. Continue ACX current-WDK per-header delta audit.
-4. Fill remaining generic KS event/category and AVStream callback boundaries.
+1. Finish the remaining PortCls edge-method/IID/version audit.
+2. Continue ACX current-WDK per-header delta audit.
+3. Fill remaining generic KS event/category and AVStream callback boundaries.
+4. Audit adjacent Core Audio SDK declarations and callback/apartment/lifetime boundaries.
 5. Expand PKEY / DEVPKEY and codec/subtype GUID catalogs.
 6. Expand AUDCLNT / Media Foundation / XAudio2 HRESULT catalogs.
 7. Build API relationship path tests and source-provenance metadata.

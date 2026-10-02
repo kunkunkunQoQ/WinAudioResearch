@@ -20,12 +20,18 @@ mmdeviceapi.h
 - IMMNotificationClient
 - ActivateAudioInterfaceAsync
 
-相关 library / DLL：
+`ActivateAudioInterfaceAsync` 的 import library / DLL：
 
 ```text
 Mmdevapi.lib
 Mmdevapi.dll
 ```
+
+这些是导出函数 `ActivateAudioInterfaceAsync` 的[官方依赖](https://learn.microsoft.com/windows/win32/api/mmdeviceapi/nf-mmdeviceapi-activateaudiointerfaceasync)。`IMMDevice` 等接口的方法通过 COM vtable 调用；不能据此给所有 MMDevice 接口填写相同的 import library 或 DLL。
+
+`CoCreateInstance`、`CoInitializeEx`、`CoUninitialize` 与 `CoTaskMemFree` 的官方依赖是 `Ole32.lib` / `Ole32.dll`。它们是通用 COM 函数，最低支持版本与 Core Audio 接口自身的版本要求分别记录。
+
+完整的 63 个接口/类标识与依赖核对见 [Core Audio IID/CLSID and Dependencies Audit](110-Core-Audio-Identifiers-and-Dependencies-Audit.md)，机器可读记录见 [dependencies.csv](../api/dependencies.csv)。COM 回调接口由应用实现；编译时的 IID 定义也应与函数 import library 分开处理。
 
 ---
 
@@ -115,6 +121,8 @@ PropVariantClear
 ```text
 ole32.dll
 ```
+
+`CoTaskMemFree` 仅用于单个 API 明确约定由 COM task allocator 分配的输出。接口指针使用 `Release`，WASAPI buffer 使用对应的 `ReleaseBuffer`；三者的所有权契约不同。
 
 ---
 
@@ -272,3 +280,9 @@ combase.dll
 - Microsoft Learn
 - Windows SDK / WDK public header
 - documented contract
+
+---
+
+## 14. AudioStateMonitor
+
+`audiostatemonitorapi.h` 的八个 `Create*AudioStateMonitor` 工厂函数使用 `windows.media.mediacontrol.lib`，最低文档版本为 Windows build 19043。Microsoft Learn 的 Requirements 表没有列出 DLL 名称，因此依赖表保留运行时描述。见[官方工厂文档](https://learn.microsoft.com/windows/win32/api/audiostatemonitorapi/nf-audiostatemonitorapi-createrenderaudiostatemonitor)和 [AudioStateMonitor](63-Audio-State-Monitor.md)。

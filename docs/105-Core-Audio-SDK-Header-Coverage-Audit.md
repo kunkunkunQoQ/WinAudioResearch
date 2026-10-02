@@ -141,7 +141,9 @@ AudioStateMonitorCallback
 
 ## 8. What L5 does not cover yet
 
-The next application-layer audit should focus on adjacent Windows Audio contracts rather than repeatedly re-auditing the classic five: APO/system-effects registration headers, Media-Class INF contracts, full Core Audio HRESULTs, endpoint/device property keys, processing-mode GUIDs, exact IID/CLSID catalogs, SDK version deltas, and real-build callback/threading behavior.
+Later rounds audited APO/system-effects registration headers, Media-Class INF contracts and processing-mode GUIDs. The [Core Audio IID/CLSID and Dependencies Audit](110-Core-Audio-Identifiers-and-Dependencies-Audit.md) now fills the 53 missing identifier cells and verifies all 63 interface/coclass records in these six tables against a pinned Microsoft SDK snapshot.
+
+That follow-up also records six adjacent UUID declarations outside the indexed inventory: `IMMDeviceActivator`, `IAudioAmbisonicsControl`, `IKsControl`, `IKsJackContainerId`, `IKsJackDescription3` and the `DeviceTopology` coclass. The L5 labels describe the audited client-facing inventory, not exhaustive coverage of every declaration in the latest SDK. Member/acquisition/version review for those declarations, full Core Audio HRESULTs, endpoint/device property keys, SDK deltas and real-build callback/threading behavior remain open.
 
 ## Primary Microsoft sources
 
