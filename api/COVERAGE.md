@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **835** |
-| Method records | **525** |
+| Symbol / type / property / HRESULT records | **932** |
+| Method records | **532** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
-| API relationship records | **150** |
-| **Total** | **1694** |
+| API relationship records | **162** |
+| **Total** | **1810** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -32,8 +32,8 @@ api/  → machine-readable symbol / method / version / source database
 | EndpointVolume | 8 | 23 | Strong |
 | DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
-| ACX | 276 | 219 | Strong |
-| KS Audio | 166 | - | Strong core |
+| ACX | 288 | 226 | Strong; header audit active |
+| KS Audio | 251 | - | Strong core; 27/27 property-set families |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
@@ -72,8 +72,8 @@ Describes important driver/framework entry points. WDK surface area is much larg
 ## Next database targets
 
 1. **callback / COM apartment / realtime / lifetime constraints database**
-2. **ACX completeness audit against every public ACX header and newer-version additions**
-3. **remaining KS audio property sets: RtAudio, AEC, DRM, SysAudio, Synth, DirectSound3D and legacy sets**
+2. **ACX per-header exhaustiveness audit and newer-version deltas using the new coverage audit**
+3. **KS supporting structs/events/generic connection-stream sets beyond the now 27/27 audio property-set family coverage**
 4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
@@ -81,6 +81,11 @@ Describes important driver/framework entry points. WDK surface area is much larg
 8. **source provenance / verification metadata per record**
 9. **codec / subtype GUID expansion**
 10. **cross-version regression evidence linked to capability rows**
+
+## Coverage audits
+
+- [ACX Public Header Coverage Audit](../docs/97-ACX-Public-Header-Coverage-Audit.md)
+- [KS Audio Property Set Coverage](../docs/98-KS-Audio-Property-Set-Coverage.md)
 
 ## Accuracy rule
 
