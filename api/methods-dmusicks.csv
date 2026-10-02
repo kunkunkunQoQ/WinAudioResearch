@@ -1,0 +1,20 @@
+interface,method,header,status,min_client,purpose,docs_url,verified,notes
+IAllocatorMXF,GetBuffer,dmusicks.h,Legacy,,Allocates a buffer for a DirectMusic event too large for inline DMUS_KERNEL_EVENT storage,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-iallocatormxf-getbuffer,2026-10-02,
+IAllocatorMXF,GetBufferSize,dmusicks.h,Legacy,,Returns allocator large-buffer size,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-iallocatormxf-getbuffersize,2026-10-02,
+IAllocatorMXF,GetMessage,dmusicks.h,Legacy,,Retrieves a reusable DMUS_KERNEL_EVENT structure from the allocator,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-iallocatormxf-getmessage,2026-10-02,
+IAllocatorMXF,PutBuffer,dmusicks.h,Legacy,,Returns a large buffer to the allocator; normally unnecessary because PutMessage recycles it,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-iallocatormxf-putbuffer,2026-10-02,
+IMasterClock,GetTime,dmusicks.h,Legacy,,Returns current master reference time in 100-ns units,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-imasterclock-gettime,2026-10-02,
+IMiniportDMus,Init,dmusicks.h,Legacy,,Initializes the DMus miniport object,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-iminiportdmus-init,2026-10-02,
+IMiniportDMus,NewStream,dmusicks.h,Legacy,,Creates a DirectMusic stream and returns its IMXF interface,https://learn.microsoft.com/windows-hardware/drivers/audio/dmus-miniport-driver,2026-10-02,Also receives allocator/master-clock support
+IMiniportDMus,Service,dmusicks.h,Legacy,,Handles a service request from the DMus port driver,https://learn.microsoft.com/windows-hardware/drivers/audio/dmus-miniport-driver,2026-10-02,Documented as not used by current flow
+IMXF,ConnectOutput,dmusicks.h,Legacy,,Connects this MXF source to another MXF sink,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-imxf-connectoutput,2026-10-02,
+IMXF,DisconnectOutput,dmusicks.h,Legacy,,Disconnects the MXF stream from its sink,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nn-dmusicks-imxf,2026-10-02,
+IMXF,PutMessage,dmusicks.h,Legacy,,Passes a DMUS_KERNEL_EVENT to the next MXF destination or allocator,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-imxf-putmessage,2026-10-02,
+IMXF,SetState,dmusicks.h,Legacy,,Changes DirectMusic stream KSSTATE,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-imxf-setstate,2026-10-02,
+IPortDMus,Notify,dmusicks.h,Legacy,,Notifies the DMus port driver that hardware stream position advanced,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nn-dmusicks-iportdmus,2026-10-02,
+IPortDMus,RegisterServiceGroup,dmusicks.h,Legacy,,Registers the service group used for interrupt-driven notification,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nn-dmusicks-iportdmus,2026-10-02,
+IPositionNotify,PositionNotify,dmusicks.h,Legacy,,Notifies an MXF graph of a byte-position update,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-ipositionnotify-positionnotify,2026-10-02,
+ISynthSinkDMus,RefTimeToSample,dmusicks.h,Legacy,,Converts master reference time to synthesizer sample time,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nn-dmusicks-isynthsinkdmus,2026-10-02,
+ISynthSinkDMus,Render,dmusicks.h,Legacy,,Renders wave data from a kernel-mode synthesizer into the wave sink,https://learn.microsoft.com/windows-hardware/drivers/audio/a-wave-sink-for-kernel-mode-software-synthesizers,2026-10-02,
+ISynthSinkDMus,SampleToRefTime,dmusicks.h,Legacy,,Converts sample time to master reference time,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-isynthsinkdmus-sampletoreftime,2026-10-02,
+ISynthSinkDMus,SyncToMaster,dmusicks.h,Legacy,,Synchronizes synth sample clock to the master reference clock,https://learn.microsoft.com/windows-hardware/drivers/ddi/dmusicks/nf-dmusicks-isynthsinkdmus-synctomaster,2026-10-02,
