@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 1848,
-  "symbol_records": 962,
-  "method_records": 532,
+  "total_records": 2051,
+  "symbol_records": 1074,
+  "method_records": 604,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -45,7 +45,7 @@
       "path": "api/dependencies.csv",
       "type": "dependency",
       "family": "BuildDependencies",
-      "records": 20
+      "records": 24
     },
     {
       "path": "api/device-topology.csv",
@@ -132,6 +132,12 @@
       "records": 18
     },
     {
+      "path": "api/methods-portcls.csv",
+      "type": "method",
+      "family": "PortCls",
+      "records": 64
+    },
+    {
       "path": "api/methods-session.csv",
       "type": "method",
       "family": "AudioSession",
@@ -153,7 +159,7 @@
       "path": "api/methods-wavert.csv",
       "type": "method",
       "family": "WaveRT",
-      "records": 20
+      "records": 28
     },
     {
       "path": "api/methods-xaudio2.csv",
@@ -168,10 +174,16 @@
       "records": 28
     },
     {
+      "path": "api/portcls.csv",
+      "type": "symbol",
+      "family": "PortCls",
+      "records": 112
+    },
+    {
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 170
+      "records": 185
     },
     {
       "path": "api/samples.csv",
@@ -224,7 +236,7 @@
   ],
   "member_records": 130,
   "capability_records": 20,
-  "dependency_records": 20,
+  "dependency_records": 24,
   "sample_records": 14,
-  "relationship_records": 170
+  "relationship_records": 185
 }
