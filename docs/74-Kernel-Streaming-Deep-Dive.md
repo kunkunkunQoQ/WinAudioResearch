@@ -187,3 +187,23 @@ names
 - endpoint container association
 - Bluetooth / digital sink behavior
 
+
+
+## Keyword detection / Telephony / Loopback
+
+结构库继续覆盖现代 KS audio property sets：
+
+- `KSPROPSETID_SoundDetector` / `KSPROPSETID_SoundDetector2`
+- `KSPROPSETID_AudioLoopback`
+- `KSPROPSETID_BtAudio`
+- `KSPROPSETID_AudioGfx`
+- `KSPROPSETID_TelephonyControl`
+- `KSPROPSETID_TelephonyTopology`
+- `KSPROPSETID_AudioPosture`
+
+SoundDetector2 从 Windows 10 1903 开始支持多个 voice agent，并使用带 `EventId` 的 `KSSOUNDDETECTORPROPERTY`。
+
+Windows 11 24H2 的 AudioLoopback property set 用于声明 loopback tap 位于 volume / mute 之前还是之后；EndpointBuilder 会查询该能力，并在创建 pin 时通过 attribute 传递实际 tap-point 请求。
+
+Telephony property sets 则覆盖 provider、call state/control、hold、TX mute，以及 render/capture endpoint pair 与 cellular-call volume。
+
