@@ -6,14 +6,14 @@ Last verified: **2026-10-02**
 
 | Layer | Records |
 |---|---:|
-| Symbol / type / property / HRESULT records | **932** |
+| Symbol / type / property / HRESULT records | **962** |
 | Method records | **532** |
 | Member / property / event records | **130** |
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
-| API relationship records | **162** |
-| **Total** | **1810** |
+| API relationship records | **170** |
+| **Total** | **1848** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -33,7 +33,7 @@ api/  → machine-readable symbol / method / version / source database
 | DeviceTopology | 32 | 25 | Strong |
 | WaveRT | 12 | 20 | Strong core |
 | ACX | 288 | 226 | Strong; header audit active |
-| KS Audio | 251 | - | Strong core; 27/27 property-set families |
+| KS Audio | 281 | - | Strong core; 27/27 audio sets + generic KS foundation |
 | Spatial Audio | 40 | 58 | Strong |
 | Media Foundation / MFT | 17 | 40 | Strong |
 | XAudio2 / XAPO | 21 | 38 | Strong |
@@ -73,7 +73,7 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 1. **callback / COM apartment / realtime / lifetime constraints database**
 2. **ACX per-header exhaustiveness audit and newer-version deltas using the new coverage audit**
-3. **KS supporting structs/events/generic connection-stream sets beyond the now 27/27 audio property-set family coverage**
+3. **KS supporting structs/method sets/media seeking/allocator details beyond the new General + Connection + interface + audio-event foundation**
 4. **remaining Audio INF / APO effect property GUIDs and processing-mode property IDs**
 5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
 6. **exact SDK Header / Library / DLL / NuGet requirements**
@@ -81,6 +81,11 @@ Describes important driver/framework entry points. WDK surface area is much larg
 8. **source provenance / verification metadata per record**
 9. **codec / subtype GUID expansion**
 10. **cross-version regression evidence linked to capability rows**
+
+## Master planning
+
+- [Windows Audio Master Coverage Plan](../docs/99-Windows-Audio-Master-Coverage-Plan.md)
+- [Machine-readable domain matrix](../coverage/windows-audio-domains.csv)
 
 ## Coverage audits
 
