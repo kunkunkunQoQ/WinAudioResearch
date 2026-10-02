@@ -16,6 +16,7 @@
 - [MMDevice](../api/core-mmdevice.csv)
 - [WASAPI](../api/wasapi.csv)
 - [Audio Session](../api/audio-session.csv)
+- [AudioStateMonitor](../api/audio-state-monitor.csv)
 - [EndpointVolume](../api/endpoint-volume.csv)
 - [DeviceTopology](../api/device-topology.csv)
 - [Spatial Audio](../api/spatial-audio.csv)
@@ -55,6 +56,7 @@ python scripts/query_api.py --status Undocumented
 - [API Reference Matrix](11-API-Reference-Matrix.md)
 - [Windows SDK Audio Header Catalog](66-Windows-SDK-Audio-Header-Catalog.md)
 - [Core Audio / WASAPI Interface Catalog](64-Core-Audio-Interface-Catalog.md)
+- [Core Audio SDK Header Coverage Audit](105-Core-Audio-SDK-Header-Coverage-Audit.md)
 - [Core Audio Structures / Enums Catalog](66-Core-Audio-Structures-Enums-Catalog.md)
 
 ---
@@ -268,7 +270,7 @@ Related research findings:
 
 ---
 
-## 15. 近期扩展专题（83–104）
+## 15. 近期扩展专题（83–105）
 
 这些文章是根据 2026 年最新 Microsoft 文档与专业音频生态继续补充的专题，后续会继续并入上面的主题分类。
 
