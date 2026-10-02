@@ -214,7 +214,27 @@ Continue per-header completeness audit.
 - WaveRT RTAudio property set
 - historical DirectSound / DirectMusic / SysAudio contracts
 
-### F. Driver packaging and installation
+### F. Official driver-reference checklist
+
+Microsoft's Audio Devices DDI Reference is a useful top-level completeness checklist. WinAudioResearch should explicitly cover:
+
+- Audio Drivers Enumerations
+- Audio Drivers Property Sets
+- Audio Drivers Event Sets
+- Audio Topology Nodes
+- Audio Drivers Structures
+- Audio Drivers Interfaces
+- Bluetooth HFP DDI Reference
+- High Definition Audio DDI Reference
+- DRM Functions
+- Audio Device Messages for MIDI
+- Legacy Audio Device Messages
+- Media-Class INF Extensions
+- Port Class Audio Driver Reference
+
+This checklist is broader than ACX / KS alone and should be used as a recurring WDK audit boundary.
+
+### G. Driver packaging and installation
 
 Target coverage:
 
@@ -230,7 +250,7 @@ Target coverage:
 - ARM64 driver concerns
 - registry/property-store contracts
 
-### G. Hardware and transport families
+### H. Hardware and transport families
 
 Dedicated knowledge tracks:
 
@@ -252,7 +272,7 @@ Dedicated knowledge tracks:
 
 For each transport, document both **protocol context** and **how Windows exposes it**.
 
-### H. Formats, codecs and transport payloads
+### I. Formats, codecs and transport payloads
 
 Target coverage:
 
@@ -274,7 +294,7 @@ Target coverage:
 - codec MFTs
 - container/media compatibility
 
-### I. Realtime, performance and latency
+### J. Realtime, performance and latency
 
 Target coverage:
 
@@ -292,7 +312,7 @@ Target coverage:
 - power-state interaction
 - CPU / memory cost patterns
 
-### J. Diagnostics, testing and observability
+### K. Diagnostics, testing and observability
 
 Target coverage:
 
@@ -311,7 +331,7 @@ Target coverage:
 - useful registry inspection
 - HRESULT / NTSTATUS catalog
 
-### K. Security, privacy and app model
+### L. Security, privacy and app model
 
 Target coverage:
 
@@ -327,7 +347,7 @@ Target coverage:
 - RDP security boundaries
 - enterprise policies
 
-### L. Language bindings and developer tooling
+### M. Language bindings and developer tooling
 
 Target coverage:
 
@@ -343,7 +363,7 @@ Target coverage:
 - .NET NativeAOT constraints
 - x64 / ARM64 ABI notes
 
-### M. Open source and implementation studies
+### N. Open source and implementation studies
 
 Maintain curated studies of:
 
@@ -361,7 +381,7 @@ Maintain curated studies of:
 
 Open-source implementation is **cross-reference**, not the definition of the Windows contract.
 
-### N. Undocumented / observed Windows Audio
+### O. Undocumented / observed Windows Audio
 
 Keep physically and semantically separated.
 
