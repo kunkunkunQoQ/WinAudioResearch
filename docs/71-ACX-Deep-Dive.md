@@ -139,7 +139,76 @@ Stream 会基于 parent circuit elements 创建对应 elements。
 
 ---
 
-## 10. ACX Targets
+
+
+---
+
+## 10. Audio Engine / Audio Module
+
+ACX 把现代 DSP / offload 场景中的 audio engine 也建模为 element：
+
+```text
+ACXAUDIOENGINE
+  ├─ host pin
+  ├─ offload pin
+  ├─ loopback pin
+  ├─ device format list
+  └─ effects / engine-format callbacks
+
+ACXSTREAMAUDIOENGINE
+  └─ per-offload-stream state / position / loopback protection
+```
+
+Audio Module 使用：
+
+```text
+ACXAUDIOMODULE
+  └─ EvtAcxAudioModuleProcessCommand
+```
+
+用于把模块化 DSP / hardware processing block 暴露到 ACX 模型中。
+
+---
+
+## 11. 常用控制 Element
+
+当前结构库已经索引：
+
+- `ACXVOLUME`
+- `ACXMUTE`
+- `ACXPEAKMETER`
+- `ACXKEYWORDSPOTTER`
+- `ACXJACK`
+- microphone-array geometry
+
+它们不是简单的常量名，每类都有自己的：
+
+```text
+CONFIG
+CALLBACKS
+Create()
+state / level notification
+```
+
+例如 Volume driver callback 包含 assign/retrieve level；Mute 包含 assign/retrieve state；PeakMeter 提供 level retrieval；KeywordSpotter 包含 arm / patterns / reset。
+
+---
+
+## 12. Jack 与 Microphone Array
+
+`acxpin.h` 还定义：
+
+- jack description / sink information
+- jack presence callback
+- microphone coordinates
+- microphone-array geometry
+- physical microphone configuration
+
+因此 ACX endpoint topology 并不只描述 streaming pin，还能把物理连接与 microphone geometry 作为公开 WDK contract 暴露。
+
+---
+
+## 13. ACX Targets
 
 multi-driver architecture 中，一个 driver 需要和另一个 circuit / driver 通信时，可以使用：
 
@@ -150,7 +219,7 @@ multi-driver architecture 中，一个 driver 需要和另一个 circuit / drive
 
 ---
 
-## 11. Power
+## 14. Power
 
 ACX 建在：
 
@@ -162,7 +231,7 @@ power / PnP 需要遵循现代 WDF lifecycle。
 
 ---
 
-## 12. Driver Verifier
+## 15. Driver Verifier
 
 Microsoft 官方 ACX docs 明确建议：
 
@@ -176,7 +245,7 @@ Microsoft 官方 ACX docs 明确建议：
 
 ---
 
-## 13. Sample
+## 16. Sample
 
 Microsoft：
 
@@ -194,7 +263,7 @@ https://github.com/microsoft/Windows-driver-samples/tree/main/audio/Acx/Samples
 
 ---
 
-## 14. 什么时候选 ACX
+## 17. 什么时候选 ACX
 
 新 driver：
 
@@ -210,7 +279,7 @@ https://github.com/microsoft/Windows-driver-samples/tree/main/audio/Acx/Samples
 
 ---
 
-## 15. 官方资料
+## 18. 官方资料
 
 - ACX Overview  
   https://learn.microsoft.com/windows-hardware/drivers/audio/acx-audio-class-extensions-overview
