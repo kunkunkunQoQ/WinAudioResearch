@@ -1,8 +1,8 @@
 {
   "version": 2,
   "last_verified": "2026-10-02",
-  "total_records": 798,
-  "symbol_records": 345,
+  "total_records": 800,
+  "symbol_records": 347,
   "method_records": 269,
   "tables": [
     {
@@ -75,7 +75,7 @@
       "path": "api/ks-audio.csv",
       "type": "symbol",
       "family": "KSAudio",
-      "records": 12
+      "records": 14
     },
     {
       "path": "api/media-foundation.csv",
