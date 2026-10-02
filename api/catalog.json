@@ -1,9 +1,9 @@
 {
   "version": 3,
   "last_verified": "2026-10-02",
-  "total_records": 2051,
-  "symbol_records": 1074,
-  "method_records": 604,
+  "total_records": 2261,
+  "symbol_records": 1103,
+  "method_records": 753,
   "tables": [
     {
       "path": "api/acx.csv",
@@ -45,13 +45,19 @@
       "path": "api/dependencies.csv",
       "type": "dependency",
       "family": "BuildDependencies",
-      "records": 24
+      "records": 26
     },
     {
       "path": "api/device-topology.csv",
       "type": "symbol",
       "family": "DeviceTopology",
       "records": 32
+    },
+    {
+      "path": "api/dmusicks.csv",
+      "type": "symbol",
+      "family": "DirectMusicKernel",
+      "records": 9
     },
     {
       "path": "api/driver-platform.csv",
@@ -75,7 +81,7 @@
       "path": "api/ks-audio.csv",
       "type": "symbol",
       "family": "KSAudio",
-      "records": 281
+      "records": 284
     },
     {
       "path": "api/media-foundation.csv",
@@ -114,6 +120,12 @@
       "records": 25
     },
     {
+      "path": "api/methods-dmusicks.csv",
+      "type": "method",
+      "family": "DirectMusicKernel",
+      "records": 19
+    },
+    {
       "path": "api/methods-endpointvolume.csv",
       "type": "method",
       "family": "EndpointVolume",
@@ -135,7 +147,7 @@
       "path": "api/methods-portcls.csv",
       "type": "method",
       "family": "PortCls",
-      "records": 64
+      "records": 194
     },
     {
       "path": "api/methods-session.csv",
@@ -183,13 +195,13 @@
       "path": "api/relationships.csv",
       "type": "relationship",
       "family": "APIRelationships",
-      "records": 185
+      "records": 209
     },
     {
       "path": "api/samples.csv",
       "type": "sample",
       "family": "MicrosoftSamples",
-      "records": 14
+      "records": 20
     },
     {
       "path": "api/spatial-audio.csv",
@@ -213,7 +225,7 @@
       "path": "api/wavert.csv",
       "type": "symbol",
       "family": "WaveRT",
-      "records": 12
+      "records": 29
     },
     {
       "path": "api/windows-capabilities.csv",
@@ -236,7 +248,7 @@
   ],
   "member_records": 130,
   "capability_records": 20,
-  "dependency_records": 24,
-  "sample_records": 14,
-  "relationship_records": 185
+  "dependency_records": 26,
+  "sample_records": 20,
+  "relationship_records": 209
 }
