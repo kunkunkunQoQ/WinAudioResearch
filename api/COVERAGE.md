@@ -12,7 +12,8 @@ Last verified: **2026-10-02**
 | Capability/version records | **20** |
 | Dependency records | **20** |
 | Official sample records | **14** |
-| **Total** | **800** |
+| API relationship records | **86** |
+| **Total** | **886** |
 
 The database is intentionally split from the long-form documentation:
 
@@ -70,18 +71,16 @@ Describes important driver/framework entry points. WDK surface area is much larg
 
 ## Next database targets
 
-1. **WinRT Audio methods / properties / events**
-2. **Windows MIDI Services + WinMM method/event database**
-3. **KS / WaveRT / ACX DDI catalog**
+1. **callback / COM apartment / realtime / lifetime constraints database**
+2. **ACX methods and callback/DDI inventory**
+3. **larger Kernel Streaming property/event/node catalog**
 4. **complete endpoint / DeviceInformation property-key catalog**
-5. **larger AUDCLNT / MF / XAudio2 HRESULT catalog**
-6. **Windows version/build capability matrix**
-7. **SDK Header / Library / DLL / NuGet dependency database**
-8. **Microsoft sample-code cross-reference database**
-9. **WAVEFORMAT / codec / subtype GUID database**
-10. **callback / threading / COM apartment constraints database**
-11. **API relationship graph: acquisition and QueryInterface edges**
-12. **source provenance / verification metadata per record**
+5. **larger AUDCLNT / Media Foundation / XAudio2 error catalog**
+6. **exact SDK Header / Library / DLL / NuGet requirements**
+7. **API relationship graph generation and path tests**
+8. **source provenance / verification metadata per record**
+9. **codec / subtype GUID expansion**
+10. **cross-version regression evidence linked to capability rows**
 
 ## Accuracy rule
 
