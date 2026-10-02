@@ -167,7 +167,78 @@ OEM / INF 提供的 default device format。
 
 更偏 driver / topology diagnostics。
 
-## 14. 调试工具建议
+
+
+## 14. 现代 DeviceInformation 的 6 个音频属性
+
+Windows.Devices.Enumeration 的官方音频设备属性目前重点公开 6 个：
+
+- `System.Devices.AudioDevice.Microphone.SensitivityInDbfs`
+- `System.Devices.AudioDevice.Microphone.SensitivityInDbfs2`
+- `System.Devices.AudioDevice.Microphone.SignalToNoiseRatioInDb`
+- `System.Devices.AudioDevice.SpeechProcessingSupported`
+- `System.Devices.AudioDevice.RawProcessingSupported`
+- `System.Devices.MicrophoneArray.Geometry`
+
+这些属性适合在 `DeviceInformation` 枚举时通过 additionalProperties 请求。
+
+其中多个属性同时存在 Shell / Property System 的 `PKEY_Devices_*` 形式。本仓库在 `api/audio-properties.csv` 同时记录现代 canonical name 与 PROPERTYKEY，避免把两套命名误认为两种不同能力。
+
+## 15. Driver INF / FxPropertyStore 属性
+
+设备属性还需要区分另一类来源：驱动安装和 APO effects 配置。
+
+常见分组：
+
+```text
+Endpoint / engine
+  PKEY_AudioEngine_OEMFormat
+  PKEY_AudioEngine_OEMPeriod
+  PKEY_AudioEndpoint_Default_VolumeInDb
+
+APO placement
+  PKEY_FX_StreamEffectClsid
+  PKEY_FX_ModeEffectClsid
+  PKEY_FX_EndpointEffectClsid
+
+Composite APO
+  PKEY_CompositeFX_StreamEffectClsid
+  PKEY_CompositeFX_ModeEffectClsid
+  PKEY_CompositeFX_EndpointEffectClsid
+
+Offload / Keyword detector
+  PKEY_FX_Offload_*
+  PKEY_CompositeFX_Offload_*
+  PKEY_*_KeywordDetector_*
+
+Processing modes
+  PKEY_SFX_ProcessingModes_Supported_For_Streaming
+  PKEY_MFX_ProcessingModes_Supported_For_Streaming
+  PKEY_EFX_ProcessingModes_Supported_For_Streaming
+```
+
+这些 key 很多是 **driver / INF / FxPropertyStore contract**，不能因为最终能在某个 property store 看到，就把它们当作普通应用可随意修改的设置项。
+
+完整结构化索引：
+
+- `api/audio-properties.csv`
+
+## 16. 属性来源要分层
+
+建议 dump 工具至少把属性标成：
+
+```text
+Endpoint runtime property
+PnP / Device property
+Modern DeviceInformation property
+Driver INF policy
+APO / FxPropertyStore
+Observed / undocumented
+```
+
+这样能避免最常见的错误：看到一个 GUID + propID 就假设它属于同一套 public app API。
+
+## 17. 调试工具建议
 
 做 endpoint property dump 时，建议至少输出：
 
@@ -181,7 +252,7 @@ source category
 
 不要只 hardcode 5 个 property。
 
-## 15. 官方资料
+## 18. 官方资料
 
 - Audio Endpoint Properties  
   https://learn.microsoft.com/windows/win32/coreaudio/audio-endpoint-properties
@@ -194,3 +265,9 @@ source category
 
 - PKEY_AudioEndpoint_FormFactor  
   https://learn.microsoft.com/windows/win32/coreaudio/pkey-audioendpoint-formfactor
+
+- Audio device information properties  
+  https://learn.microsoft.com/windows/uwp/audio-video-camera/audio-device-information-properties
+
+- Audio INF file settings  
+  https://learn.microsoft.com/windows-hardware/drivers/audio/audio-inf-file-settings
